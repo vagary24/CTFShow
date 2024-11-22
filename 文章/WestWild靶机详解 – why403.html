@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.why403.cn/archives/4353 -->
+<html lang="zh-Hans" version="4"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.why403.cn/xmlrpc.php">
+<title>WestWild靶机详解 – why403</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://www.why403.cn/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="why403 » Feed" href="https://www.why403.cn/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » 评论 Feed" href="https://www.why403.cn/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » WestWild靶机详解 评论 Feed" href="https://www.why403.cn/archives/4353/feed">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.why403.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./WestWild靶机详解 – why403_files/style.min.css" media="all">
+<link rel="stylesheet" id="mpp_gutenberg-css" href="./WestWild靶机详解 – why403_files/blocks.style.build.css" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent-1: #E9B44C;--wp--preset--color--accent-2: #0F8B8D;--wp--preset--color--headings: #162521;--wp--preset--color--sitetext: #707070;--wp--preset--color--sitebg: #ffffff;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 10px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 25px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--larger: 40px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="bravada-themefonts-css" href="./WestWild靶机详解 – why403_files/fontfaces.css" media="all">
+<link rel="stylesheet" id="bravada-googlefonts-css" href="./WestWild靶机详解 – why403_files/css" media="all">
+<link rel="stylesheet" id="bravada-main-css" href="./WestWild靶机详解 – why403_files/style.css" media="all">
+<style id="bravada-main-inline-css">
+ body:not(.bravada-landing-page) #container, #colophon-inside, .footer-inside, #breadcrumbs-container-inside { margin: 0 auto; max-width: 1920px; } body:not(.bravada-landing-page) #container { max-width: calc( 1920px - 4em ); } .site-header-inside { max-width: 1920px; margin: 0 auto; } #primary { width: 200px; } #secondary { width: 200px; } #container.one-column .main { width: 100%; } #container.two-columns-right #secondary { float: right; } #container.two-columns-right .main, .two-columns-right #breadcrumbs { width: calc( 100% - 200px ); float: left; } #container.two-columns-left #primary { float: left; } #container.two-columns-left .main, .two-columns-left #breadcrumbs { width: calc( 100% - 200px ); float: right; } #container.three-columns-right #primary, #container.three-columns-left #primary, #container.three-columns-sided #primary { float: left; } #container.three-columns-right #secondary, #container.three-columns-left #secondary, #container.three-columns-sided #secondary { float: left; } #container.three-columns-right #primary, #container.three-columns-left #secondary { margin-left: 0%; margin-right: 0%; } #container.three-columns-right .main, .three-columns-right #breadcrumbs { width: calc( 100% - 400px ); float: left; } #container.three-columns-left .main, .three-columns-left #breadcrumbs { width: calc( 100% - 400px ); float: right; } #container.three-columns-sided #secondary { float: right; } #container.three-columns-sided .main, .three-columns-sided #breadcrumbs { width: calc( 100% - 400px ); float: right; } .three-columns-sided #breadcrumbs { margin: 0 calc( 0% + 200px ) 0 -1920px; } html { font-family: Muli; font-size: 16px; font-weight: 400; line-height: 1.8; ; } #site-title { font-family: Playfair Display; font-size: 1.3em; font-weight: 700; } #site-text { ; } nav#mobile-menu #mobile-nav a { font-family: Playfair Display; font-size: 2.5em; font-weight: 700; font-size: clamp(1.3rem, 5vw, 2.5em); ; } nav#mobile-menu #mobile-nav ul.sub-menu a { font-size: clamp(1.1rem, 4vw, 2em); } nav#mobile-menu input[type=search] { font-family: Playfair Display; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .author-info .page-title { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; margin-bottom: 0.5em; ; } .widget-title::after, #comments-title::after, #reply-title::after, .related-posts .related-main-title::after { margin-bottom: 0.5em; } .widget-container { font-family: Muli; font-size: 1em; font-weight: 400; } .widget-container ul li { line-height: 1.8; ; } .entry-title, .main .page-title { font-family: Playfair Display; font-size: 1.7em; font-weight: 700; ; } body:not(.single) .entry-meta > span { font-family: Muli; font-size: 1em; font-weight: 300; ; } /* single post titles/metas */ #header-page-title .entry-title, .singular-title, .lp-staticslider .staticslider-caption-title, .seriousslider-theme .seriousslider-caption-title { font-family: Playfair Display; font-size: 5em; font-weight: 700; font-size: clamp(2.5em, 5vw, 5em ); line-height: 1.3; ; } .single .entry-meta > span { font-family: Muli; font-size: 1.1em; font-weight: 300; ; } h1 { font-size: 2.33em; } h2 { font-size: 2.06em; } h3 { font-size: 1.79em; } h4 { font-size: 1.52em; } h5 { font-size: 1.25em; } h6 { font-size: 0.98em; } h1, h2, h3, h4 { font-family: Playfair Display; font-weight: 700; ; } .entry-content h1, .entry-summary h1, .entry-content h2, .entry-summary h2, .entry-content h3, .entry-summary h3, .entry-content h4, .entry-summary h4, .entry-content h5, .entry-summary h5, .entry-content h6, .entry-summary h6 { line-height: 1.2; margin-bottom: 0.5em; } .lp-section-header .lp-section-desc, .lp-box-title, .lp-tt-title, #nav-fixed a + a, #nav-below span, .lp-blocks.lp-blocks1 .lp-block .lp-block-readmore { font-family: Playfair Display; } .lp-section-header .lp-section-title { font-family: Muli; } blockquote cite { font-family: Muli; } :root { --bravada-accent-1: #E9B44C; --bravada-accent-2: #0F8B8D; } .bravada-accent-1 { color: #E9B44C; } .bravada-accent-2 { color: #0F8B8D; } .bravada-accent-1-bg { background-color: #E9B44C; } .bravada-accent-2-bg { background-color: #0F8B8D; } body { color: #707070; background-color: #f3f7f6; } .lp-staticslider .staticslider-caption-text a { color: #FFFFFF; } #site-header-main, .menu-search-animated .searchform input[type="search"], #access .menu-search-animated .searchform, .site-header-bottom-fixed, .bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: #FFFFFF; } .bravada-over-menu .site-header-bottom-fixed { background: transparent; } .bravada-over-menu .header-fixed.site-header-bottom #site-title a, .bravada-over-menu .header-fixed.site-header-bottom #site-description { color: #E9B44C; } .bravada-over-menu #site-title a, .bravada-over-menu #site-description, .bravada-over-menu #access > div > ul > li, .bravada-over-menu #access > div > ul > li > a, .bravada-over-menu .site-header-bottom:not(.header-fixed) #nav-toggle, #breadcrumbs-container span, #breadcrumbs-container a, #breadcrumbs-container i { color: #FFFFFF; } #bmobile #site-title a { color: #E9B44C; } #site-title a::before { background: #E9B44C; } body:not(.bravada-over-menu) .site-header-bottom #site-title a::before, .bravada-over-menu .header-fixed.site-header-bottom #site-title a::before { background: #0F8B8D; } body:not(.bravada-over-menu) .site-header-bottom #site-title a:hover { background: #E9B44C; } #site-title a:hover::before { background: #0F8B8D; } #access > div > ul > li, #access > div > ul > li > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']), .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a { color: #444444; } .hamburger span { background-color: #444444; } #mobile-menu, nav#mobile-menu #mobile-nav a { color: #FFFFFF; } nav#mobile-menu #mobile-nav > li.current_page_item > a, nav#mobile-menu #mobile-nav > li.current-menu-item > a, nav#mobile-menu #mobile-nav > li.current_page_ancestor > a, nav#mobile-menu #mobile-nav > li.current-menu-ancestor > a, nav#mobile-menu #mobile-nav a:hover { color: #E9B44C; } nav#mobile-menu { color: #FFFFFF; background-color: #066664; } #mobile-nav .searchform input[type="search"] { border-color: #FFFFFF; } .burgermenu-active.bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: transparent; } .burgermenu-active.bravada-over-menu .site-header-bottom .hamburger span { background-color: #FFFFFF; } .bravada-over-menu:not(.burgermenu-active) .site-header-bottom:not(.header-fixed) .hamburger span { background-color: #FFFFFF; } .bravada-over-menu .header-fixed.site-header-bottom .side-section-element.widget_cryout_socials a:hover::before, .side-section-element.widget_cryout_socials a:hover::before { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a, .topmenu ul li a { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a { background-color: #066664; } #access ul.sub-menu li a:hover, #access ul.children li a:hover { color: #E9B44C; } #access > div > ul > li.current_page_item > a, #access > div > ul > li.current-menu-item > a, #access > div > ul > li.current_page_ancestor > a, #access > div > ul > li.current-menu-ancestor > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a { color: #e9b44c; } #access ul.children > li.current_page_item > a, #access ul.sub-menu > li.current-menu-item > a, #access ul.children > li.current_page_ancestor > a, #access ul.sub-menu > li.current-menu-ancestor > a { opacity: 0.95; } #access > div > ul ul > li a:not(:only-child)::after { border-left-color: #066664; } #access > div > ul > li > ul::before { border-bottom-color: #066664; } #access ul li.special1 > a { background-color: #f0f0f0; } #access ul li.special2 > a { background-color: #444444; color: #FFFFFF; } #access ul li.accent1 > a { background-color: #E9B44C; color: #FFFFFF; } #access ul li.accent2 > a { background-color: #0F8B8D; color: #FFFFFF; } #access ul li.accent1 > a:hover, #access ul li.accent2 > a:hover { color: #FFFFFF; } #access > div > ul > li.accent1 > a > span::before, #access > div > ul > li.accent2 > a > span::before { background-color: #FFFFFF; } article.hentry, body:not(.blog):not(.page-template-template-blog):not(.archive):not(.search) #container:not(.bravada-landing-page) .main, body.bravada-boxed-layout:not(.bravada-landing-page) #container { background-color: #ffffff; } .pagination span { color: #0F8B8D; } .pagination a:hover { background-color: #E9B44C; color: #ffffff; } #header-overlay, .lp-staticslider::after, .seriousslider-theme .item::after { background-color: #08415c; background: -webkit-linear-gradient( 90deg, #08415c 0%, #1c110a 100%); background: linear-gradient( 180deg, #08415c 0%, #1c110a 100%); opacity: 0.6; pointer-events: none; } #header-page-title #header-page-title-inside, #header-page-title .entry-title, #header-page-title .entry-meta span, #header-page-title .entry-meta a, #header-page-title .entry-meta time, #header-page-title .entry-meta .icon-metas::before, #header-page-title .byline, #header-page-title #breadcrumbs-nav, .lp-staticslider .staticslider-caption-inside, .seriousslider-theme .seriousslider-caption-inside { color: #FFFFFF; } #colophon, #footer { background-color: #1e3231; color: #DBDBDB; } .post-thumbnail-container .featured-image-overlay::before { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #E9B44C, #0F8B8D); } .post-thumbnail-container .featured-image-overlay::after { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #0F8B8D, #E9B44C); } .main #content-masonry .post-thumbnail-container:hover + .entry-after-image .entry-title a { color: #E9B44C; } @media (max-width: 720px) { .bravada-magazine-one .main #content-masonry .post-thumbnail-container + .entry-after-image { background-color: #ffffff; } } .entry-title a:active, .entry-title a:hover { color: #E9B44C; } span.entry-format { color: #E9B44C; } .main #content-masonry .format-link .entry-content a { background-color: #E9B44C; color: #ffffff; } .main #content-masonry .format-link::after { color: #ffffff; } .cryout article.hentry.format-image, .cryout article.hentry.format-audio, .cryout article.hentry.format-video { background-color: #ffffff; } .format-aside, .format-quote { border-color: #eeeeee; } .single .author-info { border-color: #eeeeee; } .entry-content h5, .entry-content h6, .lp-text-content h5, .lp-text-content h6 { color: #0F8B8D; } .entry-content blockquote::before, .entry-content blockquote::after { color: rgba(112,112,112,0.2); } .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .lp-text-content h1, .lp-text-content h2, .lp-text-content h3, .lp-text-content h4 { color: #162521; } .entry-title, .page-title { color: #162521; } a { color: #E9B44C; } a:hover, .widget-area a, .entry-meta span a:hover, .comments-link a { color: #0F8B8D; } .comments-link a:hover, .widget-area a:hover { color: #E9B44C; } .socials a::before, .socials a:hover::before { color: #E9B44C; } .socials a::after, .socials a:hover::after { color: #0F8B8D; } .bravada-normalizedtags #content .tagcloud a { color: #ffffff; background-color: #E9B44C; } .bravada-normalizedtags #content .tagcloud a:hover { background-color: #0F8B8D; } #nav-fixed i { background-color: #dbdbdb; } #nav-fixed .nav-next:hover i, #nav-fixed .nav-previous:hover i { background-color: #0F8B8D; } #nav-fixed a:hover + a, #nav-fixed a + a:hover { background-color: rgba(15,139,141,1); } #nav-fixed i, #nav-fixed span { color: #ffffff; } button#toTop i::before { color: #E9B44C; } button#toTop i::after { color: #0F8B8D; } @media (max-width: 800px) { .cryout #footer-bottom .footer-inside { padding-top: 2.5em; } .cryout .footer-inside a#toTop { background-color: #E9B44C; color: #f3f7f6; } .cryout .footer-inside a#toTop:hover { opacity: 0.8;} } .entry-meta .icon-metas:before { color: #b5b5b5; } #site-title span a::before { width: calc(100% - 1.2em); } .bravada-caption-one .main .wp-caption .wp-caption-text { border-bottom-color: #eeeeee; } .bravada-caption-two .main .wp-caption .wp-caption-text { background-color: #f5f5f5; } .bravada-image-one .entry-content img[class*="align"], .bravada-image-one .entry-summary img[class*="align"], .bravada-image-two .entry-content img[class*='align'], .bravada-image-two .entry-summary img[class*='align'] { border-color: #eeeeee; } .bravada-image-five .entry-content img[class*='align'], .bravada-image-five .entry-summary img[class*='align'] { border-color: #E9B44C; } .entry-summary .excerpt-fade { background-image: linear-gradient(to left, #ffffff, transparent); } /* diffs */ span.edit-link a.post-edit-link, span.edit-link a.post-edit-link:hover, span.edit-link .icon-edit:before { color: #707070; } .searchform { border-color: #ebebeb; } .entry-meta span, .entry-meta a, .entry-utility span, .entry-utility a, .entry-meta time, #breadcrumbs-nav { color: #a7a7a7; } .main #content-masonry .post-thumbnail-container span.bl_categ, .main #content-masonry .post-thumbnail-container .comments-link { background-color: #ffffff; } .footermenu ul li span.sep { color: #E9B44C; } .entry-meta a::after, .entry-utility a::after { background: #0F8B8D; } #header-page-title .category-metas a { color: #E9B44C; } .entry-meta .author:hover .avatar { border-color: #E9B44C; } .animated-title span.cry-single.animated-letter, .animated-title span.cry-double.animated-letter { color: #E9B44C; } span.entry-sticky { color: #0F8B8D; } #commentform { } code, #nav-below .nav-previous a::before, #nav-below .nav-next a::before { background-color: #eeeeee; } #nav-below .nav-previous::after, #nav-below .nav-next::after { background-color: #E9B44C; } pre, .comment-author { border-color: #eeeeee; } .commentlist .comment-area, .commentlist .pingback { border-color: #f3f3f3; } .commentlist img.avatar { background-color: #ffffff; } .comment-meta a { color: #bfbfbf; } .commentlist .reply a, .commentlist .author-name, .commentlist .author-name a { background-color: #E9B44C; color: #ffffff; } .commentlist .reply a:hover { background-color: #0F8B8D; } select, input[type], textarea { color: #707070; background-color: #f5f5f5; } .sidey select { background-color: #ffffff; } .searchform .searchsubmit { background: #E9B44C; } .searchform:hover .searchsubmit { background: #0F8B8D; } .searchform input[type="search"], .searchform input[type="search"]:hover, .searchform input[type="search"]:focus { background-color: #ffffff; } input[type]:hover, textarea:hover, select:hover, input[type]:focus, textarea:focus, select:focus { border-color: #dcdcdc; } button, input[type="button"], input[type="submit"], input[type="reset"] { background-color: #E9B44C; color: #ffffff; } button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background-color: #0F8B8D; } .comment-form-author input, .comment-form-email input, .comment-form-url input, .comment-form-comment textarea { background-color: #f0f0f0; } .comment-form-author input:hover, .comment-form-email input:hover, .comment-form-url input:hover, .comment-form-comment textarea:hover, .comment-form-author input:focus, .comment-form-email input:focus, .comment-form-url input:focus, .comment-form-comment textarea:focus { background-color: #E9B44C; color: #ffffff; } .comment-form-author, .comment-form-email { border-color: #ffffff; } hr { background-color: #f0f0f0; } .cryout-preloader-inside .bounce1 { background-color: #E9B44C; } .cryout-preloader-inside .bounce2 { background-color: #0F8B8D; } .page-header.pad-container { background-color: #ffffff; } /* gutenberg */ .wp-block-image.alignwide { margin-left: calc( ( 0% + 4em ) * -1 ); margin-right: calc( ( 0% + 4em ) * -1 ); } .wp-block-image.alignwide img { width: calc( 100% + 8em ); max-width: calc( 100% + 8em ); } .has-accent-1-color, .has-accent-1-color:hover { color: #E9B44C; } .has-accent-2-color, .has-accent-2-color:hover { color: #0F8B8D; } .has-headings-color, .has-headings-color:hover { color: #162521; } .has-sitetext-color, .has-sitetext-color:hover { color: #707070; } .has-sitebg-color, .has-sitebg-color:hover { color: #ffffff; } .has-accent-1-background-color { background-color: #E9B44C; } .has-accent-2-background-color { background-color: #0F8B8D; } .has-headings-background-color { background-color: #162521; } .has-sitetext-background-color { background-color: #707070; } .has-sitebg-background-color { background-color: #ffffff; } .has-small-font-size { font-size: 13px; } .has-regular-font-size { font-size: 16px; } .has-large-font-size { font-size: 19px; } .has-larger-font-size { font-size: 23px; } .has-huge-font-size { font-size: 23px; } /* woocommerce */ .woocommerce-thumbnail-container .woocommerce-buttons-container a, .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce div.product .product_title, .woocommerce .woocommerce-tabs h2 { font-family: Muli; } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce .star-rating { color: #0F8B8D; } .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { background-color: #E9B44C; color: #ffffff; line-height: 1.8; } .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover { background-color: #0f8b8d; color: #ffffff; } .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt { color: #E9B44C; line-height: 1.8; } .woocommerce-page #respond input#submit.alt::after, .woocommerce a.button.alt::after, .woocommerce-page button.button.alt::after, .woocommerce input.button.alt::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; outline: 2px solid; -webkit-transition: .3s ease all; transition: .3s ease all; } .woocommerce-page #respond input#submit.alt:hover::after, .woocommerce a.button.alt:hover::after, .woocommerce-page button.button.alt:hover::after, .woocommerce input.button.alt:hover::after { opacity: 0; -webkit-transform: scale(1.2, 1.4); transform: scale(1.2, 1.4); } .woocommerce-page #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover { color: #0F8B8D; } .woocommerce div.product .woocommerce-tabs ul.tabs li.active { border-bottom-color: #ffffff; } .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt[disabled]:disabled, .woocommerce #respond input#submit.alt[disabled]:disabled:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt[disabled]:disabled, .woocommerce a.button.alt[disabled]:disabled:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt[disabled]:disabled, .woocommerce button.button.alt[disabled]:disabled:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt[disabled]:disabled, .woocommerce input.button.alt[disabled]:disabled:hover { background-color: #0F8B8D; color: #fff; } .woocommerce div.product .product_title, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price { color: #0f8b8d} .woocommerce .quantity .qty { background-color: #eeeeee; } .woocommerce-checkout #payment { background: #f5f5f5; } .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background: #0f8b8d; } .woocommerce div.product .products > h2, .woocommerce .cart-collaterals h2 { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; ; } .woocommerce div.product .products > h2::after, .woocommerce .cart-collaterals h2::after { background-color: #E9B44C ; } .main .entry-content, .main .entry-summary { text-align: inherit; } .main p, .main ul, .main ol, .main dd, .main pre, .main hr { margin-bottom: 1em; } .main .entry-content p { text-indent: 0em; } .main a.post-featured-image { background-position: center top; } #header-widget-area { width: 33%; left: 10px; } .bravada-striped-table .main thead th, .bravada-bordered-table .main thead th, .bravada-striped-table .main td, .bravada-striped-table .main th, .bravada-bordered-table .main th, .bravada-bordered-table .main td { border-color: #e9e9e9; } .bravada-clean-table .main th, .bravada-striped-table .main tr:nth-child(even) td, .bravada-striped-table .main tr:nth-child(even) th { background-color: #f8f8f8; } .bravada-cropped-featured .main .post-thumbnail-container { height: 600px; } .bravada-responsive-featured .main .post-thumbnail-container { max-height: 600px; height: auto; } article.hentry .article-inner, #content-masonry article.hentry .article-inner { padding: 0%; } .site-header-bottom { height:70px; } .site-header-bottom .site-header-inside { height:70px; } .menu-search-animated, .menu-burger, #sheader-container, .identity, #nav-toggle { height: 70px; line-height: 70px; } #access div > ul > li > a, #access ul li[class*="icon"]::before { line-height:70px; } nav#mobile-menu { padding-top: 80px; } body.admin-bar nav#mobile-menu { padding-top: 112px; } #branding { height: 70px; } .bravada-responsive-headerimage #masthead #header-image-main-inside { max-height: 1020px; } .bravada-cropped-headerimage #masthead #header-image-main-inside { height: 1020px; } #site-description { display: block; } #header-widget-area { top: 80px; } .bravada-landing-page .lp-blocks-inside, .bravada-landing-page .lp-boxes-inside, .bravada-landing-page .lp-text-inside, .bravada-landing-page .lp-posts-inside, .bravada-landing-page .lp-page-inside, .bravada-landing-page .lp-section-header, .bravada-landing-page .content-widget { max-width: 1920px; } @media (min-width: 960px) { .bravada-landing-page .lp-blocks.lp-blocks1 .lp-blocks-inside { max-width: calc(1920px - 5em); background-color: #ffffff; } } #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 1920px; max-width: 85%; padding-top: 80px; } @media (max-width: 1024px) { #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 100%; } } .bravada-landing-page .content-widget { margin: 0 auto; } a.staticslider-button, .seriousslider-theme .seriousslider-caption-buttons a { background-color: #E9B44C; } a.staticslider-button:hover, .seriousslider-theme .seriousslider-caption-buttons a:hover { background-color: #0F8B8D; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .page-title, #nav-below em, .lp-text .lp-text-title, .lp-boxes-animated .lp-box-title, .entry-content h2, .entry-content h4 { background-image: linear-gradient(to bottom, rgba(233,180,76,0.4) 0%, rgba(233,180,76,0.4) 100%); } .entry-content h3 { background-image: linear-gradient(to bottom, rgba(15,139,141,0.4) 0%, rgba(15,139,141,0.4) 100%); } .entry-content h2, .entry-content h3, .entry-content h4 { background-repeat: no-repeat; background-position: 0 100%; background-size: 100% .4em; max-width: max-content; } .lp-blocks { background-color: #f9f7f5; } .lp-boxes { background-color: #F8F8F8; } .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #0F8B8D ; } .lp-boxes ~ .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-text { background-color: #EEEBE9; } #lp-posts, #lp-page { background-color: #f3f7f6; } .lp-block { background-color: #ffffff; } .lp-block i[class^="blicon"]::before { color: #0F8B8D; } .lp-block .lp-block-title, .lp-text .lp-text-title { color: #162521; } .lp-block .lp-block-title::after { background-color: #E9B44C; } .lp-blocks1 .lp-block i[class^="blicon"] +i[class^="blicon"]::before { color: #0F8B8D; } .lp-block-readmore { color: #c0c0c0; } .lp-block-readmore:hover { color: #E9B44C; } .lp-text-title { color: #0F8B8D; } .lp-text-inside .lp-text-background { background-color: #ffffff; } .lp-boxes .lp-box { background-color: #ffffff; } .lp-boxes-animated .box-overlay { background-color: #0F8B8D; } .lp-boxes-animated .lp-box-readmore { color: #E9B44C; } .lp-boxes-static .box-overlay { background-color: #E9B44C; } .lp-box-title { color: #162521; } .lp-box-title:hover { color: #E9B44C; } .lp-boxes-1 .lp-box .lp-box-image { height: 250px; } #cryout_ajax_more_trigger, .lp-port-readmore { color: #0F8B8D; } .lpbox-rnd1 { background-color: #c1c1c1; } .lpbox-rnd2 { background-color: #bcbcbc; } .lpbox-rnd3 { background-color: #b7b7b7; } .lpbox-rnd4 { background-color: #b2b2b2; } .lpbox-rnd5 { background-color: #adadad; } .lpbox-rnd6 { background-color: #a8a8a8; } .lpbox-rnd7 { background-color: #a3a3a3; } .lpbox-rnd8 { background-color: #9e9e9e; } 
+</style>
+<link rel="stylesheet" id="slb_core-css" href="./WestWild靶机详解 – why403_files/app.css" media="all">
+<link rel="stylesheet" id="cryout-serious-slider-style-css" href="./WestWild靶机详解 – why403_files/style(1).css" media="all">
+<script src="./WestWild靶机详解 – why403_files/jquery.min.js.下载" id="jquery-core-js"></script>
+<script src="./WestWild靶机详解 – why403_files/jquery-migrate.min.js.下载" id="jquery-migrate-js"></script>
+<!--[if lt IE 9]>
+<script src="https://www.why403.cn/wp-content/themes/bravada/resources/js/html5shiv.min.js?ver=1.1.1" id="bravada-html5shiv-js"></script>
+<![endif]-->
+<script src="./WestWild靶机详解 – why403_files/jquery.mobile.custom.min.js.下载" id="cryout-serious-slider-jquerymobile-js"></script>
+<script src="./WestWild靶机详解 – why403_files/slider.js.下载" id="cryout-serious-slider-script-js"></script>
+<link rel="https://api.w.org/" href="https://www.why403.cn/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.why403.cn/wp-json/wp/v2/posts/4353"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.why403.cn/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="canonical" href="https://www.why403.cn/archives/4353">
+<link rel="shortlink" href="https://www.why403.cn/?p=4353">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F4353">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F4353&amp;format=xml">
+<link rel="author" href="https://www.why403.cn/"><meta name="generator" content="Elementor 3.20.3; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<noscript><style>.cryout .cryout-preloader {display: none;}.cryout img[loading="lazy"] {opacity: 1;}</style></noscript>
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-270x270.png">
+<script src="./WestWild靶机详解 – why403_files/wp-emoji-release.min.js.下载" defer=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="post-template-default single single-post postid-4353 single-format-standard wp-embed-responsive bravada-image-none bravada-caption-zero bravada-totop-normal bravada-no-table bravada-over-menu bravada-menu-right bravada-topsection-normal bravada-responsive-headerimage bravada-fullscreen-headerimage bravada-responsive-featured bravada-magazine-three bravada-magazine-layout bravada-comment-placeholder bravada-comment-icons bravada-normalizedtags bravada-animated-title bravada-lazy-noanimation bravada-article-animation-fade elementor-default elementor-kit-1442" itemscope="" itemtype="http://schema.org/WebPage">
+			<a class="skip-link screen-reader-text" href="https://www.why403.cn/archives/4353#main" title="跳至内容"> 跳至内容 </a>
+			<div id="site-wrapper">
+
+	<header id="masthead" class="cryout" itemscope="" itemtype="http://schema.org/WPHeader">
+
+		<div id="site-header-main">
+
+			<div class="site-header-top">
+
+				<div class="site-header-inside">
+
+					<div id="header-menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+											</div><!-- #header-menu -->
+
+				</div><!-- #site-header-inside -->
+
+			</div><!--.site-header-top-->
+
+						<nav id="mobile-menu" tabindex="-1">
+				<div class="side-menu side-section"><ul id="mobile-nav" class=""><li class="menu-main-search" style="transition-delay: 0s;">
+<form role="search" method="get" class="searchform" action="https://www.why403.cn/">
+	<label>
+		<span class="screen-reader-text">搜索：</span>
+		<input type="search" class="s" placeholder="搜索" value="" name="s" size="10">
+	</label>
+	<button type="submit" class="searchsubmit" aria-label="搜索"><i class="icon-search2"></i><i class="icon-search2"></i></button>
+</form>
+</li><li id="menu-item-1413" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1413" style="transition-delay: 0.03s;"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1414" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1414" style="transition-delay: 0.06s;"><a href="https://www.why403.cn/archives/category/learning"><span>学习</span></a></li>
+<li id="menu-item-1416" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1416" style="transition-delay: 0.09s;"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"><span>数据结构</span></a></li>
+<li id="menu-item-1417" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1417" style="transition-delay: 0.12s;"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c"><span>计算机网络</span></a></li>
+<li id="menu-item-1418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1418" style="transition-delay: 0.15s;"><a href="https://www.why403.cn/archives/category/learning/python"><span>python</span></a></li>
+<li id="menu-item-1419" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1419" style="transition-delay: 0.18s;"><a href="https://www.why403.cn/archives/category/photography"><span>摄影</span></a></li>
+<li id="menu-item-1420" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1420" style="transition-delay: 0.21s;"><a href="https://www.why403.cn/archives/category/learning/c-c"><span>c/c++</span></a></li>
+<li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421" style="transition-delay: 0.24s;"><a href="https://www.why403.cn/archives/category/learning/linux"><span>Linux</span></a></li>
+<li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422" style="transition-delay: 0.27s;"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80"><span>系统基础</span></a></li>
+<li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1423" style="transition-delay: 0.3s;"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f"><span>内网渗透</span></a></li>
+</ul></div>					<div class="side-socials side-section">
+		<div class="widget-side-section-inner">
+			<section class="side-section-element widget_cryout_socials">
+				<div class="widget-socials">
+									</div>
+			</section>
+		</div>
+	</div>			</nav> <!-- #mobile-menu -->
+			
+			<div class="site-header-bottom">
+
+				<div class="site-header-bottom-fixed">
+
+					<div class="site-header-inside">
+
+						<div id="branding">
+							<div id="site-text"><div itemprop="headline" id="site-title"><span> <a href="https://www.why403.cn/" title="Hello,welcome to Vagary&#39;s website." rel="home">why403</a> </span></div><span id="site-description" itemprop="description">Hello,welcome to Vagary's website.</span></div>						</div><!-- #branding -->
+
+												<div class="menu-burger">
+							<button class="hamburger" type="button" aria-label="Main menu">
+									<span></span>
+									<span></span>
+									<span></span>
+							</button>
+						</div>
+						
+												<nav id="access" aria-label="顶部菜单" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+							<div><ul id="top-nav" class=""><li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://www.why403.cn/"><span>首页</span></a></li>
+<li id="menu-item-1401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1401"><a href="https://doc.why403.cn/"><span>webscan</span></a></li>
+<li id="menu-item-1411" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1411"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1448"><a href="https://www.why403.cn/%e5%9b%be%e5%ba%93"><span>摄影</span></a></li>
+</ul></div>						</nav><!-- #access -->
+						
+					</div><!-- #site-header-inside -->
+
+				</div><!-- #site-header-bottom-fixed -->
+
+			</div><!--.site-header-bottom-->
+
+		</div><!-- #site-header-main -->
+
+		<div id="header-image-main">
+			<div id="header-image-main-inside">
+					<a href="https://www.why403.cn/archives/4353#main" class="meta-arrow" tabindex="-1">
+			<i class="icon-arrow" title="阅读更多"></i>
+	</a>
+			<div id="header-overlay" style="opacity: 0.6;"></div>
+			<div class="header-image" style="background-image: url(https://www.why403.cn/wp-content/uploads/2023/10/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg)"></div>
+			<img class="header-image" alt="WestWild靶机详解" src="./WestWild靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" style="opacity: 1; background-position: center 50%;">
+				    <div id="header-page-title" class="animated-title" style="opacity: 1;">
+        <div id="header-page-title-inside">
+						<div class="entry-meta pretitle-meta">
+							</div><!-- .entry-meta -->
+            <div class="entry-title"><em class="caption-title-word"><span><span class="cry-single" style="animation-delay: 0s;">W</span><span class="cry-double" style="animation-delay: 0s;">W</span></span><span><span class="cry-single" style="animation-delay: 0s;">e</span><span class="cry-double" style="animation-delay: 0s;">e</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">s</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">s</span></span><span><span class="cry-single" style="animation-delay: 0s;">t</span><span class="cry-double" style="animation-delay: 0s;">t</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">W</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">W</span></span><span><span class="cry-single" style="animation-delay: 0s;">i</span><span class="cry-double" style="animation-delay: 0s;">i</span></span><span><span class="cry-single" style="animation-delay: 0s;">l</span><span class="cry-double" style="animation-delay: 0s;">l</span></span><span><span class="cry-single" style="animation-delay: 0s;">d</span><span class="cry-double" style="animation-delay: 0s;">d</span></span><span><span class="cry-single" style="animation-delay: 0s;">靶</span><span class="cry-double" style="animation-delay: 0s;">靶</span></span><span><span class="cry-single" style="animation-delay: 0s;">机</span><span class="cry-double" style="animation-delay: 0s;">机</span></span><span><span class="cry-single" style="animation-delay: 0s;">详</span><span class="cry-double" style="animation-delay: 0s;">详</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">解</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">解</span></span></em></div>			<div class="entry-meta aftertitle-meta">
+				
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2024-05-11T12:46:44+08:00" itemprop="datePublished">
+					2024-05-11				</time>
+				<time class="updated" datetime="2024-05-11T12:48:05+08:00" itemprop="dateModified">2024-05-11</time>
+		</span>
+		<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./WestWild靶机详解 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>				<div id="breadcrumbs-container" class="cryout three-columns-sided"><div id="breadcrumbs-container-inside"><div id="breadcrumbs"> <nav id="breadcrumbs-nav"><a href="https://www.why403.cn/" title="首页"><i class="icon-bread-home"></i><span class="screen-reader-text">首页</span></a> <a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>  <span class="current">WestWild靶机详解</span></nav></div></div></div><!-- breadcrumbs -->			</div><!-- .entry-meta -->
+			<div class="byline">
+				内容
+Netbios 服务信息枚举
+smb信息枚举
+smb共享文件连接			</div>
+        </div>
+    </div> 			</div><!-- #header-image-main-inside -->
+		</div><!-- #header-image-main -->
+
+	</header><!-- #masthead -->
+
+	
+	<div id="content" class="cryout">
+		
+<div id="container" class="three-columns-sided">
+	<main id="main" class="main">
+		
+		
+			<article id="post-4353" class="post-4353 post type-post status-publish format-standard hentry category-web category-72 tag-smb tag-vulnhub tag-web" itemscope="" itemtype="http://schema.org/Article" itemprop="mainEntity">
+				<div class="schema-image">
+							<div class="entry-meta">
+					</div>
+						</div>
+
+				<div class="article-inner">
+					<header>
+						<div class="entry-meta beforetitle-meta">
+													</div><!-- .entry-meta -->
+						<h1 class="entry-title singular-title" itemprop="headline">WestWild靶机详解</h1>
+						<div class="entry-meta aftertitle-meta">
+							<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./WestWild靶机详解 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2024-05-11T12:46:44+08:00" itemprop="datePublished">
+					2024-05-11				</time>
+				<time class="updated" datetime="2024-05-11T12:48:05+08:00" itemprop="dateModified">2024-05-11</time>
+		</span>
+								</div><!-- .entry-meta -->
+
+					</header>
+
+					
+					<div class="entry-content" itemprop="articleBody">
+						
+<p><strong>靶机来自vulnhub[easy]</strong></p>
+
+
+
+<p>内容<br>Netbios 服务信息枚举<br>smb信息枚举<br>smb共享文件连接</p>
+
+
+
+<p>sudo nmap -p- –min-rate 10000 -oA nmap/port 10.10.10.117 // 端口扫描<br>开放22[ssh]，80[http]，139[netbios-ns 名字服务]，445[ds微软域名服务]端口预测的服务是，由于看到microsoft推测系统可能是windows,又有域名服务，可能是域控制器，但是域控的端口开放又不全，大概率部署的是一个分布式服务,而且通常情况下445端口是smb服务，也可能出现nmap服务探测出错的情况，需要进一步信息探测确定靶机信息</p>
+
+
+
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="275" src="./WestWild靶机详解 – why403_files/image-167-1024x275.png" alt="" class="wp-image-4417" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-167-1024x275.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-167-300x80.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-167-768x206.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-167-453x121.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-167.png 1160w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>sudo nmap -sU -oA nmap/UDP -p- –min-rate 10000 10.10.10.117 // UDP 端口扫描<br>开放137 [netbios-ns名字服务]</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="209" src="./WestWild靶机详解 – why403_files/image-168-1024x209.png" alt="" class="wp-image-4421" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-168-1024x209.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-168-300x61.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-168-768x157.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-168-453x92.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-168.png 1231w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>sudo nmap -sT -sV -O -sC -oA nmap/TCP -p22,80,139,445 10.10.10.117 // TCP端口服务探测，系统探测，常用脚本探测<br>[可以用 -A 代替 -sV -O -sC]<br>通过详细扫描可能知道139和445部署的确实是smb相关的服务，操作系统是linux 3.x|4.x</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="421" src="./WestWild靶机详解 – why403_files/image-169-1024x421.png" alt="" class="wp-image-4423" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-169-1024x421.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-169-300x123.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-169-768x316.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-169-453x186.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-169.png 1294w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>脚本扫描结果</p>
+
+
+
+<ol class="has-pale-ocean-gradient-background has-background wp-block-list">
+<li><strong>时钟偏差</strong> (<code>_clock-skew</code>): 目标主机的时钟与扫描主机的时钟存在平均7小时的偏差，这可能会影响某些基于时间的协议和服务。</li>
+
+
+
+<li><strong>SMB 安全模式</strong> (<code>smb-security-mode</code>):
+<ul class="wp-block-list">
+<li>使用了&nbsp;<code>guest</code>&nbsp;账户进行认证。</li>
+
+
+
+<li>认证级别为&nbsp;<code>user</code>，表明需要用户名和密码进行认证。</li>
+
+
+
+<li>支持挑战响应认证机制。</li>
+
+
+
+<li>消息签名被禁用，这可能存在安全风险，但这是默认设置。</li>
+</ul>
+</li>
+
+
+
+<li><strong>SMB 操作系统发现</strong> (<code>smb-os-discovery</code>):
+<ul class="wp-block-list">
+<li>操作系统被识别为&nbsp;<code>Windows 6.1</code>，但实际上是&nbsp;<code>Samba 4.3.11-Ubuntu</code>。Samba 是一个实现了 SMB/CIFS 协议的软件，通常用于在 Linux 和 UNIX 系统上提供文件和打印服务。</li>
+
+
+
+<li>计算机名为&nbsp;<code>westwild</code>。</li>
+
+
+
+<li>NetBIOS 计算机名为&nbsp;<code>WESTWILD</code>。</li>
+
+
+
+<li>没有指定域名和完全限定域名（FQDN）。</li>
+
+
+
+<li>系统时间为&nbsp;<code>2024-04-23T00:07:08+03:00</code>。</li>
+</ul>
+</li>
+
+
+
+<li><strong>SMB2 时间</strong> (<code>smb2-time</code>):
+<ul class="wp-block-list">
+<li>日期为&nbsp;<code>2024-04-22T21:07:08</code>。</li>
+
+
+
+<li>启动日期未提供（<code>N/A</code>）。</li>
+</ul>
+</li>
+
+
+
+<li><strong>NetBIOS 状态</strong> (<code>_nbstat</code>):
+<ul class="wp-block-list">
+<li>NetBIOS 名称为&nbsp;<code>WESTWILD</code>。</li>
+
+
+
+<li>NetBIOS 用户未知。</li>
+
+
+
+<li>NetBIOS MAC 地址未知。</li>
+</ul>
+</li>
+
+
+
+<li><strong>SMB2 安全模式</strong> (<code>smb2-security-mode</code>):
+<ul class="wp-block-list">
+<li>消息签名已启用，但不是必需的。</li>
+</ul>
+</li>
+</ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="476" src="./WestWild靶机详解 – why403_files/image-170-1024x476.png" alt="" class="wp-image-4442" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-170-1024x476.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-170-300x140.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-170-768x357.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-170-453x211.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-170.png 1086w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>Netbios 服务信息枚举工具</p>
+
+
+
+<pre class="wp-block-code"><code>nmblookup -A &lt;IP&gt;
+nbtscan &lt;IP&gt;/24
+sudo nmap -sU -sV -T4 --script nbstat.nse -p137 -Pn -n &lt;IP&gt;</code></pre>
+
+
+
+<p>nbtscan 10.10.10.0/24 // 扫描网段中主机名，以及用户组信息</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="854" height="207" src="./WestWild靶机详解 – why403_files/image-171.png" alt="" class="wp-image-4446" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-171.png 854w, https://www.why403.cn/wp-content/uploads/2024/04/image-171-300x73.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-171-768x186.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-171-453x110.png 453w" sizes="(max-width: 854px) 100vw, 854px"></figure>
+
+
+
+<p>nmblookup -A 10.10.10.117 // </p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="661" height="226" src="./WestWild靶机详解 – why403_files/image-172.png" alt="" class="wp-image-4447" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-172.png 661w, https://www.why403.cn/wp-content/uploads/2024/04/image-172-300x103.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-172-453x155.png 453w" sizes="(max-width: 661px) 100vw, 661px"></figure>
+
+
+
+<div class="wp-block-group has-pale-ocean-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-1 wp-block-group-is-layout-flex">
+<p><code>nmblookup</code> 是一个用于查询 NetBIOS 名称的命令行工具，它是 Samba 套件的一部分。这个工具可以用来查询 NetBIOS 名称到 IP 地址的映射，或者用来列出一个 NetBIOS 名称服务器上的名称。</p>
+
+
+
+<p>使用 <code>nmblookup -A</code> 命令时，<code>-A</code> 参数表示执行对等名称解析协议（Peer Name Resolution Protocol, PNRP）的节点状态查询，它可以用来获取一个 NetBIOS 主机的所有 NetBIOS 名称。</p>
+
+
+
+<p>例如，命令 <code>nmblookup -A 10.10.10.117</code> 将尝试获取 IP 地址为 <code>10.10.10.117</code> 的主机的所有 NetBIOS 名称。这包括该主机的 NetBIOS 主机名、域名、以及可能的任何工作组名称。</p>
+
+
+
+<p>输出结果可能包括如下信息：</p>
+
+
+
+<ul class="wp-block-list">
+<li>NetBIOS 主机名（通常与计算机名相同）</li>
+
+
+
+<li>NetBIOS 域名（如果主机是域成员）</li>
+
+
+
+<li>NetBIOS 工作组名（如果主机是工作组的一部分）</li>
+
+
+
+<li>每个名称的 IP 地址</li>
+</ul>
+</div>
+
+
+
+<p><code>sudo nmap -sU -sV -T4 --script nbstat.nse -p137 -oA ./nmap/netbios_137_port -Pn -n 10.10.10.117</code></p>
+
+
+
+<div class="wp-block-group has-pale-ocean-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-2 wp-block-group-is-layout-flex">
+<p>这个命令包含了多个不同的选项，下面是每个部分的解释：</p>
+
+
+
+<ol class="wp-block-list">
+<li><code>sudo</code>: 以超级用户（root）的权限运行后面的命令。<code>nmap</code> 通常需要这样的权限才能访问某些网络接口或者使用某些特性。</li>
+
+
+
+<li><code>nmap</code>: 是用于网络探索和安全审计的工具，它可以用于扫描网络，检测哪些设备是活跃的，确定开放的端口以及识别运行在网络设备上的服务。</li>
+
+
+
+<li><code>-sU</code>: 指定 <code>nmap</code> 进行 UDP 端口扫描。<code>-sU</code> 选项告诉 <code>nmap</code> 扫描目标的 UDP 端口。</li>
+
+
+
+<li><code>-sV</code>: 版本检测。这个选项让 <code>nmap</code> 尝试确定运行在开放的端口上的服务的版本信息。</li>
+
+
+
+<li><code>-T4</code>: 指定扫描的时间模板。<code>-T4</code> 代表“适度快速”的扫描，<code>nmap</code> 会尝试在不被发现的情况下快速扫描。</li>
+
+
+
+<li><code>--script nbstat.nse</code>: 运行一个名为 <code>nbstat.nse</code> 的 Nmap 脚本。这个脚本用于列出目标机器上的 NetBIOS 状态，包括计算机名称、登录的用户数、MAC 地址等。</li>
+
+
+
+<li><code>-p137</code>: 指定扫描的端口。137 是 NetBIOS 数据报服务的端口号。</li>
+
+
+
+<li><code>-Pn</code>: 指定 <code>nmap</code> 不要使用主机发现（ping 扫描）。这意味着即使目标主机没有响应，<code>nmap</code> 也会认为它是活跃的，并继续扫描指定的端口。</li>
+
+
+
+<li><code>-n</code>: 不要解析服务名称或主机名。这会加快扫描速度，因为 <code>nmap</code> 不会尝试将 IP 地址转换为主机名。</li>
+</ol>
+</div>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="448" src="./WestWild靶机详解 – why403_files/image-161-1024x448.png" alt="" class="wp-image-4357" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-161-1024x448.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-161-300x131.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-161-768x336.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-161-453x198.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-161.png 1062w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p><strong>enum4linux</strong></p>
+
+
+
+<p><code>enum4linux -a 10.10.10.117 &gt; enum4linux/simple_enum</code></p>
+
+
+
+<div class="wp-block-group has-pale-ocean-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-3 wp-block-group-is-layout-flex">
+<p><code>enum4linux</code> 是一款用于枚举 Windows 和 Samba 系统信息的工具，它提供了与 Windows 上的 <code>enum.exe</code> 类似的功能，并且是 <code>smbclient</code>、<code>rpclient</code>、<code>net</code> 和 <code>nmblookup</code> 等 Samba 工具的简单封装。以下是 <code>enum4linux</code> 的一些常用参数及其详解：</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>-U</strong>: 获取用户列表。</li>
+
+
+
+<li><strong>-M</strong>: 获取机器列表。</li>
+
+
+
+<li><strong>-S</strong>: 获取共享列表。</li>
+
+
+
+<li><strong>-P</strong>: 获取密码策略信息。</li>
+
+
+
+<li><strong>-G</strong>: 获取组和成员列表。</li>
+
+
+
+<li><strong>-d</strong>: 详细模式，适用于&nbsp;<code>-U</code>&nbsp;和&nbsp;<code>-S</code>&nbsp;选项。</li>
+
+
+
+<li><strong>-u</strong>: 指定要使用的用户名（默认为空）。</li>
+
+
+
+<li><strong>-p</strong>: 指定要使用的密码（默认为空）。</li>
+
+
+
+<li><strong>-a</strong>: 执行所有简单的枚举（<code>-U -S -G -P -r -o -n -i</code>）。如果没有提供其他选项，则默认启用此选项。</li>
+
+
+
+<li><strong>-h</strong>: 显示帮助信息并退出。</li>
+
+
+
+<li><strong>-r</strong>: 通过 RID 循环枚举用户（在 Windows 2000 上，如果&nbsp;<code>RestrictAnonymous</code>&nbsp;设置为 1）。</li>
+
+
+
+<li><strong>-R</strong>: 指定 RID 范围进行枚举（默认：500-550,1000-1050，隐含&nbsp;<code>-r</code>）。</li>
+
+
+
+<li><strong>-K</strong>: 指定不对应次数 n。继续搜索 RID，直到 n 个连续的 RID 与用户名不对应，意味着 RID 范围结束于 999999，对域控制器（DC）有用。</li>
+
+
+
+<li><strong>-l</strong>: 通过 LDAP 389/TCP 获取一些（有限的）信息（仅适用于域控制器）。</li>
+
+
+
+<li><strong>-s</strong>: 文件暴力猜测共享名称。</li>
+
+
+
+<li><strong>-k</strong>: 指定远程系统上存在的用户（默认：administrator, guest, krbtgt, domain admins, root, bin, none），用于获取 SID 与&nbsp;<code>lookupsid known_username</code>&nbsp;使用。</li>
+
+
+
+<li><strong>-o</strong>: 获取操作系统信息。</li>
+
+
+
+<li><strong>-i</strong>: 获取打印机信息。</li>
+
+
+
+<li><strong>-w</strong>: 手动指定工作组（通常自动找到）。</li>
+
+
+
+<li><strong>-n</strong>: 执行&nbsp;<code>nmblookup</code>（类似于&nbsp;<code>nbtstat</code>）。</li>
+
+
+
+<li><strong>-v</strong>: 详细输出，显示正在运行的完整命令（net, rpcclient 等）。</li>
+</ol>
+
+
+
+<p>RID，即相对标识符（Relative Identifier），是一个用于在 Windows 活动目录（Active Directory）环境中唯一标识对象的数值。<strong>在 Windows 系统中，每个用户账户、组、计算机账户等对象在活动目录中都有一个与之关联的 RID</strong>。</p>
+</div>
+
+
+
+<p>查看下web页面</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="517" src="./WestWild靶机详解 – why403_files/image-173-1024x517.png" alt="" class="wp-image-4455" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-173-1024x517.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-173-300x151.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-173-768x387.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-173-1536x775.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/image-173-453x229.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-173.png 1911w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<h3 class="wp-block-heading">smaba 渗透—信息泄露</h3>
+
+
+
+<p><code>smbmap -H 10.10.10.117</code> // 查看smb共享文件</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="376" src="./WestWild靶机详解 – why403_files/image-164-1024x376.png" alt="" class="wp-image-4385" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-164-1024x376.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-164-300x110.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-164-768x282.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-164-453x167.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-164.png 1295w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>也可以使用smbclient<br><code>smbclient -L 10.10.10.117</code> // 查看smb共享文件<br>这里看到了一个wave文件夹，根据web页面提示fallow the wave</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="865" height="361" src="./WestWild靶机详解 – why403_files/4a8ce5c940218d473009da816aaaafa.png" alt="" class="wp-image-4365" srcset="https://www.why403.cn/wp-content/uploads/2024/04/4a8ce5c940218d473009da816aaaafa.png 865w, https://www.why403.cn/wp-content/uploads/2024/04/4a8ce5c940218d473009da816aaaafa-300x125.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/4a8ce5c940218d473009da816aaaafa-768x321.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/4a8ce5c940218d473009da816aaaafa-453x189.png 453w" sizes="(max-width: 865px) 100vw, 865px"></figure>
+
+
+
+<p>连接共享文件夹wave<br>查看到有flag和提示下载到本地<br><code>prompt</code> // 开启提示符显示<br><code>mget *</code> // 下载所有文件</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="268" src="./WestWild靶机详解 – why403_files/43e41372f6048d75991c9d2153f95ad-1024x268.png" alt="" class="wp-image-4368" srcset="https://www.why403.cn/wp-content/uploads/2024/04/43e41372f6048d75991c9d2153f95ad-1024x268.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/43e41372f6048d75991c9d2153f95ad-300x78.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/43e41372f6048d75991c9d2153f95ad-768x201.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/43e41372f6048d75991c9d2153f95ad-453x118.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/43e41372f6048d75991c9d2153f95ad.png 1316w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>查看下内容<br>1.发现这里的flag经过base64编码<br>2.在message中是另一个用户给wave的留言，根据内容可能跟后续提权相关<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">Am Sorry but i was lost my password ,<br>and i believe that you can reset it for me .</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="989" height="266" src="./WestWild靶机详解 – why403_files/image-163.png" alt="" class="wp-image-4373" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-163.png 989w, https://www.why403.cn/wp-content/uploads/2024/04/image-163-300x81.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-163-768x207.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-163-453x122.png 453w" sizes="(max-width: 989px) 100vw, 989px"></figure>
+
+
+
+<pre class="wp-block-code"><code>echo "RmxhZzF7V2VsY29tZV9UMF9USEUtVzNTVC1XMUxELUIwcmRlcn0KdXNlcjp3YXZleApwYXNzd29yZDpkb29yK29wZW4K" |base64 -d // base64解码flag</code></pre>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="112" src="./WestWild靶机详解 – why403_files/1a76ce576124d37d351f08673d27aa0-1024x112.png" alt="" class="wp-image-4380" srcset="https://www.why403.cn/wp-content/uploads/2024/04/1a76ce576124d37d351f08673d27aa0-1024x112.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/1a76ce576124d37d351f08673d27aa0-300x33.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/1a76ce576124d37d351f08673d27aa0-768x84.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/1a76ce576124d37d351f08673d27aa0-453x50.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/1a76ce576124d37d351f08673d27aa0.png 1186w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>得到用户，尝试ssh登录</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="859" src="./WestWild靶机详解 – why403_files/1fe72997559f75825d78bc2a93ad5cc-1024x859.png" alt="" class="wp-image-4384" srcset="https://www.why403.cn/wp-content/uploads/2024/04/1fe72997559f75825d78bc2a93ad5cc-1024x859.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/1fe72997559f75825d78bc2a93ad5cc-300x252.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/1fe72997559f75825d78bc2a93ad5cc-768x645.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/1fe72997559f75825d78bc2a93ad5cc-453x380.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/1fe72997559f75825d78bc2a93ad5cc.png 1126w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<h3 class="wp-block-heading">提权</h3>
+
+
+
+<h4 class="wp-block-heading">思路一——横向移动</h4>
+
+
+
+<p>在信息枚举的过程中发现一个奇怪的文件/usr/share/av/westsidesecret/ififoregt.sh</p>
+
+
+
+<p><code>find / -writable -type f ! -path "/proc*" 2&gt;/dev/null</code></p>
+
+
+
+<div class="wp-block-group has-pale-ocean-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-4 wp-block-group-is-layout-flex">
+<p>下面是命令的详细解释：</p>
+
+
+
+<ul class="wp-block-list">
+<li><code>find</code>: 这是用来搜索文件的命令。</li>
+
+
+
+<li><code>/</code>: 指定了查找的起始目录，这里是根目录，表示在整个文件系统中进行搜索。</li>
+
+
+
+<li><code>-writable</code>: 这个选项表示查找所有当前用户有写权限的文件。</li>
+
+
+
+<li><code>-type f</code>: 这个选项限制搜索结果只包括文件（不包括目录）。</li>
+
+
+
+<li><code>! -path "/proc*"</code>:&nbsp;<code>!</code>&nbsp;是逻辑非操作符，用来排除接下来的匹配条件。<code>-path "/proc*"</code>&nbsp;匹配所有以&nbsp;<code>/proc</code>&nbsp;开始的路径，因此这部分命令组合起来的作用是排除所有&nbsp;<code>/proc</code>&nbsp;目录下的文件。</li>
+
+
+
+<li><code>2&gt;/dev/null</code>: 这是一个错误重定向操作，它将&nbsp;<code>find</code>&nbsp;命令的错误输出（标准错误，stderr）重定向到&nbsp;<code>/dev/null</code>，这是一个特殊的设备文件，它会丢弃所有写入其中的数据。这样做的目的是忽略执行命令时可能出现的错误信息。</li>
+</ul>
+</div>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="547" height="393" src="./WestWild靶机详解 – why403_files/84ff5cfa6347b7f5f4523cd98cbaa17-edited.png" alt="" class="wp-image-4486" srcset="https://www.why403.cn/wp-content/uploads/2024/04/84ff5cfa6347b7f5f4523cd98cbaa17-edited.png 547w, https://www.why403.cn/wp-content/uploads/2024/04/84ff5cfa6347b7f5f4523cd98cbaa17-edited-300x216.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/84ff5cfa6347b7f5f4523cd98cbaa17-edited-453x325.png 453w" sizes="(max-width: 547px) 100vw, 547px"></figure>
+
+
+
+<p><strong>横向移动</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="577" src="./WestWild靶机详解 – why403_files/ddf0cf621af5f6dc993afac9b66c3c1-1024x577.png" alt="" class="wp-image-4392" srcset="https://www.why403.cn/wp-content/uploads/2024/04/ddf0cf621af5f6dc993afac9b66c3c1-1024x577.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/ddf0cf621af5f6dc993afac9b66c3c1-300x169.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/ddf0cf621af5f6dc993afac9b66c3c1-768x433.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/ddf0cf621af5f6dc993afac9b66c3c1-453x255.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/ddf0cf621af5f6dc993afac9b66c3c1.png 1289w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>sudo -l // 查看用户sudo特权配置<br>发现是有(ALL : ALL ) ALL的权限<br><strong>rooted</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="445" src="./WestWild靶机详解 – why403_files/5ef63953ab12c3486d9650f9f91ca5b-1024x445.png" alt="" class="wp-image-4395" srcset="https://www.why403.cn/wp-content/uploads/2024/04/5ef63953ab12c3486d9650f9f91ca5b-1024x445.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/5ef63953ab12c3486d9650f9f91ca5b-300x130.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/5ef63953ab12c3486d9650f9f91ca5b-768x334.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/5ef63953ab12c3486d9650f9f91ca5b-453x197.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/5ef63953ab12c3486d9650f9f91ca5b.png 1302w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p><strong>root-flag:Flag2{Weeeeeeeeeeeellco0o0om_T0_WestWild}</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="864" height="211" src="./WestWild靶机详解 – why403_files/7ebdb834487eb16c3550bd4f37750cc.png" alt="" class="wp-image-4398" srcset="https://www.why403.cn/wp-content/uploads/2024/04/7ebdb834487eb16c3550bd4f37750cc.png 864w, https://www.why403.cn/wp-content/uploads/2024/04/7ebdb834487eb16c3550bd4f37750cc-300x73.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/7ebdb834487eb16c3550bd4f37750cc-768x188.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/7ebdb834487eb16c3550bd4f37750cc-453x111.png 453w" sizes="(max-width: 864px) 100vw, 864px"></figure>
+
+
+
+<h4 class="wp-block-heading">思路二——内核提权[未复现成功]</h4>
+
+
+
+<p>uname -a // 查看系统版本</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="49" src="./WestWild靶机详解 – why403_files/image-165-1024x49.png" alt="" class="wp-image-4405" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-165-1024x49.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-165-300x14.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-165-768x37.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-165-453x22.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-165.png 1146w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>searchsploit linux kernel 4.4 |grep ‘Escalation’ // 用Exploit-db搜索可利用内核提取漏洞</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="314" src="./WestWild靶机详解 – why403_files/17a329d4d3aa569a9543dc618765703-1024x314.png" alt="" class="wp-image-4407" srcset="https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703-1024x314.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703-300x92.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703-768x235.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703-1536x470.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703-453x139.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/17a329d4d3aa569a9543dc618765703.png 1881w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>根据版本号筛选出几个可以尝试的漏洞<br>1.Linux Kernel 2.6.19 &lt; 5.9 – ‘Netfilter Local Privilege Escalation | linux/local/50135.c<br>2.Linux Kernel 4.4.0-21 (Ubuntu 16.04 x64) – Netfilter ‘target_offset’ Out-of-Bounds Privilege Escalation | linux_x86-64/local/40049.c<br>3.Linux Kernel &lt; 4.4.0/ &lt; 4.8.0 (Ubuntu 14.04/16.04 / Linux Mint 17/18 / Zorin) – Local Privilege Escalation (KASLR / SMEP) | linux/local/47169.c</p>
+
+
+
+<p>在尝试的时候发现没有gcc，可以尝试本地编译后进行提权[不过本地编译要适当调整参数]，或者google找编译好的EXP</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="68" src="./WestWild靶机详解 – why403_files/image-166-1024x68.png" alt="" class="wp-image-4414" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-166-1024x68.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-166-300x20.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-166-768x51.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-166-453x30.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-166.png 1211w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+											</div><!-- .entry-content -->
+
+					<footer class="entry-meta entry-utility">
+											</footer><!-- .entry-utility -->
+
+				</div><!-- .article-inner -->
+				
+	<span class="schema-publisher" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+         <span itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+           <meta itemprop="url" content="https://www.why403.cn">
+         </span>
+         <meta itemprop="name" content="why403">
+    </span>
+<link itemprop="mainEntityOfPage" href="https://www.why403.cn/westwild%e9%9d%b6%e6%9c%ba%e8%af%a6%e8%a7%a3">			</article><!-- #post-## -->
+
+			
+
+						<section id="comments">
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表回复 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.why403.cn/archives/4353#respond" style="display:none;">取消回复</a></small></h3><form action="https://www.why403.cn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">您的电子邮箱地址不会被公开。</span> <span class="required-field-message">必填项已用 <span class="required">*</span> 标注</span></p><p class="comment-form-comment"><label for="comment">评论</label><em><textarea placeholder="评论" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></em></p><p class="comment-form-author"><label for="author">名字<span class="required">*</span></label> <em><input id="author" placeholder="名字*" name="author" type="text" value="" size="30" maxlength="245" aria-required="true"></em></p>
+<p class="comment-form-email"><label for="email">电子邮箱地址<span class="required">*</span></label> <em><input id="email" placeholder="电子邮箱地址*" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true"></em></p>
+<p class="comment-form-url"><label for="url">网站</label><em><input id="url" placeholder="网站" name="url" type="url" value="" size="30" maxlength="200"></em></p>
+<p class="comment-form-cookies-consent"><label for="wp-comment-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">在浏览器中保存我的名字、电子邮件和网站地址，以便下次发表评论时使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="4353" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	</section><!-- #comments -->
+
+
+		
+			</main><!-- #main -->
+
+	
+<aside id="primary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-5" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">归档</h2><ul class="wp-block-archives-list wp-block-archives">	<li><a href="https://www.why403.cn/archives/date/2024/05">2024 年 5 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/04">2024 年 4 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/03">2024 年 3 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/02">2024 年 2 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/01">2024 年 1 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/12">2023 年 12 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/11">2023 年 11 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/10">2023 年 10 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/09">2023 年 9 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/07">2023 年 7 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/06">2023 年 6 月</a></li>
+</ul></div></div></section><section id="block-6" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">分类</h2><ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-5"><a href="https://www.why403.cn/archives/category/learning/c-c">c/c++</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://www.why403.cn/archives/category/learning/html">HTML</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.why403.cn/archives/category/learning/html/javascript">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="https://www.why403.cn/archives/category/learning/linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://www.why403.cn/archives/category/learning/python">python</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f">内网渗透</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://www.why403.cn/archives/category/learning">学习</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://www.why403.cn/archives/category/photography">摄影</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.why403.cn/archives/category/uncategorized">未分类</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80">系统基础</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c">计算机网络</a>
+</li>
+</ul></div></div></section>
+	</aside>
+
+<aside id="secondary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-2" class="widget-container widget_block widget_search"><form role="search" method="get" action="https://www.why403.cn/" class="wp-block-search__button-outside wp-block-search__icon-button aligncenter wp-block-search"><label class="wp-block-search__label screen-reader-text" for="wp-block-search__input-1" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none">搜索</label><div class="wp-block-search__inside-wrapper " style="width: 100%"><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none"><button aria-label="" class="wp-block-search__button has-text-color has-accent-2-color has-background has-icon wp-element-button" type="submit" style="background: linear-gradient(146deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);font-size: 6px;font-weight: 600;font-style: normal;text-transform: none;text-decoration: none"><svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
+				</svg></button></div></form></section><section id="block-3" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期文章</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4936">Kerberos协议深度解析</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4850">dpwwn-01</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4353">WestWild靶机详解</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4628">深度解析webshell管理工具—哥斯拉</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/3683">shiro反序列化漏洞复现</a></li>
+</ul></div></div></section><section id="block-4" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期评论</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://www.why403.cn/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-13">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><span class="wp-block-latest-comments__comment-author">木</span> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-12">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://8.130.40.139/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-11">linux提权</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://www.why403.cn/">son</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-10">linux提权</a></footer></article></li></ol></div></div></section>
+	</aside>
+</div><!-- #container -->
+	<nav id="nav-below" class="navigation">
+				<div class="nav-previous">
+			<a href="https://www.why403.cn/archives/4628" rel="prev"><em>上一篇</em><span>深度解析webshell管理工具—哥斯拉</span></a>			<img src="./WestWild靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+		<div class="nav-next">
+			<a href="https://www.why403.cn/archives/4850" rel="next"><em>下一篇</em><span>dpwwn-01</span></a>			<img src="./WestWild靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+	</nav><!-- #nav-below -->
+
+		
+		<aside id="colophon" itemscope="" itemtype="http://schema.org/WPSideBar">
+			<div id="colophon-inside" class="footer-three footer-center">
+				
+			</div>
+		</aside><!-- #colophon -->
+
+	</div><!-- #main -->
+
+	<footer id="footer" class="cryout" itemscope="" itemtype="http://schema.org/WPFooter">
+		<button id="toTop" aria-label="回到顶部"><i class="icon-back2top"></i> </button>		<div id="footer-top">
+			<div class="footer-inside">
+				<div id="site-copyright">©2024 why403</div>			</div><!-- #footer-inside -->
+		</div><!-- #footer-top -->
+		<div id="footer-bottom">
+			<div class="footer-inside">
+				<div style="display:block; margin: 0.5em auto;">动力源自<a target="_blank" href="http://www.cryoutcreations.eu/wordpress-themes/bravada" title="Bravada WordPress Theme by Cryout Creations"> Bravada</a> &amp; <a target="_blank" href="http://wordpress.org/" title="语义个人发布平台">  WordPress</a>.</div>			</div> <!-- #footer-inside -->
+		</div><!-- #footer-bottom -->
+	</footer>
+</div><!-- site-wrapper -->
+	<style id="core-block-supports-inline-css">
+.wp-container-core-group-is-layout-1{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-2{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-3{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-4{flex-direction:column;align-items:flex-start;}
+</style>
+<script src="./WestWild靶机详解 – why403_files/mpp-frontend.js.下载" id="mpp_gutenberg_tabs-js"></script>
+<script id="bravada-frontend-js-extra">
+var cryout_theme_settings = {"masonry":"1","rtl":"","magazine":"3","fitvids":"1","autoscroll":"1","articleanimation":"fade","lpboxratios":[1.92,2.133],"is_mobile":"","menustyle":"0"};
+</script>
+<script defer="" src="./WestWild靶机详解 – why403_files/frontend.js.下载" id="bravada-frontend-js"></script>
+<script src="./WestWild靶机详解 – why403_files/imagesloaded.min.js.下载" id="imagesloaded-js"></script>
+<script defer="" src="./WestWild靶机详解 – why403_files/masonry.min.js.下载" id="masonry-js"></script>
+<script defer="" src="./WestWild靶机详解 – why403_files/jquery.masonry.min.js.下载" id="jquery-masonry-js"></script>
+<script src="./WestWild靶机详解 – why403_files/comment-reply.min.js.下载" id="comment-reply-js" async="" data-wp-strategy="async"></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+
+</body></html>

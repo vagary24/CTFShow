@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.why403.cn/archives/2842 -->
+<html lang="zh-Hans" version="4"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.why403.cn/xmlrpc.php">
+<title>CONNECT-THE-DOTS—靶机详解 – why403</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://www.why403.cn/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="alternate" type="application/rss+xml" title="why403 » Feed" href="https://www.why403.cn/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » 评论 Feed" href="https://www.why403.cn/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="why403 » CONNECT-THE-DOTS—靶机详解 评论 Feed" href="https://www.why403.cn/archives/2842/feed">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.why403.cn\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/style.min.css" media="all">
+<link rel="stylesheet" id="mpp_gutenberg-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/blocks.style.build.css" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent-1: #E9B44C;--wp--preset--color--accent-2: #0F8B8D;--wp--preset--color--headings: #162521;--wp--preset--color--sitetext: #707070;--wp--preset--color--sitebg: #ffffff;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 10px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 25px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--larger: 40px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="bravada-themefonts-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/fontfaces.css" media="all">
+<link rel="stylesheet" id="bravada-googlefonts-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/css" media="all">
+<link rel="stylesheet" id="bravada-main-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/style.css" media="all">
+<style id="bravada-main-inline-css">
+ body:not(.bravada-landing-page) #container, #colophon-inside, .footer-inside, #breadcrumbs-container-inside { margin: 0 auto; max-width: 1920px; } body:not(.bravada-landing-page) #container { max-width: calc( 1920px - 4em ); } .site-header-inside { max-width: 1920px; margin: 0 auto; } #primary { width: 200px; } #secondary { width: 200px; } #container.one-column .main { width: 100%; } #container.two-columns-right #secondary { float: right; } #container.two-columns-right .main, .two-columns-right #breadcrumbs { width: calc( 100% - 200px ); float: left; } #container.two-columns-left #primary { float: left; } #container.two-columns-left .main, .two-columns-left #breadcrumbs { width: calc( 100% - 200px ); float: right; } #container.three-columns-right #primary, #container.three-columns-left #primary, #container.three-columns-sided #primary { float: left; } #container.three-columns-right #secondary, #container.three-columns-left #secondary, #container.three-columns-sided #secondary { float: left; } #container.three-columns-right #primary, #container.three-columns-left #secondary { margin-left: 0%; margin-right: 0%; } #container.three-columns-right .main, .three-columns-right #breadcrumbs { width: calc( 100% - 400px ); float: left; } #container.three-columns-left .main, .three-columns-left #breadcrumbs { width: calc( 100% - 400px ); float: right; } #container.three-columns-sided #secondary { float: right; } #container.three-columns-sided .main, .three-columns-sided #breadcrumbs { width: calc( 100% - 400px ); float: right; } .three-columns-sided #breadcrumbs { margin: 0 calc( 0% + 200px ) 0 -1920px; } html { font-family: Muli; font-size: 16px; font-weight: 400; line-height: 1.8; ; } #site-title { font-family: Playfair Display; font-size: 1.3em; font-weight: 700; } #site-text { ; } nav#mobile-menu #mobile-nav a { font-family: Playfair Display; font-size: 2.5em; font-weight: 700; font-size: clamp(1.3rem, 5vw, 2.5em); ; } nav#mobile-menu #mobile-nav ul.sub-menu a { font-size: clamp(1.1rem, 4vw, 2em); } nav#mobile-menu input[type=search] { font-family: Playfair Display; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .author-info .page-title { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; margin-bottom: 0.5em; ; } .widget-title::after, #comments-title::after, #reply-title::after, .related-posts .related-main-title::after { margin-bottom: 0.5em; } .widget-container { font-family: Muli; font-size: 1em; font-weight: 400; } .widget-container ul li { line-height: 1.8; ; } .entry-title, .main .page-title { font-family: Playfair Display; font-size: 1.7em; font-weight: 700; ; } body:not(.single) .entry-meta > span { font-family: Muli; font-size: 1em; font-weight: 300; ; } /* single post titles/metas */ #header-page-title .entry-title, .singular-title, .lp-staticslider .staticslider-caption-title, .seriousslider-theme .seriousslider-caption-title { font-family: Playfair Display; font-size: 5em; font-weight: 700; font-size: clamp(2.5em, 5vw, 5em ); line-height: 1.3; ; } .single .entry-meta > span { font-family: Muli; font-size: 1.1em; font-weight: 300; ; } h1 { font-size: 2.33em; } h2 { font-size: 2.06em; } h3 { font-size: 1.79em; } h4 { font-size: 1.52em; } h5 { font-size: 1.25em; } h6 { font-size: 0.98em; } h1, h2, h3, h4 { font-family: Playfair Display; font-weight: 700; ; } .entry-content h1, .entry-summary h1, .entry-content h2, .entry-summary h2, .entry-content h3, .entry-summary h3, .entry-content h4, .entry-summary h4, .entry-content h5, .entry-summary h5, .entry-content h6, .entry-summary h6 { line-height: 1.2; margin-bottom: 0.5em; } .lp-section-header .lp-section-desc, .lp-box-title, .lp-tt-title, #nav-fixed a + a, #nav-below span, .lp-blocks.lp-blocks1 .lp-block .lp-block-readmore { font-family: Playfair Display; } .lp-section-header .lp-section-title { font-family: Muli; } blockquote cite { font-family: Muli; } :root { --bravada-accent-1: #E9B44C; --bravada-accent-2: #0F8B8D; } .bravada-accent-1 { color: #E9B44C; } .bravada-accent-2 { color: #0F8B8D; } .bravada-accent-1-bg { background-color: #E9B44C; } .bravada-accent-2-bg { background-color: #0F8B8D; } body { color: #707070; background-color: #f3f7f6; } .lp-staticslider .staticslider-caption-text a { color: #FFFFFF; } #site-header-main, .menu-search-animated .searchform input[type="search"], #access .menu-search-animated .searchform, .site-header-bottom-fixed, .bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: #FFFFFF; } .bravada-over-menu .site-header-bottom-fixed { background: transparent; } .bravada-over-menu .header-fixed.site-header-bottom #site-title a, .bravada-over-menu .header-fixed.site-header-bottom #site-description { color: #E9B44C; } .bravada-over-menu #site-title a, .bravada-over-menu #site-description, .bravada-over-menu #access > div > ul > li, .bravada-over-menu #access > div > ul > li > a, .bravada-over-menu .site-header-bottom:not(.header-fixed) #nav-toggle, #breadcrumbs-container span, #breadcrumbs-container a, #breadcrumbs-container i { color: #FFFFFF; } #bmobile #site-title a { color: #E9B44C; } #site-title a::before { background: #E9B44C; } body:not(.bravada-over-menu) .site-header-bottom #site-title a::before, .bravada-over-menu .header-fixed.site-header-bottom #site-title a::before { background: #0F8B8D; } body:not(.bravada-over-menu) .site-header-bottom #site-title a:hover { background: #E9B44C; } #site-title a:hover::before { background: #0F8B8D; } #access > div > ul > li, #access > div > ul > li > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']), .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li:not([class*='current']) > a { color: #444444; } .hamburger span { background-color: #444444; } #mobile-menu, nav#mobile-menu #mobile-nav a { color: #FFFFFF; } nav#mobile-menu #mobile-nav > li.current_page_item > a, nav#mobile-menu #mobile-nav > li.current-menu-item > a, nav#mobile-menu #mobile-nav > li.current_page_ancestor > a, nav#mobile-menu #mobile-nav > li.current-menu-ancestor > a, nav#mobile-menu #mobile-nav a:hover { color: #E9B44C; } nav#mobile-menu { color: #FFFFFF; background-color: #066664; } #mobile-nav .searchform input[type="search"] { border-color: #FFFFFF; } .burgermenu-active.bravada-over-menu .site-header-bottom.header-fixed .site-header-bottom-fixed { background-color: transparent; } .burgermenu-active.bravada-over-menu .site-header-bottom .hamburger span { background-color: #FFFFFF; } .bravada-over-menu:not(.burgermenu-active) .site-header-bottom:not(.header-fixed) .hamburger span { background-color: #FFFFFF; } .bravada-over-menu .header-fixed.site-header-bottom .side-section-element.widget_cryout_socials a:hover::before, .side-section-element.widget_cryout_socials a:hover::before { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a, .topmenu ul li a { color: #FFFFFF; } #access ul.sub-menu li a, #access ul.children li a { background-color: #066664; } #access ul.sub-menu li a:hover, #access ul.children li a:hover { color: #E9B44C; } #access > div > ul > li.current_page_item > a, #access > div > ul > li.current-menu-item > a, #access > div > ul > li.current_page_ancestor > a, #access > div > ul > li.current-menu-ancestor > a, .bravada-over-menu .header-fixed.site-header-bottom #access > div > ul > li > a { color: #e9b44c; } #access ul.children > li.current_page_item > a, #access ul.sub-menu > li.current-menu-item > a, #access ul.children > li.current_page_ancestor > a, #access ul.sub-menu > li.current-menu-ancestor > a { opacity: 0.95; } #access > div > ul ul > li a:not(:only-child)::after { border-left-color: #066664; } #access > div > ul > li > ul::before { border-bottom-color: #066664; } #access ul li.special1 > a { background-color: #f0f0f0; } #access ul li.special2 > a { background-color: #444444; color: #FFFFFF; } #access ul li.accent1 > a { background-color: #E9B44C; color: #FFFFFF; } #access ul li.accent2 > a { background-color: #0F8B8D; color: #FFFFFF; } #access ul li.accent1 > a:hover, #access ul li.accent2 > a:hover { color: #FFFFFF; } #access > div > ul > li.accent1 > a > span::before, #access > div > ul > li.accent2 > a > span::before { background-color: #FFFFFF; } article.hentry, body:not(.blog):not(.page-template-template-blog):not(.archive):not(.search) #container:not(.bravada-landing-page) .main, body.bravada-boxed-layout:not(.bravada-landing-page) #container { background-color: #ffffff; } .pagination span { color: #0F8B8D; } .pagination a:hover { background-color: #E9B44C; color: #ffffff; } #header-overlay, .lp-staticslider::after, .seriousslider-theme .item::after { background-color: #08415c; background: -webkit-linear-gradient( 90deg, #08415c 0%, #1c110a 100%); background: linear-gradient( 180deg, #08415c 0%, #1c110a 100%); opacity: 0.6; pointer-events: none; } #header-page-title #header-page-title-inside, #header-page-title .entry-title, #header-page-title .entry-meta span, #header-page-title .entry-meta a, #header-page-title .entry-meta time, #header-page-title .entry-meta .icon-metas::before, #header-page-title .byline, #header-page-title #breadcrumbs-nav, .lp-staticslider .staticslider-caption-inside, .seriousslider-theme .seriousslider-caption-inside { color: #FFFFFF; } #colophon, #footer { background-color: #1e3231; color: #DBDBDB; } .post-thumbnail-container .featured-image-overlay::before { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #E9B44C, #0F8B8D); } .post-thumbnail-container .featured-image-overlay::after { background-color: #E9B44C; background: -webkit-gradient(linear, left top, left bottom, from(#E9B44C), to(#0F8B8D)); background: linear-gradient(to bottom, #0F8B8D, #E9B44C); } .main #content-masonry .post-thumbnail-container:hover + .entry-after-image .entry-title a { color: #E9B44C; } @media (max-width: 720px) { .bravada-magazine-one .main #content-masonry .post-thumbnail-container + .entry-after-image { background-color: #ffffff; } } .entry-title a:active, .entry-title a:hover { color: #E9B44C; } span.entry-format { color: #E9B44C; } .main #content-masonry .format-link .entry-content a { background-color: #E9B44C; color: #ffffff; } .main #content-masonry .format-link::after { color: #ffffff; } .cryout article.hentry.format-image, .cryout article.hentry.format-audio, .cryout article.hentry.format-video { background-color: #ffffff; } .format-aside, .format-quote { border-color: #eeeeee; } .single .author-info { border-color: #eeeeee; } .entry-content h5, .entry-content h6, .lp-text-content h5, .lp-text-content h6 { color: #0F8B8D; } .entry-content blockquote::before, .entry-content blockquote::after { color: rgba(112,112,112,0.2); } .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .lp-text-content h1, .lp-text-content h2, .lp-text-content h3, .lp-text-content h4 { color: #162521; } .entry-title, .page-title { color: #162521; } a { color: #E9B44C; } a:hover, .widget-area a, .entry-meta span a:hover, .comments-link a { color: #0F8B8D; } .comments-link a:hover, .widget-area a:hover { color: #E9B44C; } .socials a::before, .socials a:hover::before { color: #E9B44C; } .socials a::after, .socials a:hover::after { color: #0F8B8D; } .bravada-normalizedtags #content .tagcloud a { color: #ffffff; background-color: #E9B44C; } .bravada-normalizedtags #content .tagcloud a:hover { background-color: #0F8B8D; } #nav-fixed i { background-color: #dbdbdb; } #nav-fixed .nav-next:hover i, #nav-fixed .nav-previous:hover i { background-color: #0F8B8D; } #nav-fixed a:hover + a, #nav-fixed a + a:hover { background-color: rgba(15,139,141,1); } #nav-fixed i, #nav-fixed span { color: #ffffff; } button#toTop i::before { color: #E9B44C; } button#toTop i::after { color: #0F8B8D; } @media (max-width: 800px) { .cryout #footer-bottom .footer-inside { padding-top: 2.5em; } .cryout .footer-inside a#toTop { background-color: #E9B44C; color: #f3f7f6; } .cryout .footer-inside a#toTop:hover { opacity: 0.8;} } .entry-meta .icon-metas:before { color: #b5b5b5; } #site-title span a::before { width: calc(100% - 1.2em); } .bravada-caption-one .main .wp-caption .wp-caption-text { border-bottom-color: #eeeeee; } .bravada-caption-two .main .wp-caption .wp-caption-text { background-color: #f5f5f5; } .bravada-image-one .entry-content img[class*="align"], .bravada-image-one .entry-summary img[class*="align"], .bravada-image-two .entry-content img[class*='align'], .bravada-image-two .entry-summary img[class*='align'] { border-color: #eeeeee; } .bravada-image-five .entry-content img[class*='align'], .bravada-image-five .entry-summary img[class*='align'] { border-color: #E9B44C; } .entry-summary .excerpt-fade { background-image: linear-gradient(to left, #ffffff, transparent); } /* diffs */ span.edit-link a.post-edit-link, span.edit-link a.post-edit-link:hover, span.edit-link .icon-edit:before { color: #707070; } .searchform { border-color: #ebebeb; } .entry-meta span, .entry-meta a, .entry-utility span, .entry-utility a, .entry-meta time, #breadcrumbs-nav { color: #a7a7a7; } .main #content-masonry .post-thumbnail-container span.bl_categ, .main #content-masonry .post-thumbnail-container .comments-link { background-color: #ffffff; } .footermenu ul li span.sep { color: #E9B44C; } .entry-meta a::after, .entry-utility a::after { background: #0F8B8D; } #header-page-title .category-metas a { color: #E9B44C; } .entry-meta .author:hover .avatar { border-color: #E9B44C; } .animated-title span.cry-single.animated-letter, .animated-title span.cry-double.animated-letter { color: #E9B44C; } span.entry-sticky { color: #0F8B8D; } #commentform { } code, #nav-below .nav-previous a::before, #nav-below .nav-next a::before { background-color: #eeeeee; } #nav-below .nav-previous::after, #nav-below .nav-next::after { background-color: #E9B44C; } pre, .comment-author { border-color: #eeeeee; } .commentlist .comment-area, .commentlist .pingback { border-color: #f3f3f3; } .commentlist img.avatar { background-color: #ffffff; } .comment-meta a { color: #bfbfbf; } .commentlist .reply a, .commentlist .author-name, .commentlist .author-name a { background-color: #E9B44C; color: #ffffff; } .commentlist .reply a:hover { background-color: #0F8B8D; } select, input[type], textarea { color: #707070; background-color: #f5f5f5; } .sidey select { background-color: #ffffff; } .searchform .searchsubmit { background: #E9B44C; } .searchform:hover .searchsubmit { background: #0F8B8D; } .searchform input[type="search"], .searchform input[type="search"]:hover, .searchform input[type="search"]:focus { background-color: #ffffff; } input[type]:hover, textarea:hover, select:hover, input[type]:focus, textarea:focus, select:focus { border-color: #dcdcdc; } button, input[type="button"], input[type="submit"], input[type="reset"] { background-color: #E9B44C; color: #ffffff; } button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover { background-color: #0F8B8D; } .comment-form-author input, .comment-form-email input, .comment-form-url input, .comment-form-comment textarea { background-color: #f0f0f0; } .comment-form-author input:hover, .comment-form-email input:hover, .comment-form-url input:hover, .comment-form-comment textarea:hover, .comment-form-author input:focus, .comment-form-email input:focus, .comment-form-url input:focus, .comment-form-comment textarea:focus { background-color: #E9B44C; color: #ffffff; } .comment-form-author, .comment-form-email { border-color: #ffffff; } hr { background-color: #f0f0f0; } .cryout-preloader-inside .bounce1 { background-color: #E9B44C; } .cryout-preloader-inside .bounce2 { background-color: #0F8B8D; } .page-header.pad-container { background-color: #ffffff; } /* gutenberg */ .wp-block-image.alignwide { margin-left: calc( ( 0% + 4em ) * -1 ); margin-right: calc( ( 0% + 4em ) * -1 ); } .wp-block-image.alignwide img { width: calc( 100% + 8em ); max-width: calc( 100% + 8em ); } .has-accent-1-color, .has-accent-1-color:hover { color: #E9B44C; } .has-accent-2-color, .has-accent-2-color:hover { color: #0F8B8D; } .has-headings-color, .has-headings-color:hover { color: #162521; } .has-sitetext-color, .has-sitetext-color:hover { color: #707070; } .has-sitebg-color, .has-sitebg-color:hover { color: #ffffff; } .has-accent-1-background-color { background-color: #E9B44C; } .has-accent-2-background-color { background-color: #0F8B8D; } .has-headings-background-color { background-color: #162521; } .has-sitetext-background-color { background-color: #707070; } .has-sitebg-background-color { background-color: #ffffff; } .has-small-font-size { font-size: 13px; } .has-regular-font-size { font-size: 16px; } .has-large-font-size { font-size: 19px; } .has-larger-font-size { font-size: 23px; } .has-huge-font-size { font-size: 23px; } /* woocommerce */ .woocommerce-thumbnail-container .woocommerce-buttons-container a, .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce div.product .product_title, .woocommerce .woocommerce-tabs h2 { font-family: Muli; } .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3, .woocommerce .star-rating { color: #0F8B8D; } .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button { background-color: #E9B44C; color: #ffffff; line-height: 1.8; } .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover { background-color: #0f8b8d; color: #ffffff; } .woocommerce-page #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt { color: #E9B44C; line-height: 1.8; } .woocommerce-page #respond input#submit.alt::after, .woocommerce a.button.alt::after, .woocommerce-page button.button.alt::after, .woocommerce input.button.alt::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; outline: 2px solid; -webkit-transition: .3s ease all; transition: .3s ease all; } .woocommerce-page #respond input#submit.alt:hover::after, .woocommerce a.button.alt:hover::after, .woocommerce-page button.button.alt:hover::after, .woocommerce input.button.alt:hover::after { opacity: 0; -webkit-transform: scale(1.2, 1.4); transform: scale(1.2, 1.4); } .woocommerce-page #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover { color: #0F8B8D; } .woocommerce div.product .woocommerce-tabs ul.tabs li.active { border-bottom-color: #ffffff; } .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt[disabled]:disabled, .woocommerce #respond input#submit.alt[disabled]:disabled:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt[disabled]:disabled, .woocommerce a.button.alt[disabled]:disabled:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt[disabled]:disabled, .woocommerce button.button.alt[disabled]:disabled:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt[disabled]:disabled, .woocommerce input.button.alt[disabled]:disabled:hover { background-color: #0F8B8D; color: #fff; } .woocommerce div.product .product_title, .woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price { color: #0f8b8d} .woocommerce .quantity .qty { background-color: #eeeeee; } .woocommerce-checkout #payment { background: #f5f5f5; } .woocommerce .widget_price_filter .ui-slider .ui-slider-handle { background: #0f8b8d; } .woocommerce div.product .products > h2, .woocommerce .cart-collaterals h2 { font-family: Playfair Display; font-size: 1.2em; font-weight: 700; line-height: 2; ; } .woocommerce div.product .products > h2::after, .woocommerce .cart-collaterals h2::after { background-color: #E9B44C ; } .main .entry-content, .main .entry-summary { text-align: inherit; } .main p, .main ul, .main ol, .main dd, .main pre, .main hr { margin-bottom: 1em; } .main .entry-content p { text-indent: 0em; } .main a.post-featured-image { background-position: center top; } #header-widget-area { width: 33%; left: 10px; } .bravada-striped-table .main thead th, .bravada-bordered-table .main thead th, .bravada-striped-table .main td, .bravada-striped-table .main th, .bravada-bordered-table .main th, .bravada-bordered-table .main td { border-color: #e9e9e9; } .bravada-clean-table .main th, .bravada-striped-table .main tr:nth-child(even) td, .bravada-striped-table .main tr:nth-child(even) th { background-color: #f8f8f8; } .bravada-cropped-featured .main .post-thumbnail-container { height: 600px; } .bravada-responsive-featured .main .post-thumbnail-container { max-height: 600px; height: auto; } article.hentry .article-inner, #content-masonry article.hentry .article-inner { padding: 0%; } .site-header-bottom { height:70px; } .site-header-bottom .site-header-inside { height:70px; } .menu-search-animated, .menu-burger, #sheader-container, .identity, #nav-toggle { height: 70px; line-height: 70px; } #access div > ul > li > a, #access ul li[class*="icon"]::before { line-height:70px; } nav#mobile-menu { padding-top: 80px; } body.admin-bar nav#mobile-menu { padding-top: 112px; } #branding { height: 70px; } .bravada-responsive-headerimage #masthead #header-image-main-inside { max-height: 1020px; } .bravada-cropped-headerimage #masthead #header-image-main-inside { height: 1020px; } #site-description { display: block; } #header-widget-area { top: 80px; } .bravada-landing-page .lp-blocks-inside, .bravada-landing-page .lp-boxes-inside, .bravada-landing-page .lp-text-inside, .bravada-landing-page .lp-posts-inside, .bravada-landing-page .lp-page-inside, .bravada-landing-page .lp-section-header, .bravada-landing-page .content-widget { max-width: 1920px; } @media (min-width: 960px) { .bravada-landing-page .lp-blocks.lp-blocks1 .lp-blocks-inside { max-width: calc(1920px - 5em); background-color: #ffffff; } } #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 1920px; max-width: 85%; padding-top: 80px; } @media (max-width: 1024px) { #header-page-title #header-page-title-inside, .lp-staticslider .staticslider-caption, .seriousslider.seriousslider-theme .seriousslider-caption { max-width: 100%; } } .bravada-landing-page .content-widget { margin: 0 auto; } a.staticslider-button, .seriousslider-theme .seriousslider-caption-buttons a { background-color: #E9B44C; } a.staticslider-button:hover, .seriousslider-theme .seriousslider-caption-buttons a:hover { background-color: #0F8B8D; } .widget-title, #comments-title, #reply-title, .related-posts .related-main-title, .main .page-title, #nav-below em, .lp-text .lp-text-title, .lp-boxes-animated .lp-box-title, .entry-content h2, .entry-content h4 { background-image: linear-gradient(to bottom, rgba(233,180,76,0.4) 0%, rgba(233,180,76,0.4) 100%); } .entry-content h3 { background-image: linear-gradient(to bottom, rgba(15,139,141,0.4) 0%, rgba(15,139,141,0.4) 100%); } .entry-content h2, .entry-content h3, .entry-content h4 { background-repeat: no-repeat; background-position: 0 100%; background-size: 100% .4em; max-width: max-content; } .lp-blocks { background-color: #f9f7f5; } .lp-boxes { background-color: #F8F8F8; } .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #0F8B8D ; } .lp-boxes ~ .lp-boxes ~ .lp-boxes .lp-boxes-inside::before { background-color: #E9B44C ; } .lp-text { background-color: #EEEBE9; } #lp-posts, #lp-page { background-color: #f3f7f6; } .lp-block { background-color: #ffffff; } .lp-block i[class^="blicon"]::before { color: #0F8B8D; } .lp-block .lp-block-title, .lp-text .lp-text-title { color: #162521; } .lp-block .lp-block-title::after { background-color: #E9B44C; } .lp-blocks1 .lp-block i[class^="blicon"] +i[class^="blicon"]::before { color: #0F8B8D; } .lp-block-readmore { color: #c0c0c0; } .lp-block-readmore:hover { color: #E9B44C; } .lp-text-title { color: #0F8B8D; } .lp-text-inside .lp-text-background { background-color: #ffffff; } .lp-boxes .lp-box { background-color: #ffffff; } .lp-boxes-animated .box-overlay { background-color: #0F8B8D; } .lp-boxes-animated .lp-box-readmore { color: #E9B44C; } .lp-boxes-static .box-overlay { background-color: #E9B44C; } .lp-box-title { color: #162521; } .lp-box-title:hover { color: #E9B44C; } .lp-boxes-1 .lp-box .lp-box-image { height: 250px; } #cryout_ajax_more_trigger, .lp-port-readmore { color: #0F8B8D; } .lpbox-rnd1 { background-color: #c1c1c1; } .lpbox-rnd2 { background-color: #bcbcbc; } .lpbox-rnd3 { background-color: #b7b7b7; } .lpbox-rnd4 { background-color: #b2b2b2; } .lpbox-rnd5 { background-color: #adadad; } .lpbox-rnd6 { background-color: #a8a8a8; } .lpbox-rnd7 { background-color: #a3a3a3; } .lpbox-rnd8 { background-color: #9e9e9e; } 
+</style>
+<link rel="stylesheet" id="slb_core-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/app.css" media="all">
+<link rel="stylesheet" id="cryout-serious-slider-style-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/style(1).css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/frontend-lite.min.css" media="all">
+<link rel="stylesheet" id="swiper-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/swiper.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-1442-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/post-1442.css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/global.css" media="all">
+<link rel="stylesheet" id="elementor-post-2842-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/post-2842.css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="./CONNECT-THE-DOTS—靶机详解 – why403_files/css(1)" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/jquery.min.js.下载" id="jquery-core-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/jquery-migrate.min.js.下载" id="jquery-migrate-js"></script>
+<!--[if lt IE 9]>
+<script src="https://www.why403.cn/wp-content/themes/bravada/resources/js/html5shiv.min.js?ver=1.1.1" id="bravada-html5shiv-js"></script>
+<![endif]-->
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/jquery.mobile.custom.min.js.下载" id="cryout-serious-slider-jquerymobile-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/slider.js.下载" id="cryout-serious-slider-script-js"></script>
+<link rel="https://api.w.org/" href="https://www.why403.cn/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.why403.cn/wp-json/wp/v2/posts/2842"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.why403.cn/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="canonical" href="https://www.why403.cn/archives/2842">
+<link rel="shortlink" href="https://www.why403.cn/?p=2842">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F2842">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.why403.cn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.why403.cn%2Farchives%2F2842&amp;format=xml">
+<link rel="author" href="https://www.why403.cn/"><meta name="generator" content="Elementor 3.20.3; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<noscript><style>.cryout .cryout-preloader {display: none;}.cryout img[loading="lazy"] {opacity: 1;}</style></noscript>
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.why403.cn/wp-content/uploads/2023/06/cropped-APK-270x270.png">
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/wp-emoji-release.min.js.下载" defer=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="post-template-default single single-post postid-2842 single-format-standard wp-embed-responsive bravada-image-none bravada-caption-zero bravada-totop-normal bravada-no-table bravada-over-menu bravada-menu-right bravada-topsection-normal bravada-responsive-headerimage bravada-fullscreen-headerimage bravada-responsive-featured bravada-magazine-three bravada-magazine-layout bravada-comment-placeholder bravada-comment-icons bravada-normalizedtags bravada-animated-title bravada-lazy-noanimation bravada-article-animation-fade elementor-default elementor-kit-1442 elementor-page elementor-page-2842 e--ua-blink e--ua-edge e--ua-webkit" itemscope="" itemtype="http://schema.org/WebPage" data-elementor-device-mode="desktop">
+			<a class="skip-link screen-reader-text" href="https://www.why403.cn/archives/2842#main" title="跳至内容"> 跳至内容 </a>
+			<div id="site-wrapper">
+
+	<header id="masthead" class="cryout" itemscope="" itemtype="http://schema.org/WPHeader">
+
+		<div id="site-header-main">
+
+			<div class="site-header-top">
+
+				<div class="site-header-inside">
+
+					<div id="header-menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+											</div><!-- #header-menu -->
+
+				</div><!-- #site-header-inside -->
+
+			</div><!--.site-header-top-->
+
+						<nav id="mobile-menu" tabindex="-1">
+				<div class="side-menu side-section"><ul id="mobile-nav" class=""><li class="menu-main-search" style="transition-delay: 0s;">
+<form role="search" method="get" class="searchform" action="https://www.why403.cn/">
+	<label>
+		<span class="screen-reader-text">搜索：</span>
+		<input type="search" class="s" placeholder="搜索" value="" name="s" size="10">
+	</label>
+	<button type="submit" class="searchsubmit" aria-label="搜索"><i class="icon-search2"></i><i class="icon-search2"></i></button>
+</form>
+</li><li id="menu-item-1413" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1413" style="transition-delay: 0.03s;"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1414" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1414" style="transition-delay: 0.06s;"><a href="https://www.why403.cn/archives/category/learning"><span>学习</span></a></li>
+<li id="menu-item-1416" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1416" style="transition-delay: 0.09s;"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84"><span>数据结构</span></a></li>
+<li id="menu-item-1417" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1417" style="transition-delay: 0.12s;"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c"><span>计算机网络</span></a></li>
+<li id="menu-item-1418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1418" style="transition-delay: 0.15s;"><a href="https://www.why403.cn/archives/category/learning/python"><span>python</span></a></li>
+<li id="menu-item-1419" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1419" style="transition-delay: 0.18s;"><a href="https://www.why403.cn/archives/category/photography"><span>摄影</span></a></li>
+<li id="menu-item-1420" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1420" style="transition-delay: 0.21s;"><a href="https://www.why403.cn/archives/category/learning/c-c"><span>c/c++</span></a></li>
+<li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421" style="transition-delay: 0.24s;"><a href="https://www.why403.cn/archives/category/learning/linux"><span>Linux</span></a></li>
+<li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422" style="transition-delay: 0.27s;"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80"><span>系统基础</span></a></li>
+<li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1423" style="transition-delay: 0.3s;"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f"><span>内网渗透</span></a></li>
+</ul></div>					<div class="side-socials side-section">
+		<div class="widget-side-section-inner">
+			<section class="side-section-element widget_cryout_socials">
+				<div class="widget-socials">
+									</div>
+			</section>
+		</div>
+	</div>			</nav> <!-- #mobile-menu -->
+			
+			<div class="site-header-bottom">
+
+				<div class="site-header-bottom-fixed">
+
+					<div class="site-header-inside">
+
+						<div id="branding">
+							<div id="site-text"><div itemprop="headline" id="site-title"><span> <a href="https://www.why403.cn/" title="Hello,welcome to Vagary&#39;s website." rel="home">why403</a> </span></div><span id="site-description" itemprop="description">Hello,welcome to Vagary's website.</span></div>						</div><!-- #branding -->
+
+												<div class="menu-burger">
+							<button class="hamburger" type="button" aria-label="Main menu">
+									<span></span>
+									<span></span>
+									<span></span>
+							</button>
+						</div>
+						
+												<nav id="access" aria-label="顶部菜单" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+							<div><ul id="top-nav" class=""><li id="menu-item-1402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1402"><a href="https://www.why403.cn/"><span>首页</span></a></li>
+<li id="menu-item-1401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1401"><a href="https://doc.why403.cn/"><span>webscan</span></a></li>
+<li id="menu-item-1411" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1411"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8"><span>web安全</span></a></li>
+<li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1448"><a href="https://www.why403.cn/%e5%9b%be%e5%ba%93"><span>摄影</span></a></li>
+</ul></div>						</nav><!-- #access -->
+						
+					</div><!-- #site-header-inside -->
+
+				</div><!-- #site-header-bottom-fixed -->
+
+			</div><!--.site-header-bottom-->
+
+		</div><!-- #site-header-main -->
+
+		<div id="header-image-main">
+			<div id="header-image-main-inside">
+					<a href="https://www.why403.cn/archives/2842#main" class="meta-arrow" tabindex="-1">
+			<i class="icon-arrow" title="阅读更多"></i>
+	</a>
+			<div id="header-overlay" style="opacity: 0.6;"></div>
+			<div class="header-image" style="background-image: url(https://www.why403.cn/wp-content/uploads/2023/10/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg)"></div>
+			<img class="header-image" alt="CONNECT-THE-DOTS—靶机详解" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" style="opacity: 1; background-position: center 50%;">
+				    <div id="header-page-title" class="animated-title" style="opacity: 1;">
+        <div id="header-page-title-inside">
+						<div class="entry-meta pretitle-meta">
+							</div><!-- .entry-meta -->
+            <div class="entry-title"><em class="caption-title-word"><span><span class="cry-single" style="animation-delay: 0s;">C</span><span class="cry-double" style="animation-delay: 0s;">C</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">O</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">O</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">N</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">N</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">N</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">N</span></span><span><span class="cry-single" style="animation-delay: 0s;">E</span><span class="cry-double" style="animation-delay: 0s;">E</span></span><span><span class="cry-single" style="animation-delay: 0s;">C</span><span class="cry-double" style="animation-delay: 0s;">C</span></span><span><span class="cry-single" style="animation-delay: 0s;">T</span><span class="cry-double" style="animation-delay: 0s;">T</span></span><span><span class="cry-single" style="animation-delay: 0s;">-</span><span class="cry-double" style="animation-delay: 0s;">-</span></span><span><span class="cry-single" style="animation-delay: 0s;">T</span><span class="cry-double" style="animation-delay: 0s;">T</span></span><span><span class="cry-single" style="animation-delay: 0s;">H</span><span class="cry-double" style="animation-delay: 0s;">H</span></span><span><span class="cry-single" style="animation-delay: 0s;">E</span><span class="cry-double" style="animation-delay: 0s;">E</span></span><span><span class="cry-single" style="animation-delay: 0s;">-</span><span class="cry-double" style="animation-delay: 0s;">-</span></span><span><span class="cry-single" style="animation-delay: 0s;">D</span><span class="cry-double" style="animation-delay: 0s;">D</span></span><span><span class="cry-single" style="animation-delay: 0s;">O</span><span class="cry-double" style="animation-delay: 0s;">O</span></span><span><span class="cry-single" style="animation-delay: 0s;">T</span><span class="cry-double" style="animation-delay: 0s;">T</span></span><span><span class="cry-single animated-letter" style="animation-delay: 0ms;">S</span><span class="cry-double animated-letter" style="animation-delay: 0ms;">S</span></span><span><span class="cry-single" style="animation-delay: 0s;">—</span><span class="cry-double" style="animation-delay: 0s;">—</span></span><span><span class="cry-single" style="animation-delay: 0s;">靶</span><span class="cry-double" style="animation-delay: 0s;">靶</span></span><span><span class="cry-single" style="animation-delay: 0s;">机</span><span class="cry-double" style="animation-delay: 0s;">机</span></span><span><span class="cry-single" style="animation-delay: 0s;">详</span><span class="cry-double" style="animation-delay: 0s;">详</span></span><span><span class="cry-single" style="animation-delay: 0s;">解</span><span class="cry-double" style="animation-delay: 0s;">解</span></span></em></div>			<div class="entry-meta aftertitle-meta">
+				
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2024-04-02T00:10:53+08:00" itemprop="datePublished">
+					2024-04-02				</time>
+				<time class="updated" datetime="2024-04-02T00:56:17+08:00" itemprop="dateModified">2024-04-02</time>
+		</span>
+		<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>				<div id="breadcrumbs-container" class="cryout three-columns-sided"><div id="breadcrumbs-container-inside"><div id="breadcrumbs"> <nav id="breadcrumbs-nav"><a href="https://www.why403.cn/" title="首页"><i class="icon-bread-home"></i><span class="screen-reader-text">首页</span></a> <a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>  <span class="current">CONNECT-THE-DOTS—靶机详解</span></nav></div></div></div><!-- breadcrumbs -->			</div><!-- .entry-meta -->
+			<div class="byline">
+				内容
+FTP、NFS渗透
+web信息搜集
+JSFuck解码
+FTP多文件获取
+文件图片隐写
+摩斯密码解密
+vim意外中断文件还原
+getcap获取文件能力
+tar获取rootFlag和shadow文件
+polkit提权			</div>
+        </div>
+    </div> 			</div><!-- #header-image-main-inside -->
+		</div><!-- #header-image-main -->
+
+	</header><!-- #masthead -->
+
+	
+	<div id="content" class="cryout">
+		
+<div id="container" class="three-columns-sided">
+	<main id="main" class="main">
+		
+		
+			<article id="post-2842" class="post-2842 post type-post status-publish format-standard hentry category-web category-72 tag-js tag-linux tag-vulnhub tag-web tag-70 tag-91 tag-89 tag-21" itemscope="" itemtype="http://schema.org/Article" itemprop="mainEntity">
+				<div class="schema-image">
+							<div class="entry-meta">
+					</div>
+						</div>
+
+				<div class="article-inner">
+					<header>
+						<div class="entry-meta beforetitle-meta">
+													</div><!-- .entry-meta -->
+						<h1 class="entry-title singular-title" itemprop="headline">CONNECT-THE-DOTS—靶机详解</h1>
+						<div class="entry-meta aftertitle-meta">
+							<div class="author-container"><span class="author vcard" itemscope="" itemtype="http://schema.org/Person" itemprop="author"><a class="url fn n" rel="author" href="https://www.why403.cn/archives/author/vagary" title="查看该作者所有文章 vagary" itemprop="url">
+					<span class="author-avatar"><img width="96" height="96" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/cropped-QQ图片20230622220002-1-150x150.jpg" class="avatar avatar-96 photo" alt="" decoding="async" srcset="https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-150x150.jpg 150w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-300x300.jpg 300w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-281x281.jpg 281w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-270x270.jpg 270w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-192x192.jpg 192w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-180x180.jpg 180w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1-32x32.jpg 32w, https://www.why403.cn/wp-content/uploads/2023/06/cropped-QQ图片20230622220002-1.jpg 512w" sizes="(max-width: 96px) 100vw, 96px"></span>
+					<em itemprop="name">vagary</em></a></span></div>
+		<span class="onDate date">
+				<i class="icon-date icon-metas" title="日期"></i>
+				<time class="published" datetime="2024-04-02T00:10:53+08:00" itemprop="datePublished">
+					2024-04-02				</time>
+				<time class="updated" datetime="2024-04-02T00:56:17+08:00" itemprop="dateModified">2024-04-02</time>
+		</span>
+								</div><!-- .entry-meta -->
+
+					</header>
+
+					
+					<div class="entry-content" itemprop="articleBody">
+								<div data-elementor-type="wp-post" data-elementor-id="2842" class="elementor elementor-2842">
+				<div class="elementor-element elementor-element-bf31485 e-flex e-con-boxed e-con e-parent" data-id="bf31485" data-element_type="container" data-core-v316-plus="true">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2d83b0cb elementor-widget elementor-widget-text-editor" data-id="2d83b0cb" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.20.0 - 26-03-2024 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<!-- wp:paragraph -->
+<p><strong>靶机来自vulnhub</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>内容<br>FTP、NFS渗透<br>web信息搜集<br>JSFuck解码<br>FTP多文件获取<br>文件图片隐写<br>摩斯密码解密<br>vim意外中断文件还原<br>getcap获取文件能力<br>tar获取rootFlag和shadow文件<br>polkit提权</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">nmap扫描</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>sudo nmap -sn 10.10.10.0/24 -oN nmap/host //只进行主机发现<br>10.10.10.115是新增主机</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2967,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="281" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-197-1024x281.png" alt="" class="wp-image-2967" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-197-1024x281.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-197-300x82.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-197-768x211.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-197-453x124.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-197.png 1127w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>sudo nmap -p- –min-rate 10000 -oN nmap/port 10.10.10.115 //nmap端口扫描<br>开放21,80,111,2049,7822,34731,55403,58287,60301端口</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2995,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img decoding="async" width="792" height="416" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image.png" alt="" class="wp-image-2995" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image.png 792w, https://www.why403.cn/wp-content/uploads/2024/04/image-300x158.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-768x403.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-453x238.png 453w" sizes="(max-width: 792px) 100vw, 792px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>sudo nmap -sT -sV -O -sC -oN nmap/TCP.txt -p21,80,111,2049,7822,34731,55403,58287,60301 10.10.10.115 //nmap用tcp扫描服务版本探测，常用脚本扫描</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2968,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="432" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-198-1024x432.png" alt="" class="wp-image-2968" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-198-1024x432.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-198-300x126.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-198-768x324.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-198-1536x648.png 1536w, https://www.why403.cn/wp-content/uploads/2024/03/image-198-453x191.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-198.png 1570w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":2969,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="340" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-199-1024x340.png" alt="" class="wp-image-2969" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-199-1024x340.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-199-300x100.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-199-768x255.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-199-453x150.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-199.png 1212w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>可以得出以下信息：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li>主机信息：扫描的目标主机是 10.10.10.115，主机处于运行状态，延迟为 0.00059 秒。主机的 MAC 地址是 00:0C:29:1E:F3:CB，表示该主机是一个 VMware 虚拟机。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>端口扫描结果：<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>21/tcp：开放的 <strong>FTP</strong> 服务，版本为 vsftpd 2.0.8 或更高版本。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>80/tcp：开放的 <strong>HTTP</strong> 服务，使用的是 Apache httpd 2.4.38 (Debian)。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>111/tcp：开放的 <strong>rpcbind</strong> 服务，版本为 2-4 (RPC #100000)。rpcbind 是一个远程过程调用 (RPC) 服务，用于提供程序和端口映射。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>2049/tcp：开放的 <strong>NFS</strong> (Network File System) 服务，版本为 3-4 (RPC #100003)。NFS 是一种分布式文件系统协议。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>7822/tcp：开放的 <strong>SSH</strong> 服务，版本为 OpenSSH 7.9p1 Debian 10+deb10u1 (protocol 2.0)。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>34731/tcp：开放的 <strong>nlockmgr</strong> 服务，版本为 1-4 (RPC #100021)。nlockmgr 是一个用于文件锁定管理的 RPC 服务，是NFS的辅助服务。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>55403/tcp、58287/tcp、60301/tcp：开放的 <strong>mountd</strong> 服务，版本为 1-3 (RPC #100005)。mountd 是一个用于挂载远程文件系统的 RPC 服务。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>操作系统信息：根据扫描结果，目标主机运行的操作系统是 Linux，可能是 Linux 3.X 或 4.X 内核版本。</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>总结：根据扫描结果，目标主机上开放了一些常见的网络服务，如 FTP、HTTP、SSH、NFS 等。操作系统可能是 Linux，并且可能是在虚拟机环境中运行。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>sudo nmap -sU -p- –min-rate -oN nmap/UDP 10.10.10.114 //nmap用udp扫描端口<br>udp扫描没有新的服务发现</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3001,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="647" height="400" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-1.png" alt="" class="wp-image-3001" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-1.png 647w, https://www.why403.cn/wp-content/uploads/2024/04/image-1-300x185.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-1-453x280.png 453w" sizes="(max-width: 647px) 100vw, 647px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>sudo nmap –script=vuln -oN nmap/vuln.txt -p21,80,111,2049,7822,34731,55403,58287,60301 10.10.10.115 //nmap用vuln脚本扫描<br>vuln脚本扫描出：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>http-sql-injection：发现可能存在 SQL 注入漏洞，给出了一系列可能存在 SQL 注入的 URL。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>http-enum：发现一些潜在有趣的目录和文件，如<code>/images/</code>和<code>/manual/</code>。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>http-fileupload-exploiter：无法找到文件类型字段，无法确定文件上传漏洞。</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":2974,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="544" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-201-1024x544.png" alt="" class="wp-image-2974" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-201-1024x544.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-201-300x159.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-201-768x408.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-201-1536x816.png 1536w, https://www.why403.cn/wp-content/uploads/2024/03/image-201-453x241.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-201.png 1556w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":2975,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="942" height="851" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-202.png" alt="" class="wp-image-2975" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-202.png 942w, https://www.why403.cn/wp-content/uploads/2024/03/image-202-300x271.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-202-768x694.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-202-453x409.png 453w" sizes="(max-width: 942px) 100vw, 942px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">RPC服务信息搜集</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>sudo rpcinfo 10.10.10.115 //列出靶机开启的rpc服务<br>没有额外的新发现</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3075,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="801" height="832" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-11.png" alt="" class="wp-image-3075" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-11.png 801w, https://www.why403.cn/wp-content/uploads/2024/04/image-11-289x300.png 289w, https://www.why403.cn/wp-content/uploads/2024/04/image-11-768x798.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-11-453x471.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-11-24x24.png 24w" sizes="(max-width: 801px) 100vw, 801px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>根据述扫描结果可以得出如下图的攻击点，针对如下攻击点可以有如下几种着手的方式优先级从上到下，这里把web放第一的原因是可以先随意浏览下网站，然后根据实际情况选则是否尝试CMS识别和目录爆破（因为这在真实环境中容易携带巨大的流量特征），如果没有着手点选择，目录爆破甚至是爬网可以可以在这种扫描中尝试其他服务的渗透</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3080,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="529" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-12-1024x529.png" alt="" class="wp-image-3080" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-12-1024x529.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-12-300x155.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-12-768x397.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-12-453x234.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-12.png 1289w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">web渗透</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>根据首页得知这个站点是N为兄弟M准备的生日礼物</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3024,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="663" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-3-1024x663.png" alt="" class="wp-image-3024" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-3-1024x663.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-3-300x194.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-3-768x497.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-3-453x293.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-3.png 1391w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>由于该页面没有任何链接到其他页面的地方，也没有隐写以外的其他着手点，尝试目录爆破，在目录爆破的过程中尝试其他服务</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>gobuster dir –url=http://10.10.10.115 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -o ./gobuster // gobuster目录爆破</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading"></h4>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">NFS渗透尝试</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>showmount -e 10.10.10.115 //列出靶机可挂载文件</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2843,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="539" height="106" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-174.png" alt="" class="wp-image-2843" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-174.png 539w, https://www.why403.cn/wp-content/uploads/2024/03/image-174-300x59.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-174-453x89.png 453w" sizes="(max-width: 539px) 100vw, 539px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>mkdir NFS //创建文件夹为挂载做准备<br>sudo mount -t nfs 10.10.10.115:/home/morris ./NFS //挂载共享文件-t（type）指定挂载类型为nfs</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2846,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="901" height="581" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-175.png" alt="" class="wp-image-2846" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-175.png 901w, https://www.why403.cn/wp-content/uploads/2024/03/image-175-300x193.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-175-768x495.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-175-453x292.png 453w" sizes="(max-width: 901px) 100vw, 901px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>在.ssh文件中发现了ssh远程登录私钥和公钥，而且根据公钥可以知道用户是morris</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3043,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="407" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-4-1024x407.png" alt="" class="wp-image-3043" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-4-1024x407.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-4-300x119.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-4-768x305.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-4-1536x610.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/image-4-453x180.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-4.png 1901w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>把私钥复制到NFS外的目录中尝试私钥登录（直接在NFS目录下登录会显示没权限访问私钥）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3055,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="676" height="116" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-6.png" alt="" class="wp-image-3055" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-6.png 676w, https://www.why403.cn/wp-content/uploads/2024/04/image-6-300x51.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-6-453x78.png 453w" sizes="(max-width: 676px) 100vw, 676px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>sudo ssh morris@10.10.10.115 -i id_rsa -p7822 //这里端口是7822根据前面nmap端口扫描可以知道</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3051,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="709" height="189" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-5.png" alt="" class="wp-image-3051" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-5.png 709w, https://www.why403.cn/wp-content/uploads/2024/04/image-5-300x80.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-5-453x121.png 453w" sizes="(max-width: 709px) 100vw, 709px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">FTP渗透尝试</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ftp 10.10.10.115 //FTP连接</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3059,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="632" height="162" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-7.png" alt="" class="wp-image-3059" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-7.png 632w, https://www.why403.cn/wp-content/uploads/2024/04/image-7-300x77.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-7-453x116.png 453w" sizes="(max-width: 632px) 100vw, 632px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>尝试了以刚才公钥中暴漏出来的morris登录也没成功</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">回到web渗透</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>查看刚才目录扫描的结果</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3083,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="896" height="177" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-13.png" alt="" class="wp-image-3083" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-13.png 896w, https://www.why403.cn/wp-content/uploads/2024/04/image-13-300x59.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-13-768x152.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-13-453x89.png 453w" sizes="(max-width: 896px) 100vw, 896px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>images目录不知道会不会有隐写优先级排后</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3087,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="642" height="367" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-14.png" alt="" class="wp-image-3087" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-14.png 642w, https://www.why403.cn/wp-content/uploads/2024/04/image-14-300x171.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-14-453x259.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-14-640x367.png 640w" sizes="(max-width: 642px) 100vw, 642px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>mysite目录可以尝试的文件<br>1.后缀是.cs在web渗透中是不太常见的拓展名<br>2.register.html可能是注册网页</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3088,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1016" height="531" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-15.png" alt="" class="wp-image-3088" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-15.png 1016w, https://www.why403.cn/wp-content/uploads/2024/04/image-15-300x157.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-15-768x401.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-15-453x237.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-15-480x250.png 480w" sizes="(max-width: 1016px) 100vw, 1016px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>下载cs文件后用记事本查看后发现了一系列奇怪的字符，根据查询发现是JS混淆的一种技术—JSFuck</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3105,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="308" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-16-1024x308.png" alt="" class="wp-image-3105" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-16-1024x308.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-16-300x90.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-16-768x231.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-16-1536x462.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/image-16-453x136.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-16.png 1910w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading"><strong>JSFuck解码</strong></h4>
+<!-- /wp:heading -->
+
+<!-- wp:image {"id":2848,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="881" height="504" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-176.png" alt="" class="wp-image-2848" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-176.png 881w, https://www.why403.cn/wp-content/uploads/2024/03/image-176-300x172.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-176-768x439.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-176-453x259.png 453w" sizes="(max-width: 881px) 100vw, 881px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>这里原来js执行的是setInterval这句，原来原来的意思是打印3000遍a<br>为了把他交给JSFuck解码器，就先提取出里面的编码内容，可以把引号删了直接复制交给JSFuck解码器解码，我这里是修改源代码执行JS他们打印出来</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2849,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="950" height="306" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/b8e39ee3f624aa64da5cf25948f659c.png" alt="" class="wp-image-2849" srcset="https://www.why403.cn/wp-content/uploads/2024/03/b8e39ee3f624aa64da5cf25948f659c.png 950w, https://www.why403.cn/wp-content/uploads/2024/03/b8e39ee3f624aa64da5cf25948f659c-300x97.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/b8e39ee3f624aa64da5cf25948f659c-768x247.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/b8e39ee3f624aa64da5cf25948f659c-453x146.png 453w" sizes="(max-width: 950px) 100vw, 950px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>添加console.log(b1+b2+b3+b4+b5+b6+b7+b8+b9+b10);后交给nodejs执行<br>node ./bootstrap.min.cs &gt;jsfuck.txt</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3117,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="536" height="92" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-17.png" alt="" class="wp-image-3117" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-17.png 536w, https://www.why403.cn/wp-content/uploads/2024/04/image-17-300x51.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-17-453x78.png 453w" sizes="(max-width: 536px) 100vw, 536px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>查看后得到完整的JSFuck</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3124,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="362" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-18-1024x362.png" alt="" class="wp-image-3124" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-18-1024x362.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-18-300x106.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-18-768x272.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-18-1536x544.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/image-18-453x160.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-18.png 1907w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>复制后交给在线的JSFuck解码器解码就行<a href="https://kamil-kielczewski.github.io/jsfuck/index.html">JSFuck – Write any JavaScript with 6 Characters: []()!+ (kamil-kielczewski.github.io)</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2850,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="401" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/3a58a425295f826dd10d25a105a9da3-1024x401.png" alt="" class="wp-image-2850" srcset="https://www.why403.cn/wp-content/uploads/2024/03/3a58a425295f826dd10d25a105a9da3-1024x401.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/3a58a425295f826dd10d25a105a9da3-300x117.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/3a58a425295f826dd10d25a105a9da3-768x300.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/3a58a425295f826dd10d25a105a9da3-453x177.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/3a58a425295f826dd10d25a105a9da3.png 1485w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">得到shell</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>根据这里的提示可以想到ssh登录</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>刚开始用morris/Morris/Norris/root/norris试了密码Norris@2k19都不对<br>结果后面试了一整句就连上了<br>最后登录时 用户/密码是：norris/TryToGuessThisNorris@2k19<br>有点无语。。。。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2852,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="546" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-177-1024x546.png" alt="" class="wp-image-2852" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-177-1024x546.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-177-300x160.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-177-768x410.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-177-1536x820.png 1536w, https://www.why403.cn/wp-content/uploads/2024/03/image-177-453x242.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-177.png 1829w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>获得norris用户flag:2c2836a138c0e7f7529aa0764a6414d0</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2855,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="709" height="330" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-179.png" alt="" class="wp-image-2855" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-179.png 709w, https://www.why403.cn/wp-content/uploads/2024/03/image-179-300x140.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-179-453x211.png 453w" sizes="(max-width: 709px) 100vw, 709px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>ftp目录下<br>file *.*<br>file查看FTP文件中的所有文件格式</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2857,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="82" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-180-1024x82.png" alt="" class="wp-image-2857" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-180-1024x82.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-180-300x24.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-180-768x62.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-180-1536x123.png 1536w, https://www.why403.cn/wp-content/uploads/2024/03/image-180-453x36.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-180.png 1896w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>发现存在莫斯密码</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>摩斯密码解密</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2861,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="822" height="542" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-181.png" alt="" class="wp-image-2861" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-181.png 822w, https://www.why403.cn/wp-content/uploads/2024/03/image-181-300x198.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-181-768x506.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-181-453x299.png 453w" sizes="(max-width: 822px) 100vw, 822px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>解密出来内容不完整，既然这里有FTP文件夹想到与前面的FTP服务有联系，用FTP获取文件<br>1.用norris用户登录FTP<br>2.把文件传输格式设置为binary避免一些莫名其妙的问题<br>3.prompt开启多文件传输<br>4.mget获取FTP先所有文件</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2863,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="527" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-182-1024x527.png" alt="" class="wp-image-2863" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-182-1024x527.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-182-300x154.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-182-768x395.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-182-1536x790.png 1536w, https://www.why403.cn/wp-content/uploads/2024/03/image-182-453x233.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-182.png 1909w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>exiftool game.jpg.bak //查看该文件详细信息</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p>ExifTool 是一款功能强大的用于读取、编写和编辑图像、音频和视频文件中的元数据的工具。元数据是关于文件的附加信息，如拍摄日期、相机制造商、地理位置等。ExifTool 可以读取和修改各种文件格式的元数据，包括 JPEG、TIFF、RAW、MP3、MP4 等。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>ExifTool 是由 Phil Harvey 开发的，并以 Perl 编写。它是一个跨平台的工具，可以在 Windows、macOS、Linux 等操作系统上运行。ExifTool 提供了命令行界面，可以通过命令行参数来执行各种操作，如查看、编辑、删除和复制元数据。此外，ExifTool 还有一些图形界面的前端工具，方便非技术人员使用。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>ExifTool 在数字摄影、数字取证、媒体管理等领域得到广泛应用。它可以帮助用户查看和修改图像的拍摄参数、修复损坏的元数据、批量处理文件等。由于其功能强大和支持众多文件格式，ExifTool 成为了处理元数据的首选工具之一。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:image {"id":3148,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="403" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-19-1024x403.png" alt="" class="wp-image-3148" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-19-1024x403.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-19-300x118.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-19-768x302.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-19-1536x605.png 1536w, https://www.why403.cn/wp-content/uploads/2024/04/image-19-453x178.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-19.png 1920w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":2865,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="378" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-183-1024x378.png" alt="" class="wp-image-2865" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-183-1024x378.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-183-300x111.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-183-768x284.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-183-453x167.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-183.png 1522w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>I AM SAVING THE GATEWAY TO MY DUNGEON IN A ‘SECRET FILE’ WHICH IS PUBLICLY ACCESSIBLE.</strong>这句话就很重要<br>根据这句话提示显然我们要找的下一个文件就是所谓的<strong>SECRET FILE</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p>这段文本看起来像是一段带有一些故事情节或者隐藏信息的文字。让我来解释一下：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>“HEYNORRIS, YOU’VE MADE THIS FAR. FAR FAR FROM HEAVEN, WANNA SEE HELL NOW?” 这句话似乎在向某人发出挑战，暗示他们已经离开了天堂，是否愿意去看地狱。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>“HAHA, YOU SURELY MISSED ME, DIDN’T YOU?” 这句话暗示对方一定想念说话者。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>“OH DAMN, MY BATTERY IS ABOUT TO DIE AND I AM UNABLE TO FIND MY CHARGERS SO QUICKLY.” 这句话表达了说话者的电池即将耗尽，而且他们无法快速找到充电器。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>“LEAVING A HINT IN HERE BEFORE THIS SYSTEM SHUTS DOWN AUTOMATICALLY.” 这句话意味着在系统自动关闭之前，说话者在这里留下了一个提示。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>“<strong>I AM SAVING THE GATEWAY TO MY DUNGEON IN A ‘SECRET FILE’ WHICH IS PUBLICLY ACCESSIBLE.</strong>” 这句话暗示说话者将通往他们地牢的入口保存在一个名为”SECRET FILE”的文件中，而这个文件是公开可访问的。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>总的来说，这段文本似乎在暗示某种挑战或者隐藏信息的存在。然而，具体的含义可能需要更多的上下文或者解密来理解。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph -->
+<p>find / -name “secret*” 2&gt;/dev/null //查找文件名中带有secret的文件，讲错误信息丢弃<br>发现在/var/www/html/下有一个secretfile的文件<br>而且还发现了其他的一些有趣的文件比如hits.txt<br>cat查看发现权限不够<br>既然属主是www-data直接在web页面上查看就行</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2867,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="954" height="667" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-185.png" alt="" class="wp-image-2867" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-185.png 954w, https://www.why403.cn/wp-content/uploads/2024/03/image-185-300x210.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-185-768x537.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-185-453x317.png 453w" sizes="(max-width: 954px) 100vw, 954px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>在网页上查看secretfile,.secretfile.swp和hits.txt文件</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3163,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="158" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-20-1024x158.png" alt="" class="wp-image-3163" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-20-1024x158.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-20-300x46.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-20-768x119.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-20-453x70.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-20.png 1126w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":3168,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="620" height="209" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-21.png" alt="" class="wp-image-3168" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-21.png 620w, https://www.why403.cn/wp-content/uploads/2024/04/image-21-300x101.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-21-453x153.png 453w" sizes="(max-width: 620px) 100vw, 620px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>下载了.secretfile.swp<br>用srtings和cat查看可以看到出现了相同的文字和一些奇怪的乱码</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3178,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="955" height="381" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-23.png" alt="" class="wp-image-3178" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-23.png 955w, https://www.why403.cn/wp-content/uploads/2024/04/image-23-300x120.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-23-768x306.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-23-453x181.png 453w" sizes="(max-width: 955px) 100vw, 955px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>通过搜索知道.swp是vim意外退出保留的备份文件，可以利用其恢复出完整的文件</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group"><!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p>Vim 的&nbsp;<code>.swp</code>&nbsp;文件是用于保存临时编辑数据的文件。当你在使用 Vim 编辑文件时，如果突然意外退出 Vim，例如系统崩溃或你关闭终端窗口，Vim 将会在文件所在目录下创建一个以&nbsp;<code>.swp</code>&nbsp;为扩展名的文件，以保存你的临时编辑进度。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>.swp</code>&nbsp;文件的命名方式通常是在原始文件名前加上一个点，并附加&nbsp;<code>.swp</code>&nbsp;扩展名。例如，对于文件&nbsp;<code>example.txt</code>，Vim 会创建一个名为&nbsp;<code>.example.txt.swp</code>&nbsp;的&nbsp;<code>.swp</code>&nbsp;文件。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><code>.swp</code>&nbsp;文件包含了在编辑过程中未保存的更改，以及有关编辑会话的其他元数据。当你再次打开原始文件时，Vim 会检查是否存在&nbsp;<code>.swp</code>&nbsp;文件，并询问是否恢复之前未保存的编辑内容。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>你可以选择恢复编辑会话，或者删除&nbsp;<code>.swp</code>&nbsp;文件并开始一个新的编辑会话。请注意，<code>.swp</code>&nbsp;文件只是一个临时文件，它们并不是你的原始文件的副本或备份。因此，在正常情况下，当你退出 Vim 并保存文件时，<code>.swp</code>&nbsp;文件会被自动删除。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph -->
+<p>恢复swp文件<br>vim -r .secretfile.swp</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2868,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="258" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-186-1024x258.png" alt="" class="wp-image-2868" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-186-1024x258.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-186-300x76.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-186-768x193.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-186-453x114.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-186.png 1036w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>拿到一个字符串<br>既然这里提到了password<br>试一下能不能切换到root或者morris</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3185,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="952" height="225" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-24.png" alt="" class="wp-image-3185" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-24.png 952w, https://www.why403.cn/wp-content/uploads/2024/04/image-24-300x71.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-24-768x182.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-24-453x107.png 453w" sizes="(max-width: 952px) 100vw, 952px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>拿到morris用户，不过该用户没有flag,而且权限一般</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2913,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="705" height="369" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-194.png" alt="" class="wp-image-2913" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-194.png 705w, https://www.why403.cn/wp-content/uploads/2024/03/image-194-300x157.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-194-453x237.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-194-480x250.png 480w" sizes="(max-width: 705px) 100vw, 705px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">提权方法1—<strong>tar获取rootFlag和shadow文件</strong></h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>获取文件系统上所有文件的能力</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>/sbin/getcap -r / 2&gt;/dev/null</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2875,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="956" height="125" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-189.png" alt="" class="wp-image-2875" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-189.png 956w, https://www.why403.cn/wp-content/uploads/2024/03/image-189-300x39.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-189-768x100.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-189-453x59.png 453w" sizes="(max-width: 956px) 100vw, 956px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group"><!-- wp:paragraph -->
+<p>以下是每个文件或目录的能力信息的解释：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li><code>/usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper</code>：</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>能力：<code>cap_net_bind_service</code>（允许绑定低于1024的端口）、<code>cap_net_admin</code>（允许网络管理操作）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>执行权限：<code>+ep</code>（允许以特权用户的权限执行）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li><code>/usr/bin/tar</code>：</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>能力：<code>cap_dac_read_search</code>（允许读取和搜索任意文件）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>执行权限：<code>+ep</code>（允许以特权用户的权限执行）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li><code>/usr/bin/gnome-keyring-daemon</code>：</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>能力：<code>cap_ipc_lock</code>（允许锁定内存页）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>执行权限：<code>+ep</code>（允许以特权用户的权限执行）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li><code>/usr/bin/ping</code>：</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>能力：<code>cap_net_raw</code>（允许发送原始网络数据包）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>执行权限：<code>+ep</code>（允许以特权用户的权限执行）</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>这些能力信息指示了这些文件或目录在执行时具有特定的权限，以便执行特定的操作，而无需完全的超级用户权限。这种细粒度的权限控制有助于提高系统的安全性。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p><code>/sbin/getcap -r / 2&gt;/dev/null</code> 是一个 Linux 命令，用于获取文件系统上所有文件的能力（capabilities）信息。能力是 Linux 中用于实现权限的一种机制，它可以赋予某些程序或进程特定的权限，而不需要完全依赖于传统的用户和组权限。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>在该命令中，<code>/sbin/getcap</code> 是用于获取能力信息的程序，<code>-r /</code> 表示递归地获取整个文件系统的能力信息。<code>2&gt;/dev/null</code> 是将标准错误输出重定向到 <code>/dev/null</code>，以忽略任何错误信息。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>执行该命令将输出文件系统上所有文件的能力信息，例如：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/path/to/file = cap_net_bind_service+ep
+/path/to/another/file = cap_sys_admin+ep
+...</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>每行显示一个文件路径，后面是该文件所具有的能力。能力信息以 <code>+</code> 开头，并在后面列出了具体的能力标识符。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>需要注意的是，执行该命令需要具有足够的权限。通常情况下，只有超级用户（root）或具有特定权限的用户才能够获取文件的能力信息。</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p>Linux 中的能力信息包括以下几种常见的能力：</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li><code>cap_chown</code>：允许修改任意文件的所有者。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_dac_override</code>：允许绕过文件的 DAC（Discretionary Access Control，自主访问控制）权限限制。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_dac_read_search</code>：允许读取或搜索任意文件和目录。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_fowner</code>：允许修改文件的所有者。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_fsetid</code>：允许设置文件的 setuid 和 setgid 位。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_kill</code>：允许发送信号给其他进程。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_setgid</code>：允许修改进程的有效组 ID。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_setuid</code>：允许修改进程的有效用户 ID。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_setpcap</code>：允许修改进程的能力集。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_linux_immutable</code>：允许修改文件的 Linux 不可变标志。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_net_bind_service</code>：允许绑定低于 1024 的网络端口。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_net_broadcast</code>：允许发送广播数据包。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_net_admin</code>：允许进行网络管理操作。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_net_raw</code>：允许进行原始套接字操作。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_ipc_lock</code>：允许锁定共享内存段。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_ipc_owner</code>：允许修改共享内存段的所有者。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_sys_module</code>：允许加载和卸载内核模块。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_sys_rawio</code>：允许进行裸设备 I/O 操作。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_sys_chroot</code>：允许使用 chroot() 系统调用。</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><code>cap_sys_ptrace</code>：允许跟踪和操作其他进程。</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>这只是一些常见的能力信息示例，实际上还有其他能力可用。每个能力都对应着不同的权限，具体的权限取决于应用程序和系统的配置。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">利用tar获取root目录下的flag</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>tar -zcvf root.tar.gz /root //归档并解压root目录为gzip格式<br>tar -zxvf root.tar.gz // 解压缩root目录<br>之后就可以看到root目录下的所有文件了，自然也包括flag，linux下root用户默认不能远程登录（要修改<code>/etc/ssh/sshd_config</code>文件，并将以下行的注释符号（#）去除：<code>#PermitRootLogin yes</code>，才可以远程登录ssh）而且看了一下这里没有.ssh文件也验证靶机中使用了默认配置</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2874,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="929" height="1024" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-188-929x1024.png" alt="" class="wp-image-2874" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-188-929x1024.png 929w, https://www.why403.cn/wp-content/uploads/2024/03/image-188-272x300.png 272w, https://www.why403.cn/wp-content/uploads/2024/03/image-188-768x846.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-188-453x499.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-188.png 934w" sizes="(max-width: 929px) 100vw, 929px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>获得root用户下的flag:8fc9376d961670ca10be270d52eda423</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2892,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="956" height="241" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-193.png" alt="" class="wp-image-2892" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-193.png 956w, https://www.why403.cn/wp-content/uploads/2024/03/image-193-300x76.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-193-768x194.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-193-453x114.png 453w" sizes="(max-width: 956px) 100vw, 956px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">tar读取shadow文件提权尝试</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>既然可以通过利用tar读取到/root，也自然可以读取到/etc/shadow文件，再通过hash解密获得root密码（这里只提供一种思路，这个hash破解CMD5要付费。。。。。。）</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2888,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="267" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-192-1024x267.png" alt="" class="wp-image-2888" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-192-1024x267.png 1024w, https://www.why403.cn/wp-content/uploads/2024/03/image-192-300x78.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-192-768x201.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-192-453x118.png 453w, https://www.why403.cn/wp-content/uploads/2024/03/image-192.png 1382w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>尝试其他提权</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">提权方法2—polkit提权</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>查找具有suid权限的文件，这里框出来的几个都可能用来提权，不过还是要进一步确认，这里先尝试polkit-agent-helper 来提权</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":2928,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="914" height="501" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-195.png" alt="" class="wp-image-2928" srcset="https://www.why403.cn/wp-content/uploads/2024/03/image-195.png 914w, https://www.why403.cn/wp-content/uploads/2024/03/image-195-300x164.png 300w, https://www.why403.cn/wp-content/uploads/2024/03/image-195-768x421.png 768w, https://www.why403.cn/wp-content/uploads/2024/03/image-195-453x248.png 453w" sizes="(max-width: 914px) 100vw, 914px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:group {"gradient":"pale-ocean","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-pale-ocean-gradient-background has-background"><!-- wp:paragraph -->
+<p>polkit-agent-helper 是一个用于帮助执行基于 PolicyKit（即 Polkit）的授权请求的工具，它通常用于 Linux 操作系统中。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>在 Linux 系统中，PolicyKit 是一个用于管理系统范围的特权访问的工具。当需要执行需要特权的操作时，通常会向 PolicyKit 发送授权请求。PolicyKit 会检查请求者的身份，并基于定义的授权策略（即 polkit 规则）来决定是否授权该请求。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>polkit-agent-helper 就是作为一个代理工具，协助应用程序向 PolicyKit 发送授权请求，并处理来自 PolicyKit 的响应。当一个应用程序需要执行特权操作时，它会调用 polkit-agent-helper，该工具会弹出一个对话框，提示用户输入其凭证（如密码），然后将这些凭证发送给 PolicyKit 进行验证。如果用户提供的凭证被验证成功，PolicyKit 就会授权该请求。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>因此，polkit-agent-helper 的提权原理可以简单概括为：<strong>通过代理向 PolicyKit 发送授权请求，并通过用户提供的凭证验证来获得特权访问。因为polkit-agent-helper所属用户是root且有s权限，那么启用更高级的bash时，就会利用特权提权。</strong></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph -->
+<p>所以只要执行一个在执行过程中会调用polkit-agent-helper的命令都能借用polkit-agent-helper的权限，polkit-agent-helper又具有root权限，这样就将权限提升到了root,不过要获得root的bash,就要在执行bash的时候调用polkit-agent-helper，这里用systemd-run 执行bash,在systemd-run执行时又会调用polkit-agent-helper，这样bash就获得了root的权限</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>systemd-run -t /bin/bash <br>成功获取root权限</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":3214,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="674" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/image-26-1024x674.png" alt="" class="wp-image-3214" srcset="https://www.why403.cn/wp-content/uploads/2024/04/image-26-1024x674.png 1024w, https://www.why403.cn/wp-content/uploads/2024/04/image-26-300x197.png 300w, https://www.why403.cn/wp-content/uploads/2024/04/image-26-768x506.png 768w, https://www.why403.cn/wp-content/uploads/2024/04/image-26-453x298.png 453w, https://www.why403.cn/wp-content/uploads/2024/04/image-26.png 1504w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+													</div><!-- .entry-content -->
+
+					<footer class="entry-meta entry-utility">
+											</footer><!-- .entry-utility -->
+
+				</div><!-- .article-inner -->
+				
+	<span class="schema-publisher" itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+         <span itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+           <meta itemprop="url" content="https://www.why403.cn">
+         </span>
+         <meta itemprop="name" content="why403">
+    </span>
+<link itemprop="mainEntityOfPage" href="https://www.why403.cn/connect-the-dots-%e9%9d%b6%e6%9c%ba%e8%af%a6%e8%a7%a3">			</article><!-- #post-## -->
+
+			
+
+						<section id="comments">
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表回复 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.why403.cn/archives/2842#respond" style="display:none;">取消回复</a></small></h3><form action="https://www.why403.cn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">您的电子邮箱地址不会被公开。</span> <span class="required-field-message">必填项已用 <span class="required">*</span> 标注</span></p><p class="comment-form-comment"><label for="comment">评论</label><em><textarea placeholder="评论" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></em></p><p class="comment-form-author"><label for="author">名字<span class="required">*</span></label> <em><input id="author" placeholder="名字*" name="author" type="text" value="" size="30" maxlength="245" aria-required="true"></em></p>
+<p class="comment-form-email"><label for="email">电子邮箱地址<span class="required">*</span></label> <em><input id="email" placeholder="电子邮箱地址*" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true"></em></p>
+<p class="comment-form-url"><label for="url">网站</label><em><input id="url" placeholder="网站" name="url" type="url" value="" size="30" maxlength="200"></em></p>
+<p class="comment-form-cookies-consent"><label for="wp-comment-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">在浏览器中保存我的名字、电子邮件和网站地址，以便下次发表评论时使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="2842" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	</section><!-- #comments -->
+
+
+		
+			</main><!-- #main -->
+
+	
+<aside id="primary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-5" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">归档</h2><ul class="wp-block-archives-list wp-block-archives">	<li><a href="https://www.why403.cn/archives/date/2024/05">2024 年 5 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/04">2024 年 4 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/03">2024 年 3 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/02">2024 年 2 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2024/01">2024 年 1 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/12">2023 年 12 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/11">2023 年 11 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/10">2023 年 10 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/09">2023 年 9 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/07">2023 年 7 月</a></li>
+	<li><a href="https://www.why403.cn/archives/date/2023/06">2023 年 6 月</a></li>
+</ul></div></div></section><section id="block-6" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">分类</h2><ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-5"><a href="https://www.why403.cn/archives/category/learning/c-c">c/c++</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://www.why403.cn/archives/category/learning/html">HTML</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.why403.cn/archives/category/learning/html/javascript">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="https://www.why403.cn/archives/category/learning/linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://www.why403.cn/archives/category/learning/python">python</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://www.why403.cn/archives/category/web%e5%ae%89%e5%85%a8">web安全</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="https://www.why403.cn/archives/category/%e5%86%85%e7%bd%91%e6%b8%97%e9%80%8f">内网渗透</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://www.why403.cn/archives/category/learning">学习</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://www.why403.cn/archives/category/photography">摄影</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://www.why403.cn/archives/category/learning/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.why403.cn/archives/category/uncategorized">未分类</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://www.why403.cn/archives/category/%e7%b3%bb%e7%bb%9f%e5%9f%ba%e7%a1%80">系统基础</a>
+</li>
+	<li class="cat-item cat-item-41"><a href="https://www.why403.cn/archives/category/learning/%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c">计算机网络</a>
+</li>
+</ul></div></div></section>
+	</aside>
+
+<aside id="secondary" class="widget-area sidey" itemscope="" itemtype="http://schema.org/WPSideBar">
+	
+	<section id="block-2" class="widget-container widget_block widget_search"><form role="search" method="get" action="https://www.why403.cn/" class="wp-block-search__button-outside wp-block-search__icon-button aligncenter wp-block-search"><label class="wp-block-search__label screen-reader-text" for="wp-block-search__input-1" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none">搜索</label><div class="wp-block-search__inside-wrapper " style="width: 100%"><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" style="font-size: 6px;font-weight: 600;font-style: normal;text-transform: none"><button aria-label="" class="wp-block-search__button has-text-color has-accent-2-color has-background has-icon wp-element-button" type="submit" style="background: linear-gradient(146deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);font-size: 6px;font-weight: 600;font-style: normal;text-transform: none;text-decoration: none"><svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
+				</svg></button></div></form></section><section id="block-3" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期文章</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4936">Kerberos协议深度解析</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4850">dpwwn-01</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4353">WestWild靶机详解</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/4628">深度解析webshell管理工具—哥斯拉</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://www.why403.cn/archives/3683">shiro反序列化漏洞复现</a></li>
+</ul></div></div></section><section id="block-4" class="widget-container widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h2 class="wp-block-heading">近期评论</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://www.why403.cn/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-13">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><span class="wp-block-latest-comments__comment-author">木</span> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/3572#comment-12">Struts2系列漏洞复现</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://8.130.40.139/">vagary</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-11">linux提权</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://www.why403.cn/">son</a> 发表在 <a class="wp-block-latest-comments__comment-link" href="https://www.why403.cn/archives/1316#comment-10">linux提权</a></footer></article></li></ol></div></div></section>
+	</aside>
+</div><!-- #container -->
+	<nav id="nav-below" class="navigation">
+				<div class="nav-previous">
+			<a href="https://www.why403.cn/archives/2695" rel="prev"><em>上一篇</em><span>kioptrixVM3—靶机详解</span></a>			<img src="./CONNECT-THE-DOTS—靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+		<div class="nav-next">
+			<a href="https://www.why403.cn/archives/3275" rel="next"><em>下一篇</em><span>XSS漏洞</span></a>			<img src="./CONNECT-THE-DOTS—靶机详解 – why403_files/cropped-12777-2441869984-masterpiece_masterpiec-scaled-1.jpg" alt="" loading="lazy">		</div>
+	</nav><!-- #nav-below -->
+
+		
+		<aside id="colophon" itemscope="" itemtype="http://schema.org/WPSideBar">
+			<div id="colophon-inside" class="footer-three footer-center">
+				
+			</div>
+		</aside><!-- #colophon -->
+
+	</div><!-- #main -->
+
+	<footer id="footer" class="cryout" itemscope="" itemtype="http://schema.org/WPFooter">
+		<button id="toTop" aria-label="回到顶部"><i class="icon-back2top"></i> </button>		<div id="footer-top">
+			<div class="footer-inside">
+				<div id="site-copyright">©2024 why403</div>			</div><!-- #footer-inside -->
+		</div><!-- #footer-top -->
+		<div id="footer-bottom">
+			<div class="footer-inside">
+				<div style="display:block; margin: 0.5em auto;">动力源自<a target="_blank" href="http://www.cryoutcreations.eu/wordpress-themes/bravada" title="Bravada WordPress Theme by Cryout Creations"> Bravada</a> &amp; <a target="_blank" href="http://wordpress.org/" title="语义个人发布平台">  WordPress</a>.</div>			</div> <!-- #footer-inside -->
+		</div><!-- #footer-bottom -->
+	</footer>
+</div><!-- site-wrapper -->
+	<style id="core-block-supports-inline-css">
+.wp-container-core-group-is-layout-1{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-2{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-3{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-4{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-5{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-6{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-7{flex-direction:column;align-items:flex-start;}.wp-container-core-group-is-layout-8{flex-direction:column;align-items:flex-start;}
+</style>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/mpp-frontend.js.下载" id="mpp_gutenberg_tabs-js"></script>
+<script id="bravada-frontend-js-extra">
+var cryout_theme_settings = {"masonry":"1","rtl":"","magazine":"3","fitvids":"1","autoscroll":"1","articleanimation":"fade","lpboxratios":[1.92,2.133],"is_mobile":"","menustyle":"0"};
+</script>
+<script defer="" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/frontend.js.下载" id="bravada-frontend-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/imagesloaded.min.js.下载" id="imagesloaded-js"></script>
+<script defer="" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/masonry.min.js.下载" id="masonry-js"></script>
+<script defer="" src="./CONNECT-THE-DOTS—靶机详解 – why403_files/jquery.masonry.min.js.下载" id="jquery-masonry-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/comment-reply.min.js.下载" id="comment-reply-js" async="" data-wp-strategy="async"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/webpack.runtime.min.js.下载" id="elementor-webpack-runtime-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/frontend-modules.min.js.下载" id="elementor-frontend-modules-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/waypoints.min.js.下载" id="elementor-waypoints-js"></script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/core.min.js.下载" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u5728\u8138\u4e66\u4e0a\u5206\u4eab","shareOnTwitter":"\u5206\u4eab\u5230Twitter","pinIt":"\u9489\u4f4f","download":"\u4e0b\u8f7d","downloadImage":"\u4e0b\u8f7d\u56fe\u7247","fullscreen":"\u5168\u5c4f","zoom":"\u7f29\u653e","share":"\u5206\u4eab","playVideo":"\u64ad\u653e\u89c6\u9891","previous":"\u4e0a\u4e00\u9875","next":"\u4e0b\u4e00\u9875","close":"\u5173\u95ed","a11yCarouselWrapperAriaLabel":"\u5e7b\u706f\u7247 | \u6c34\u5e73\u6eda\u52a8\uff1a\u5de6\u7bad\u5934\u548c\u53f3\u7bad\u5934","a11yCarouselPrevSlideMessage":"\u4e0a\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselNextSlideMessage":"\u4e0b\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselFirstSlideMessage":"\u8fd9\u662f\u7b2c\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselLastSlideMessage":"\u8fd9\u662f\u6700\u540e\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselPaginationBulletMessage":"\u8f6c\u5230\u5e7b\u706f\u7247"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u624b\u673a\u7eb5\u5411","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u624b\u673a\u6a2a\u5411","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u5e73\u677f\u7535\u8111\u7eb5\u5411","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u5e73\u677f\u7535\u8111\u6a2a\u5411","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u7b14\u8bb0\u672c\u7535\u8111","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u5168\u5bbd\u5c4f","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.20.3","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"block_editor_assets_optimize":true,"ai-layout":true,"landing-pages":true,"e_image_loading_optimization":true},"urls":{"assets":"https:\/\/www.why403.cn\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":2842,"title":"CONNECT-THE-DOTS%E2%80%94%E9%9D%B6%E6%9C%BA%E8%AF%A6%E8%A7%A3%20%E2%80%93%20why403","excerpt":"\u5185\u5bb9\nFTP\u3001NFS\u6e17\u900f\nweb\u4fe1\u606f\u641c\u96c6\nJSFuck\u89e3\u7801\nFTP\u591a\u6587\u4ef6\u83b7\u53d6\n\u6587\u4ef6\u56fe\u7247\u9690\u5199\n\u6469\u65af\u5bc6\u7801\u89e3\u5bc6\nvim\u610f\u5916\u4e2d\u65ad\u6587\u4ef6\u8fd8\u539f\ngetcap\u83b7\u53d6\u6587\u4ef6\u80fd\u529b\ntar\u83b7\u53d6rootFlag\u548cshadow\u6587\u4ef6\npolkit\u63d0\u6743","featuredImage":false}};
+</script>
+<script src="./CONNECT-THE-DOTS—靶机详解 – why403_files/frontend.min.js.下载" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+
+
+</body></html>
