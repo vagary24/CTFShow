@@ -6,18 +6,18 @@ JPG: FF 8D FF
 
 psd: 特征 adobe photoshop
 
-![PSD](.\image_misc\PSD.png)
+![PSD](./image_misc/PSD.png)
 
 BMP: 42 4D 特征BM
 
-![BMP](.\image_misc\BMP.png)
+![BMP](./image_misc/BMP.png)
 
 GIF: 47 49 46 特征GIF RGB表很长
 
-![GIF](.\image_misc\GIF.png)
+![GIF](./image_misc/GIF.png)
 
 WEBP: 特征RIFF WEBP
 
-![WEBP](.\image_misc\WEBP.png)
+![WEBP](./image_misc/WEBP.png)
 
-![filehead](.\image_misc\filehead.png)
+![filehead](./image_misc/filehead.png)
