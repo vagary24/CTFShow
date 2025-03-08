@@ -37,7 +37,7 @@ if(isset($_GET['num'])){
 
 intval函数特性：intval函数在遇到数组时不判断内容只判断是否为空，空返回0，非空返回1；
 
-![web89_intval](.\image_php\web89_intval.png)
+![web89_intval](./image_php/web89_intval.png)
 
 > 以下是 `intval()` 函数的一些基本用法：
 >
@@ -279,7 +279,7 @@ if(isset($_GET['num'])){
 ?>
 ```
 
-![web92_compare](.\image_php\web92_compare.png)
+![web92_compare](./image_php/web92_compare.png)
 
 通过上面的比较用科学计数，浮点数都可以绕过，另外用之前intval($val,0)的特性用其他进制数也能绕过
 
@@ -382,7 +382,7 @@ if(isset($_GET['num'])){
 > echo strpos($num5, "0").'</br>';
 > ```
 >
-> ![web94](.\image_php\web94.png)
+> ![web94](./image_php/web94.png)
 
 所有这里用浮点数的字符串绕过就行 payload `/?num=4476.0` 此时的strpos($num, "0")为5，将不会进入if(!strpos($num, "0"))
 
@@ -533,7 +533,7 @@ print 'Wrong.';
 
 md5()函数在处理数组和对象时会返回null,php数组比较，比较的是键值、顺序、类型。
 
-![web97](.\image_php\web97.png)
+![web97](./image_php/web97.png)
 
 ### 思路二：两个不用的明文各自经过MD5加密后，得到相等的hash值
 
@@ -550,13 +550,13 @@ a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d
 
 用法主要就是-p参数和-o,-p指定初始输入文件相当于生成种子，-o指定输出
 
-![web97_fastcoll](.\image_php\web97_fastcoll.png)
+![web97_fastcoll](./image_php/web97_fastcoll.png)
 
 `fastcoll_v1.0.0.5.exe -o msg1.bin msg2.bin`生成MD5相同的原始字符
 
 用010edit查看内容不同但是生成的MD5相同
 
-![web97_md5](.\image_php\web97_md5.png)
+![web97_md5](./image_php/web97_md5.png)
 
 ## Web98：php中http相关的各个环境变量
 
@@ -865,7 +865,7 @@ is_numeric()检查v1v2v3是否为数字或数字字符串，然后匹配v2中不
 
 payload:`/?v1=1&v2=system('cat ctfshow.php')/*&v3=*/;`
 
-![web100flag](.\image_php\web100flag.png)
+![web100flag](./image_php/web100flag.png)
 
 得到flag `b5a6cbd70x2d340c0x2d41450x2db3290x2db0bd15059f22` 这里出现0x2d直接将0x2d转换成字符后发现是`-`替换后得到`b5a6cbd7-340c-4145-b329-b0bd15059f22`提交`ctfshow{b5a6cbd7-340c-4145-b329-b0bd15059f22}`通过
 
@@ -1083,7 +1083,7 @@ v1=hex2bin
 /2.php?cmd=cat%20flag.php
 ```
 
-![web102flag](.\image_php\web102flag.png)
+![web102flag](./image_php/web102flag.png)
 
 ### 回调函数call_user_func()
 
@@ -1140,7 +1140,7 @@ v1=hex2bin
 
 ## Web103：hex2bin+伪协议构造webshell
 
-![web103](.\image_php\web103.png)
+![web103](./image_php/web103.png)
 
 
 
@@ -1627,7 +1627,7 @@ payload
 
 直接访问即可得到flag
 
-![web110_flag](.\image_php\web110_flag.png)
+![web110_flag](./image_php/web110_flag.png)
 
 ## Web111：php引用和$GLOBALS变量
 
@@ -1915,7 +1915,7 @@ if(isset($_POST['CTF_SHOW'])&&isset($_POST['CTF_SHOW.COM'])&&!isset($_GET['fl0g'
 
 思路很简单但是出现了如下问题：`.`会被转换成`_`
 
-![web123](.\image_php\web123.png)
+![web123](./image_php/web123.png)
 
 查看师傅们给的wp得出如下：
 
@@ -1978,9 +1978,9 @@ if(isset($_POST['CTF_SHOW'])&&isset($_POST['CTF_SHOW.COM'])&&!isset($_GET['fl0g'
 ?>
 ```
 
-![web125_SERVER_1](.\image_php\web125_SERVER_1.png)
+![web125_SERVER_1](./image_php/web125_SERVER_1.png)
 
-![web125_SERVER_2](.\image_php\web125_SERVER_2.png)
+![web125_SERVER_2](./image_php/web125_SERVER_2.png)
 
 所以可得payload为：
 
@@ -2263,7 +2263,7 @@ print(resp.text)
 
 静态网站，浏览了下基本都是静态网页
 
-![web132_web](.\image_php\web132_web.png)
+![web132_web](./image_php/web132_web.png)
 
 dirsearch扫描
 

